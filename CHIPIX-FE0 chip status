@@ -5,7 +5,7 @@ Board 1:   batch-1 funzionante - a Torino/CERN
 Board 2 :  non funziona -  con nichel 
 Board 3 : senza chip …attenzione forse ce n’e un’altra sempre senza chip ...
 Board 8:  nuova  - con trimmer 
-Board 9:  funzionante - con trimmer
+Board 9:  funzionante - con trimmer - upper bonds - not working properly
 
 Batch 2 - board con oro
 ----------------------------
@@ -13,3 +13,4 @@ Board 4:  irraggiata al CERN - uniforme a -20C, 600 Mrad
 Board 5:  funzionante - a Bergamo
 Board 6:  non funzionante - problema board 
 Board 7: irraggiata a Padova - non uniforme a caldo 180-350 Mrad
+
