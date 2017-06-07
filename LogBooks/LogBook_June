@@ -9,4 +9,13 @@ Cristina: 9.00-11.00     Analisi dei dati raccolti durante la notte improntando 
 
 07/06/2017
 
-Cristina: 9.00
+Cristina: 9.00           Continuo dell'analisi sui dati raccolti con la Board8:
+                         Ho calcolato la carica iniettata dai valori di media ricavati dalle distribuzioni con la relazione 
+                         Q = (q_{media}*48.5e)-1500e
+                         Ho messo su un grafico la carica iniettata in funzione di TPphase (riportata in ns) e ho ricavato il valore minimo di carica osservata
+                         Studiando la distribuzione al variare della TPphase si e' notato che il funzionale della distribuzione ha un andamento del tipo
+                         f(Δt) = Q_{min}f(t_0)/Q(Δt)
+                         Allora e' stato pensato di capire come fosse questo funzionale normalizzandolo rispetto a f(t_0)
+                         Osservando l'andamento del grafico di F = f(Δt)/f(t_0) si e' pensato di provare con un fit del tipo
+                         f(Δt) = a(1-exp(-Δt/τ))-bΔt
+                         I risulati sono riportati nella macro di root Board8.C
