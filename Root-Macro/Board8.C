@@ -39,7 +39,7 @@ float sq[nmisure]; //errore sulla carica
 float TPt[nmisure]; //vettore temporale in nanosecondi
 
 for(int i = 0; i<nmisure; ++i){
-	TPt[i] = TP[i]*25/3600;
+	TPt[i] = 25 - TP[i]*25/3600;
 	}
 
 for(int i = 0; i<nmisure; ++i){
@@ -101,14 +101,14 @@ gfunzionale->Draw("AP");
 
 cout<< "*********** FIT per FUNZIONALE ***********" << endl;
 cfunzionale->cd();
-cout << "********** Fit LINEARE ********** " << endl;
 
 
-cout << "********** Fit GLOBALE ********** " << endl;
-TF1 *fitf = new TF1("fitf","[0]*(-TMath::Exp(-[1]*x))+[2]*x+[3]");
+TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x");
 //TVirtualFitter::SetMaxInterations(100000);
-//fitf->SetParLimits(0,0,2);
-fitf->SetParLimits(1,0.05,0.07);
+//fitf->SetParLimits(0,0,6);
+//fitf->SetParLimits(1,10,20);
+//fitf->SetParLimits(2,0,10);
+//fitf->SetParLimits(3,0.01,0.05);
 gfunzionale->Fit(fitf,"M+");
 cout << "Chi^2: " << fitf->GetChisquare() << endl;
 cout << "Probability: " << fitf->GetProb() << endl;
