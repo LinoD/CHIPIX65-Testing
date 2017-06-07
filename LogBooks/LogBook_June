@@ -9,7 +9,7 @@ Cristina: 9.00-11.00     Analisi dei dati raccolti durante la notte improntando 
 
 07/06/2017
 
-Cristina: 9.00           Continuo dell'analisi sui dati raccolti con la Board8:
+Cristina: 9.00-11.00     Continuo dell'analisi sui dati raccolti con la Board8:
                          Ho calcolato la carica iniettata dai valori di media ricavati dalle distribuzioni con la relazione 
                          Q = (q_{media}*48.5e)-1500e
                          Ho messo su un grafico la carica iniettata in funzione di TPphase (riportata in ns) e ho ricavato il valore minimo di carica osservata
@@ -19,3 +19,18 @@ Cristina: 9.00           Continuo dell'analisi sui dati raccolti con la Board8:
                          Osservando l'andamento del grafico di F = f(Δt)/f(t_0) si e' pensato di provare con un fit del tipo
                          f(Δt) = a(1-exp(-Δt/τ))-bΔt
                          I risulati sono riportati nella macro di root Board8.C
+
+Cristina: 14.00-16.00    Siccome non venivano dei risoluati decenti si e' deciso di cambiare la funzione con cui fittare i dati.
+                         E' stata provato una funzione del tipo
+                         f(Δt) = a(-exp(-Δt/τ))-bΔt+c
+                         ma il risulatto non e' stato soddisfacente
+                         I dati hanno andamento da prima a S e poi decrescono linearmente, quindi la funzione deve essere una combinazione
+                         delle due.
+                         la curva a S ha equazione del tipo 
+                         1/(1+Exp(x))
+                         Allora il fit studiato e' del genere
+                         F= A - B*Exp(-C/x) + Dx
+                         dove A comprende tutti i coefficienti costanti (quindi anche quello dipendente t0), C e' il paramentro τ, 
+                         e D e' il coefficiente angolare della retta di scarico.
+                         I risulati del fit sono riportati nella macro Board8.C
+                         
