@@ -1,7 +1,7 @@
  01/06/2017
  
 
-Cristina: 9.00-11.00     Analisi dei dati raccolti durante la notte improntando una macro per Root.
+Cristina: 09.00-11.00    Analisi dei dati raccolti durante la notte improntando una macro per Root.
           14.00-17.00    Ho riportato i valori medi di soglia e di romore ricavati dal fit delle distribuzioni per ogni diverso valore di TPphase su una macro per Root.
                          Il parametro TPphase varia da 200 a 3000.
                          Ho provato a fittare i grafici con un andamento parabolico e non ha funzionato. 
@@ -9,7 +9,7 @@ Cristina: 9.00-11.00     Analisi dei dati raccolti durante la notte improntando 
 
 07/06/2017
 
-Cristina: 9.00-11.00     Continuo dell'analisi sui dati raccolti con la Board8:
+Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Ho calcolato la carica iniettata dai valori di media ricavati dalle distribuzioni con la relazione 
                          Q = (q_{media}*48.5e)-1500e
                          Ho messo su un grafico la carica iniettata in funzione di TPphase (riportata in ns) e ho ricavato il valore minimo di carica osservata
@@ -33,4 +33,7 @@ Cristina: 14.00-16.00    Siccome non venivano dei risoluati decenti si e' deciso
                          dove A comprende tutti i coefficienti costanti (quindi anche quello dipendente t0), C e' il paramentro τ, 
                          e D e' il coefficiente angolare della retta di scarico.
                          I risulati del fit sono riportati nella macro Board8.C
+                         
+Cristina: 09.00-11.00    Ricerca del fit della carica iniettta per un andamento del tipo
+                         Q = (V_{th}C_{f} + i_f(t-t0))/(1-Exp(-(t-t0)/τ))
                          
