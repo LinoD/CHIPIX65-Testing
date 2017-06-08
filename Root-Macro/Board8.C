@@ -33,7 +33,7 @@ float eno[] = {0.004, 0.004, 0.004, 0.004, 0.004, 0.003, 0.003, 0.001, 0.003, 0.
 float q0;
 const int nmisure = 15; //numero di misure effettuate
 
-float q[nmisure]; //vettore carica iniettata
+float q[nmisure]; //vettore carica iniettata in aC (dove a=10^(-18))
 float sq[nmisure]; //errore sulla carica
 
 float TPt[nmisure]; //vettore temporale in nanosecondi
@@ -43,8 +43,8 @@ for(int i = 0; i<nmisure; ++i){
 	}
 
 for(int i = 0; i<nmisure; ++i){
-	q[i] = (th[i]*48.5)-1500;
-	sq[i] = (eth[1]*48.5);
+	q[i] = ((th[i]*48.5)-1500)*160/1000;
+	sq[i] = (eth[1]*48.5)*160/1000;
 	if(i==0) q0 = q[0];
 	else if(q[i]<q0) q0 = q[i];
 	//q0 = i==0 ? q[0] : q[i];
@@ -63,7 +63,7 @@ for(int i = 0; i<nmisure; ++i){
 	ef[i] = ((q0)/pow(q[1],2))*sq[i];
 }
 
-cout<< "il valore minimo di carica iniettata e' " << q0 <<endl;
+cout<< "IL VALORE MINIMO DI CARICA INIETTATA E' " << q0 << " aC "<<endl;
 
 TCanvas *csoglia = new TCanvas("csoglia","Q(TPphase)",200,50,600,400);
 csoglia -> cd();
@@ -72,21 +72,20 @@ gsoglia->SetMarkerSize(0.6);
 gsoglia->SetMarkerStyle(21);
 gsoglia->SetTitle("<Q_{in}>(TPphase)");
 gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
-gsoglia->GetYaxis()->SetTitle("<Q_{in}>");
+gsoglia->GetYaxis()->SetTitle("<Q_{in}> [aC]");
 //gsoglia->SetMarkerColor(kBlue);
 gsoglia->Draw("AP");
 
-/*
-cout << "********** Fit soglia **********" << endl;
+
+cout << "********** Fit CARICA **********" << endl;
 csoglia->cd();
-cout << "********** Fit parabolico ********** " << endl;
-TF1 *fitsoglia = new TF1("fitsoglia","pol2");
+TF1 *fitQ = new TF1("fitQ","([0]+[1]*x)/(1-[2]*TMath::Exp(-t/[3]))");
 //TVirtualFitter::SetMaxInterations(100000);
-gsoglia->Fit(fitsoglia,"M+");
-cout << "Chi^2: " << fitsoglia->GetChisquare() << endl;
-cout << "Probability: " << fitsoglia->GetProb() << endl;
-cout << "number of DoF: " << fitsoglia->GetNDF() << endl;
-*/
+gsoglia->Fit(fitQ,"M+");
+cout << "Chi^2: " << fitQ->GetChisquare() << endl;
+cout << "Probability: " << fitQ->GetProb() << endl;
+cout << "number of DoF: " << fitQ->GetNDF() << endl;
+
 
 TCanvas *cfunzionale = new TCanvas("cfunzionale","f(TPphase)",200,50,600,400);
 cfunzionale -> cd();
@@ -103,13 +102,13 @@ cout<< "*********** FIT per FUNZIONALE ***********" << endl;
 cfunzionale->cd();
 
 
-TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x");
+TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,24);
 //TVirtualFitter::SetMaxInterations(100000);
 //fitf->SetParLimits(0,0,6);
 //fitf->SetParLimits(1,10,20);
 //fitf->SetParLimits(2,0,10);
 //fitf->SetParLimits(3,0.01,0.05);
-gfunzionale->Fit(fitf,"M+");
+gfunzionale->Fit(fitf,"MR");
 cout << "Chi^2: " << fitf->GetChisquare() << endl;
 cout << "Probability: " << fitf->GetProb() << endl;
 cout << "Number of DoF: " << fitf->GetNDF() << endl;
