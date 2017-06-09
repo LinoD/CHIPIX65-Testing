@@ -43,9 +43,11 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          
 09/06/2017
 
-          09.00          Ho stoppato la presa dati lanciata ieri sera.
+          09.00-11       Ho stoppato la presa dati lanciata ieri sera.
                          Riassemblamento degli svariati script scritti.
                          Analisi dei dati raccolti, usando la stessa procedure dei due giorni passati per vedere se i risultati ottenuti 
                          possano esere compatibili
+                         Ricavati i valori medi di soglia dei dati raccolti a 20 MHz sono stati studiati con lo stesso procedimento di ier
+                         ma dall'andamento dei plot si nonta che questo approccio non e' il migliore. I risultati sono riportati in Board8_20M.C
                          
                          
