@@ -49,14 +49,9 @@ for(int i = 0; i<nmisure; ++i){
 	cout<<q[i]<<endl;
 	if(i==0) q0 = q[0];
 	else if(q[i]<q0) q0 = q[i];
-	//q0 = i==0 ? q[0] : q[i];
+	
 	}
 	
-	/*
-// cond ? comando true : comando false
-int a=5;
-int x = a<6 ? 1 : 0;
-*/
 
 float f[nmisure]; //funzionale normalizzata a se stessa
 float ef[nmisure];
@@ -82,12 +77,12 @@ gsoglia->Draw("AP");
 
 cout << "********** Fit CARICA **********" << endl;
 csoglia->cd();
-TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
-//TF1 *fitQ = new TF1("fitQ","([0]-[1]*x)/(1-TMath::Exp(-x/[2]+[3]))",6,25);
-//TF1 *fitQ = new TF1("fitQ","([0]/([1]-[2]*(TMath::Exp(-[3]/x))+[4]*x))",6,25);
+//TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
+TF1 *fitQ = new TF1("fitQ","([0]-[1]*x)/(1-TMath::Exp(-x/[2]+[3]))",6,25);
+//TF1 *fitQ = new TF1("fitQ","[0]/([1]-[2]*(TMath::Exp(-[3]/x))+[4]*x)",6,25);
 //TVirtualFitter::SetMaxInterations(100000);
 gsoglia->Fit(fitQ,"MR");
-//fitQ->SetParLimits(3,0.050,0.080);
+//fitQ->SetParLimits(3,10,18);
 cout << "Chi^2: " << fitQ->GetChisquare() << endl;
 cout << "Probability: " << fitQ->GetProb() << endl;
 cout << "number of DoF: " << fitQ->GetNDF() << endl;
