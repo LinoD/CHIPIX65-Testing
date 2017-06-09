@@ -54,3 +54,4 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          
                          Ho fatto ripartire una misura con TPphase che varia tra 3000 e 3600 a passi di 200, perche' confrontando le due popolazioni
                          sembra che i dati a 20 MHz abbiano "esplorato" il range temporale successivo a quello relativo ai 40 MHz.
+                         Ho riportato in Images i grafici. Per vedere il codice bisogna andarea consultare Board8_40M.C e Board8_20M.C caricati in Root_Macros
