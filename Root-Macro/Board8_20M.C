@@ -21,16 +21,16 @@ void Board8_20M(){
 
 float TP[] = {200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000};
 float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-float th[] = {58.2, 76.32, 73.68, 70.21, 67.42, 62.92, 59.47, 54.8, 53.00, 50.50, 47.29, 46.52, 45.25, 44.27, 44.15};
-float eth[] ={0.14, 0.23, 0.19, 0.17, 0.28, 0.14, 0.35, 3.3, 0.32, 0.10, 0.09, 0.10, 0.08, 0.08, 0.08};
+float th[] = {58.03, 76.17, 73.68, 70.21, 67.42, 62.92, 59.47, 54.8, 53.00, 50.50, 48.57, 46.52, 45.25, 44.27, 44.15};
+float eth[] ={0.14, 0.23, 0.19, 0.17, 0.28, 0.14, 0.35, 3.3, 0.32, 0.10, 0.10, 0.10, 0.08, 0.08, 0.08};
 //float eth[] ={4.3, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2, 2.2};
 
 
 //no = media del rumore ottenuto dal fit della distribuzione
 //eno = incertezza sulla media del rumore
 
-float no[] = {1.853, 1.825, 1.782, 1.758, 1.735, 1.716, 1.715, 1.740, 1.773, 1.830, 1.913, 2.049, 2.218, 2.262, 2.041};
-float eno[] = {0.004, 0.004, 0.004, 0.004, 0.004, 0.003, 0.003, 0.001, 0.003, 0.001, 0.003, 0.004, 0.004, 0.010, 0.006};
+float no[] = {3.18, 2.31, 2.16, 1.758, 1.735, 1.716, 1.715, 1.740, 1.773, 1.830, 1.913, 2.049, 2.218, 2.262, 2.041};
+float eno[] = {0.27, 0.43, 0.01, 0.004, 0.004, 0.003, 0.003, 0.001, 0.003, 0.001, 0.003, 0.004, 0.004, 0.010, 0.006};
 
 float q0;
 const int nmisure = 15; //numero di misure effettuate
@@ -51,14 +51,8 @@ for(int i = 0; i<nmisure; ++i){
 	cout<<q[i]<<endl;
 	if(i==0) q0 = q[0];
 	else if(q[i]<q0) q0 = q[i];
-	//q0 = i==0 ? q[0] : q[i];
 	}
 	
-	/*
-// cond ? comando true : comando false
-int a=5;
-int x = a<6 ? 1 : 0;
-*/
 
 float f[nmisure]; //funzionale normalizzata a se stessa
 float ef[nmisure];
@@ -112,11 +106,12 @@ cout<< "*********** FIT per FUNZIONALE ***********" << endl;
 cfunzionale->cd();
 
 
-TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,45);
+//TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,45);
+//TF1 *fitf = new TF1("fitf","[0]+[1]*(TMath::Exp(-[2]/x))+[3]*x",6,45);
 //TVirtualFitter::SetMaxInterations(100000);
 //fitf->SetParLimits(0,0,6);
 //fitf->SetParLimits(1,10,20);
-//fitf->SetParLimits(2,0,10);
+//fitf->SetParameter(2,14.25);
 //fitf->SetParLimits(3,0.01,0.05);
 gfunzionale->Fit(fitf,"MR");
 cout << "Chi^2: " << fitf->GetChisquare() << endl;
