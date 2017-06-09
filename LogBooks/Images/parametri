@@ -1,0 +1,14 @@
+I parametri riportati in F_timing_40M.pdf (se si riporta F ad essere la forma analitica del segnale in tensione) sono:
+
+[0] = Q/Cf - if*t0/Cf
+[1] = (Q/Cf)*Exp(t0/τ)
+[2] = τ
+[3] = if
+
+
+I parametri riportai in Q_timing_40M.pdf sono:
+
+[0] = Vth*Cf - if*t0
+[1] = if
+[2] = τ
+[3] = t0/τ
