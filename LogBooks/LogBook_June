@@ -20,7 +20,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          f(Δt) = a(1-exp(-Δt/τ))-bΔt
                          I risulati sono riportati nella macro di root Board8.C
 
-Cristina: 14.00-16.00    Siccome non venivano dei risoluati decenti si e' deciso di cambiare la funzione con cui fittare i dati.
+          14.00-16.00    Siccome non venivano dei risoluati decenti si e' deciso di cambiare la funzione con cui fittare i dati.
                          E' stata provato una funzione del tipo
                          f(Δt) = a(-exp(-Δt/τ))-bΔt+c
                          ma il risulatto non e' stato soddisfacente
@@ -33,7 +33,16 @@ Cristina: 14.00-16.00    Siccome non venivano dei risoluati decenti si e' deciso
                          dove A comprende tutti i coefficienti costanti (quindi anche quello dipendente t0), C e' il paramentro τ, 
                          e D e' il coefficiente angolare della retta di scarico.
                          I risulati del fit sono riportati nella macro Board8.C
-                         
-Cristina: 09.00-11.00    Ricerca del fit della carica iniettta per un andamento del tipo
+           
+08/06/2017
+
+          09.00-11.00    Ricerca del fit della carica iniettta per un andamento del tipo
                          Q = (V_{th}C_{f} + i_f(t-t0))/(1-Exp(-(t-t0)/τ))
+          14.00-17.00    Proseguimento del lavoro mattutino.
+                         Sono state lanciate delle misure a 20 MHz per effettuare lo stesso tipo di analisi fatta in questi giorni
                          
+09/06/2017
+
+          09.00          Ho stoppato la presa dati lanciata ieri sera.
+                         Analisi dei dati raccolti, usando la stessa procedure dei due giorni passati per vedere se i risultati ottenuti 
+                         possano esere compatibili
