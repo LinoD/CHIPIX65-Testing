@@ -154,7 +154,7 @@ void TwoDim_Plots_40M_timing(Int_t i)
 
 
 void TwoDim_Plots_20M_timing(Int_t i)
-{
+{M
 // ===========================================================================================================================
     Float_t xmin, xmax, par0, par1, NEVT;
 	xmin = 30;
@@ -187,7 +187,7 @@ void TwoDim_Plots_20M_timing(Int_t i)
     }
 		if (it==2 ) {  par0=40; 
 		 
-   	   file =  "20170608235649_board8-CALsw-allch-TP400_001."; 
+   	   file =  "20170609033841_board8-CALsw-allch-TP400_002."; 
 	   NEVT=50.;
 
     }
@@ -227,7 +227,7 @@ void TwoDim_Plots_20M_timing(Int_t i)
 	
 	if (it==8	) {  par0=40; 
 		 
-   	   file =  "20170608215647_board8-CALsw-allch-TP1600_000"; 
+   	   file =  "20170608215647_board8-CALsw-allch-TP1600_000."; 
 	   NEVT=50.;
 
     }
@@ -248,14 +248,14 @@ void TwoDim_Plots_20M_timing(Int_t i)
 	
 	if (it==11	) {  par0=40; 
 		 
-   	   file =  "20170609055818_board8-CALsw-allch-TP2200_002"; 
+   	   file =  "20170608224740_board8-CALsw-allch-TP2400_000."; 
 	   NEVT=50.;
 
     }
 	
 	if (it==12	) {  par0=40; 
 		 
-   	   file =  "20170608224740_board8-CALsw-allch-TP2400_000."; 
+   	   file =  "20170609021557_board8-CALsw-allch-TP2200_001."; 
 	   NEVT=50.;
 
     }
@@ -289,11 +289,128 @@ void TwoDim_Plots_20M_timing(Int_t i)
 	}
 }
 
+//Dati presi facendo variare la tensione ad un diverso valore di corrente di scarica Ifeed = 160 DAC
+void TwoDim_Plots_If160_timing(Int_t i)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 50;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl350/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-40MHz-Ifeed160/";	
+	
+    it=0;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+
+
+	while ( it<20 )  {
+		it++;
+		if (it==i ) {
+
+         if (it==1 ) {  par0=40; 
+		 
+   	   file =  "220170614222316_board8-CALsw-allch-TP1200_001."; 
+	   NEVT=50.;
+
+    }
+		if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170614223825_board8-CALsw-allch-TP1400_001."; 
+	   NEVT=50.;
+
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170614224900_board8-CALsw-allch-TP1600_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170614225947_board8-CALsw-allch-TP1800_001."; 
+	   NEVT=50.;
+
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170615021655_board8-CALsw-allch-TP2000_002."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170615022743_board8-CALsw-allch-TP2200_002."; 
+	   NEVT=50.;
+
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170614233152_board8-CALsw-allch-TP2400_001."; 
+	   NEVT=50.;
+
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170614234238_board8-CALsw-allch-TP2600_001."; 
+	   NEVT=50.;
+
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170614235323_board8-CALsw-allch-TP2800_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170615000402_board8-CALsw-allch-TP3000_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170614215338_board8-CALsw-allch-TP3600_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==12 ) {  par0=40; 
+		 
+   	   file =  "20170615012926_board8-CALsw-allch-TP1200_002."; 
+	   NEVT=50.;
+
+    }
+	
+	
+	Dir = Dir0+"";	
+    Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+    analisiMC(Dir,file,100,20,120,1.,8.); 
+	}
+	}
+}
 
 void Analysis(int i){
 
  
 //  TwoDim_Plots_40M_timing(i);
-  TwoDim_Plots_20M_timing(i);
+//  TwoDim_Plots_20M_timing(i);
+  TwoDim_Plots_If160_timing(i);
 
 }
