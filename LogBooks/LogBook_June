@@ -58,7 +58,12 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
 
 15/06/2017 
           
-          09.00-         Analisi dei dati raccolti questa notte da Lino usando la stessa procedura per i dati raccolti la settimana scorsa, per
+          09.00-13.00    Analisi dei dati raccolti questa notte da Lino usando la stessa procedura per i dati raccolti la settimana scorsa, per
                          vedere se variando alcuni parametri si ottengono risulati compatibili con il modello ideato.
                          I dati sono stati raccolti avendo impostato la corrente di scarico a 160 DAC piuttosto che a 75 DAC.
+                         I risultati ottenuti con il procedimento di analisi sperimentato la settimana scorsa sembra essere efficacie
+                         anche per l'analisi dei dati raccolti questa notte.
+                         I parametri idei vari fit sembrano simili a quelli ottenuti in precedenza (anche se per essere sicura dovrei effettuare
+                         un test normale).
+                         Sono i grafici sono riportati nella cartella Images, mentre lo script di Root e' salvato nella cartella Macro-Root
           
