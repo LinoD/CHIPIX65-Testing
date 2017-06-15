@@ -65,5 +65,17 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          anche per l'analisi dei dati raccolti questa notte.
                          I parametri idei vari fit sembrano simili a quelli ottenuti in precedenza (anche se per essere sicura dovrei effettuare
                          un test normale).
-                         Sono i grafici sono riportati nella cartella Images, mentre lo script di Root e' salvato nella cartella Macro-Root
+                         I grafici sono riportati nella cartella Images, mentre lo script di Root e' salvato nella cartella Macro-Root
+          14.00-17.00    Ho ricavato la soglia Vth con i valori dei fit sapendo dall'equazione
+                         Qth = K + (Vth*Cf - If*t0 + If*t)/(1 - Exp(-(t-t0)/τ))
+                         parametrizzata
+                         Qth = [4] + ([0] + [3]*t)/(1- Exp(-(x-[1])/[2]))
+                         ricavo 
+                         Vth = ([0] +[1]*[3])/Cf = (20.38 +- 3.6) mV
+                         calcolando l'incertezza mediante le propagazione errori e sapendo che Cf = 2.4 fF
+                         Sono stati analizzati pate dei dati raccolti stamattina, ma non ho ancora finito.
+                         E' stata fatta una tabella riassuntiva con i valori dei parametri riportati nel file Tabelle caricato in questa folder
+                         Ho notato che ci sono dei picchi particolari nei dati che ho analizzato stamattina, ma non riesco a capire quale sia
+                         la causa della loro presenza.
+                         
           
