@@ -84,4 +84,4 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          erano stati presi in condizioni di stabilita'.
                          L'analisi effettuata in precedenza sembra essere applicabile anche ai dati per If = 40 DAC, i grafici sono riportati in Images,
                          e i valori dei parametri sono riportati nella tabella salvata in Tabelle.
-                         
+                         L'analisi e' riportata in Board8_If40_40M.C e i file dei dati sono salvati nella macro analysis_studenti_scan_timingTP.C
