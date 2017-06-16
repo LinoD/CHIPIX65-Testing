@@ -86,4 +86,5 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          e i valori dei parametri sono riportati nella tabella salvata in Tabelle.
                          L'analisi e' riportata in Board8_If40_40M.C e i file dei dati sono salvati nella macro analysis_studenti_scan_timingTP.C
                          Ho iniziato a fare l'analisi della risposta del primo pixel, prendendo i valori dai file .out
-                         
+          14.00-         Ho finito l'analisi della risposta del primo pixel al variare della TPphase. I risultati sono riportati nei grafici
+                         Carica_timing_40M_If40_1pixel.pdf e Funzionale_timing_40M_If40_1pixel.pdf
