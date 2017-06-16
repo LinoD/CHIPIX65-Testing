@@ -86,5 +86,9 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          e i valori dei parametri sono riportati nella tabella salvata in Tabelle.
                          L'analisi e' riportata in Board8_If40_40M.C e i file dei dati sono salvati nella macro analysis_studenti_scan_timingTP.C
                          Ho iniziato a fare l'analisi della risposta del primo pixel, prendendo i valori dai file .out
-          14.00-         Ho finito l'analisi della risposta del primo pixel al variare della TPphase. I risultati sono riportati nei grafici
+          14.00-17.30    Ho finito l'analisi della risposta del primo pixel al variare della TPphase. I risultati sono riportati nei grafici
                          Carica_timing_40M_If40_1pixel.pdf e Funzionale_timing_40M_If40_1pixel.pdf
+                         Ho fatto una copia delle macro che permettono di estrarre i dati dai file, in modo da poter modificare il
+                         numero di pixel da prendere in considerazione. ho inserito due parametri che indicano inizio e fine del range di pixel che 
+                         voglio considerare.
+                         Le macro sembrano funzionare ma i grafici rimangono vuoti, quindi devo ancora ricontrollare il codice peer capire quale sia il problema.
