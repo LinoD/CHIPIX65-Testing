@@ -106,3 +106,9 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Ho studiato (estraendo i dati a mano dal file .out) l'andamento della carica per l'ottavo e il sediciesimo pixel avendo
                          If scarico = 40 DAC.
           14.00-         Analisi dei dati presi questa notte avendo impostato la corrente di scarica a 10 DAC
+                         Ho notato che nella presa dati notturna e' emerso un problema sistematico che si presnta per tutti i cicli: dalla misura
+                         a TPphase = 600 a TPphase=3000 non sono stati presi dati
+                         
+                         
+                         
+                         
