@@ -100,5 +100,6 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          al contrario di venerdi, oggi crea i canvas ma non mi disegna nulla nei grafici.
                          
                          Mi e' stato fatto notare da Lino che non e' necessario modificare Macro_scurve, ma e' piu' sensato prendere i risultati
-                         del file output e poi analizzare solo quelli dei pixel che mi interessano
+                         del file output e poi analizzare solo quelli dei pixel che mi interessano. Per farlo devo quindi modificare la macro per
+                         creare gli istgrammi e lasciare perdere le modifiche che stavo facendo.
                          
