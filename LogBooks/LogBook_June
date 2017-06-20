@@ -92,3 +92,9 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          numero di pixel da prendere in considerazione. ho inserito due parametri che indicano inizio e fine del range di pixel che 
                          voglio considerare.
                          Le macro sembrano funzionare ma i grafici rimangono vuoti, quindi devo ancora ricontrollare il codice peer capire quale sia il problema.
+
+
+20/06/2017
+          09.00-         Carico il file delle macro modificato da me per riuscire ad analizzare solo una parte dei dati raccolti in un file
+                         (adesso invece si lavora analizzando tutto il file).
+                         al contrario di venerdi, oggi crea i canvas ma non mi disegna nulla nei grafici.
