@@ -107,7 +107,9 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          If scarico = 40 DAC.
           14.00-         Analisi dei dati presi questa notte avendo impostato la corrente di scarica a 10 DAC
                          Ho notato che nella presa dati notturna e' emerso un problema sistematico che si presnta per tutti i cicli: dalla misura
-                         a TPphase = 600 a TPphase=3000 non sono stati presi dati
+                         a TPphase = 600 a TPphase=3000 non sono stati presi dati; problema risolto: impostando la misura per questa notte 
+                         ho notato che non erano stati cambiati i valori di range di pixel da osservare che io avevo precedentemente modificato.
+                         Ho preparato la misura notturna per Vth = 90 al posto che 60.
                          
                          
                          
