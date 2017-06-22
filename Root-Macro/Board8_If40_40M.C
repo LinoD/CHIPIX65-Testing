@@ -18,12 +18,16 @@ void Board8_If40_40M(){
 //Tp = valore di TPphase a cui si prende la misura; l'errore su TP e' 0
 //th = media della soglia ottenuta dal fit della distribuzione ad una determinata TPphase in elettroni
 //eth = incertezza sulla media della soglia
-
-float TP[] = {200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000};
+/*
+float TP[] = {-1200, -1000, -800,-600, 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000};
+float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0 };
+float th[] = {48.11,47.69, 47.20, 46.56,44.96, 44.78, 44.68, 44.40, 44.46, 44.54, 44.83, 45.16, 45.82, 46.73, 47.65, 48.11, 47.69, 47.20, 46.56};
+float eth[] ={0.10,0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10};
+*/
+float TP[] = { 200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000};
 float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
 float th[] = {44.96, 44.78, 44.68, 44.40, 44.46, 44.54, 44.83, 45.16, 45.82, 46.73, 47.65, 48.11, 47.69, 47.20, 46.56};
-float eth[] ={0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10};
-
+float eth[] ={ 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10, 0.10};
 //no = media del rumore ottenuto dal fit della distribuzione
 //eno = incertezza sulla media del rumore
 
@@ -31,7 +35,8 @@ float no[] = {1.54, 1.53, 1.54, 1.53, 1.53, 1.55, 1.56, 1.62, 1.67, 1.72, 1.75, 
 float eno[] = {0.18, 0.18, 0.16, 0.11, 0.17, 0.17, 0.17, 0.18, 0.17, 0.19, 0.21, 0.20, 0.19, 0.19};
 
 float q0;
-const int nmisure = 15; //numero di misure effettuate
+//const int nmisure = 19; //numero di misure effettuate
+const int nmisure = 15;
 
 float q[nmisure]; //vettore carica iniettata in aC (dove a=10^(-18))
 float sq[nmisure]; //errore sulla carica
@@ -40,13 +45,15 @@ float TPt[nmisure]; //vettore temporale in nanosecondi
 cout<<"TP"<<endl;
 for(int i = 0; i<nmisure; ++i){
 	TPt[i] = 25 - TP[i]*25/3600;
+	if(TPt[i]>8) TPt[i] = TPt[i];
+	else TPt[i] = TPt[i] +25;
 //	TPt[i] = TP[i]*25/3600;
 	cout<<TPt[i]<<endl;
 	}
 cout<<"CARICA"<<endl;
 for(int i = 0; i<nmisure; ++i){
 	q[i] = ((th[i]*48.5)-1500)*160/1000;
-	sq[i] = (eth[1]*48.5)*160/1000;
+	sq[i] = (eth[i]*48.5)*160/1000;
 	cout<<q[i]<<endl;
 	if(i==0) q0 = q[0];
 	else if(q[i]<q0) q0 = q[i];
@@ -84,7 +91,7 @@ csoglia->cd();
 //TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-[1]*TMath::Exp(-x/[2]))",8,25);
 
 //TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",8,25);
-TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",9,24);
+TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",9,34);
 
 
 //fitQ->SetParLimits(0,10,60);
@@ -122,7 +129,7 @@ cfunzionale->cd();
 
 // TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,24);
 
-TF1 *fitf = new TF1("fitf","([0]-[1]*(TMath::Exp(-[2]/x)))*(1-[3]*x)",8,25);
+TF1 *fitf = new TF1("fitf","([0]-[1]*(TMath::Exp(-[2]/x)))*(1-[3]*x)",10,34);
 
 
 //TVirtualFitter::SetMaxInterations(100000);
