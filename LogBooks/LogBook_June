@@ -1,8 +1,7 @@
- 01/06/2017
- 
+01/06/2017
 
 Cristina: 09.00-11.00    Analisi dei dati raccolti durante la notte improntando una macro per Root.
-          14.00-17.00    Ho riportato i valori medi di soglia e di romore ricavati dal fit delle distribuzioni per ogni diverso valore di TPphase su una macro per Root.
+          14.00-17.30    Ho riportato i valori medi di soglia e di romore ricavati dal fit delle distribuzioni per ogni diverso valore di TPphase su una macro per Root.
                          Il parametro TPphase varia da 200 a 3000.
                          Ho provato a fittare i grafici con un andamento parabolico e non ha funzionato. 
                          Ho intenzione di provare con una sinusoide.
@@ -19,7 +18,6 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Osservando l'andamento del grafico di F = f(Δt)/f(t_0) si e' pensato di provare con un fit del tipo
                          f(Δt) = a(1-exp(-Δt/τ))-bΔt
                          I risulati sono riportati nella macro di root Board8.C
-
           14.00-16.00    Siccome non venivano dei risoluati decenti si e' deciso di cambiare la funzione con cui fittare i dati.
                          E' stata provato una funzione del tipo
                          f(Δt) = a(-exp(-Δt/τ))-bΔt+c
@@ -49,7 +47,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          possano esere compatibili
                          Ricavati i valori medi di soglia dei dati raccolti a 20 MHz sono stati studiati con lo stesso procedimento di ieri
                          dall'andamento dei plot si nonta che questo approccio non e' il migliore. I risultati sono riportati in Board8_20M.C
-          14.00-17.00    Ho provato a graficare l'andamento dei dati raccolti a 20 MHz, pero' non riesco a capire se possono essere analizzati
+          14.00-17.30    Ho provato a graficare l'andamento dei dati raccolti a 20 MHz, pero' non riesco a capire se possono essere analizzati
                          con la medesima analisi, dato che non riesco a riconoscere nei dati di oggi un andamento simile a quello di ieri.
                          
                          Ho fatto ripartire una misura con TPphase che varia tra 3000 e 3600 a passi di 200, perche' confrontando le due popolazioni
@@ -66,7 +64,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          I parametri idei vari fit sembrano simili a quelli ottenuti in precedenza (anche se per essere sicura dovrei effettuare
                          un test normale).
                          I grafici sono riportati nella cartella Images, mentre lo script di Root e' salvato nella cartella Macro-Root
-          14.00-17.00    Ho ricavato la soglia Vth con i valori dei fit sapendo dall'equazione
+          14.00-17.30    Ho ricavato la soglia Vth con i valori dei fit sapendo dall'equazione
                          Qth = K + (Vth*Cf - If*t0 + If*t)/(1 - Exp(-(t-t0)/τ))
                          parametrizzata
                          Qth = [4] + ([0] + [3]*t)/(1- Exp(-(x-[1])/[2]))
@@ -80,6 +78,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          
           
 16/06/2017
+
           09.00-13.00    Ho analizzato i dati presi questa notte, dato che i dati presi ieri in giornata e analizzati volta per volta non
                          erano stati presi in condizioni di stabilita'.
                          L'analisi effettuata in precedenza sembra essere applicabile anche ai dati per If = 40 DAC, i grafici sono riportati in Images,
@@ -93,8 +92,8 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          voglio considerare.
                          Le macro sembrano funzionare ma i grafici rimangono vuoti, quindi devo ancora ricontrollare il codice peer capire quale sia il problema.
 
-
 20/06/2017
+
           09.00-13.00    Carico il file delle macro modificato da me per riuscire ad analizzare solo una parte dei dati raccolti in un file
                          (adesso invece si lavora analizzando tutto il file).
                          al contrario di venerdi, oggi crea i canvas ma non mi disegna nulla nei grafici.
@@ -105,7 +104,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                         
                          Ho studiato (estraendo i dati a mano dal file .out) l'andamento della carica per l'ottavo e il sediciesimo pixel avendo
                          If scarico = 40 DAC.
-          14.00-17.00    Analisi dei dati presi questa notte avendo impostato la corrente di scarica a 10 DAC
+          14.00-17.30    Analisi dei dati presi questa notte avendo impostato la corrente di scarica a 10 DAC
                          Ho notato che nella presa dati notturna e' emerso un problema sistematico che si presnta per tutti i cicli: dalla misura
                          a TPphase = 600 a TPphase=3000 non sono stati presi dati; problema risolto: impostando la misura per questa notte 
                          ho notato che non erano stati cambiati i valori di range di pixel da osservare che io avevo precedentemente modificato.
