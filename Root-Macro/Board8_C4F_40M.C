@@ -21,8 +21,8 @@ void Board8_C4F_40M(){
 
 float TP[] = {200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3600};
 float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-float th[] = {48.21, 47.51, 46.86, 46.32, 45.91, 45.75, 45.70, 45.88, 46.28, 46.88, 47.79, 49.05, 50.23, 51.91, 51.91, 49.67, 49.03, 50.64};
-float eth[] ={0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.11, 0.11, 0.10, 0.09};
+float th[] = {48.21, 47.51, 46.86, 46.32, 45.91, 45.75, 45.70, 45.88, 46.28, 46.88, 47.79, 49.05, 50.23, 51.43, 51.91, 50.56, 49.89, 48.89};//50.64
+float eth[] ={0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.09, 0.11, 0.11, 0.11, 0.10, 0.09};
 
 //no = media del rumore ottenuto dal fit della distribuzione
 //eno = incertezza sulla media del rumore
@@ -71,7 +71,7 @@ csoglia -> cd();
 TGraphErrors *gsoglia = new TGraphErrors(nmisure, TPt, q, eTP, sq);
 gsoglia->SetMarkerSize(0.6);
 gsoglia->SetMarkerStyle(21);
-gsoglia->SetTitle("<Q_{in}>(TPphase)_{40 MHz} con I_{feed} = 160 DAC");
+gsoglia->SetTitle("<Q_{in}>(TPphase)_{40 MHz} con C_{f} = 4 fF");
 gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
 gsoglia->GetYaxis()->SetTitle("<Q_{in}> [aC]");
 //gsoglia->SetMarkerColor(kBlue);
@@ -112,7 +112,7 @@ cfunzionale -> cd();
 TGraphErrors *gfunzionale = new TGraphErrors(nmisure, TPt, f, eTP, ef);
 gfunzionale->SetMarkerSize(0.6);
 gfunzionale->SetMarkerStyle(21);
-gfunzionale->SetTitle("F(TPphase)_{40 MHz} con I_{feed} = 160 DAC");
+gfunzionale->SetTitle("F(TPphase)_{40 MHz} con Cf = 4 fF");
 gfunzionale->GetXaxis()->SetTitle("TPphase [ns]");
 gfunzionale->GetYaxis()->SetTitle("F");
 //gfunzionale->SetMarkerColor(kBlue);
