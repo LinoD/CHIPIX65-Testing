@@ -19,10 +19,10 @@ void Board8_If160_40M(){
 //th = media della soglia ottenuta dal fit della distribuzione ad una determinata TPphase in elettroni
 //eth = incertezza sulla media della soglia
 
-float TP[] = {1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 3000, 3600};
-float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-float th[] = {50.36, 49.26, 48.5, 48.07, 47.89, 48.21, 49.25, 50.14, 51.54, 52.80, 64.45};
-float eth[] ={0.10, 0.13, 0.10, 0.16, 0.09, 0.08, 0.11, 0.11, 0.11, 0.20, 0.15};
+float TP[] = {200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3600};
+float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+float th[] = {61.52, 58.88, 56.49, 54.22, 52.26, 50.36, 49.26, 48.5, 48.07, 47.89, 48.21, 48.95, 50.14, 52.54, 54.80, 57.97, 61.70, 63.45};
+float eth[] ={0.12, 0.12, 0.14, 0.15, 0.16, 0.10, 0.13, 0.10, 0.16, 0.09, 0.08, 0.11, 0.11, 0.11, 0.20, 0.20, 0.27, 0.15};
 
 //no = media del rumore ottenuto dal fit della distribuzione
 //eno = incertezza sulla media del rumore
@@ -31,7 +31,7 @@ float no[] = {2.27, 2.20, 2.01, 2.16, 2.17, 2.16, 2.33, 2.51, 2.77, 3.21, 2.42};
 float eno[] = {0.01, 0.21, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01, 0.01};
 
 float q0;
-const int nmisure = 11; //numero di misure effettuate
+const int nmisure = 18; //numero di misure effettuate
 
 float q[nmisure]; //vettore carica iniettata in aC (dove a=10^(-18))
 float sq[nmisure]; //errore sulla carica
@@ -40,6 +40,8 @@ float TPt[nmisure]; //vettore temporale in nanosecondi
 cout<<"TP"<<endl;
 for(int i = 0; i<nmisure; ++i){
 	TPt[i] = 25 - TP[i]*25/3600;
+	//if(TPt[i]>5) TPt[i] = TPt[i];
+	//else TPt[i] = TPt[i] +25;
 //	TPt[i] = TP[i]*25/3600;
 	cout<<TPt[i]<<endl;
 	}
@@ -69,7 +71,7 @@ csoglia -> cd();
 TGraphErrors *gsoglia = new TGraphErrors(nmisure, TPt, q, eTP, sq);
 gsoglia->SetMarkerSize(0.6);
 gsoglia->SetMarkerStyle(21);
-gsoglia->SetTitle("<Q_{in}>(TPphase)_{40 MHz}");
+gsoglia->SetTitle("<Q_{in}>(TPphase)_{40 MHz} con I_{feed} = 160 DAC");
 gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
 gsoglia->GetYaxis()->SetTitle("<Q_{in}> [aC]");
 //gsoglia->SetMarkerColor(kBlue);
@@ -81,10 +83,10 @@ csoglia->cd();
 
 // TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
 
-//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-[1]*TMath::Exp(-x/[2]))",8,25);
+//TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-[1]*TMath::Exp(-x/[2]))",8,25);
 
 //TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",8,25);
-TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",8,25);
+TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",5,25);
 
 
 //fitQ->SetParLimits(0,10,60);
@@ -110,7 +112,7 @@ cfunzionale -> cd();
 TGraphErrors *gfunzionale = new TGraphErrors(nmisure, TPt, f, eTP, ef);
 gfunzionale->SetMarkerSize(0.6);
 gfunzionale->SetMarkerStyle(21);
-gfunzionale->SetTitle("F(TPphase)_{40 MHz}");
+gfunzionale->SetTitle("F(TPphase)_{40 MHz} con I_{feed} = 160 DAC");
 gfunzionale->GetXaxis()->SetTitle("TPphase [ns]");
 gfunzionale->GetYaxis()->SetTitle("F");
 //gfunzionale->SetMarkerColor(kBlue);
@@ -120,9 +122,9 @@ cout<< "*********** FIT per FUNZIONALE ***********" << endl;
 cfunzionale->cd();
 
 
-// TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,24);
+// TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,23);
 
-TF1 *fitf = new TF1("fitf","([0]-[1]*(TMath::Exp(-[2]/x)))*(1-[3]*x)",6,24);
+TF1 *fitf = new TF1("fitf","([0]-[1]*(TMath::Exp(-[2]/x)))*(1-[3]*x)",6,23);
 
 
 //TVirtualFitter::SetMaxInterations(100000);
