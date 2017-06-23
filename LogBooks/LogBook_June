@@ -116,3 +116,11 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          I grafici relatici sono stati caricati in images
           14.00-16.30    Ho analizzato i dati presi con Vth = 90 invece che Vth = 60 usando sempre lo stesso tipo di analisi.
                          I risultati sono riportati in Images e la macro e' salvata in Root-Macros
+
+23/06/2017
+
+          09.00-13.00    Ho stoppato le misure di questa notte, sto finendo di analizzare i dati che mancavano per If = 10 DAC. Ho fatto partire 
+                         un ciclo di misure per completare il set di dati per If = 160 DAC, dato che mi sono resa conto che ne mancano.
+                         Ho ricontrollato i dati presi con Cf = 4 fF e ho aggiornato i grafici (che sono stati caricati su Images).
+                         I risultati per If = 10 sono riportati in Images
+
