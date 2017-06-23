@@ -77,12 +77,15 @@ gsoglia->Draw("AP");
 
 cout << "********** Fit CARICA **********" << endl;
 csoglia->cd();
-//TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
-TF1 *fitQ = new TF1("fitQ","([0]-[1]*x)/(1-TMath::Exp(-x/[2]+[3]))",6,25);
-//TF1 *fitQ = new TF1("fitQ","[0]/([1]-[2]*(TMath::Exp(-[3]/x))+[4]*x)",6,25);
+
+TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
+
+
+//TF1 *fitQ = new TF1("fitQ","([0]-[1]*x)/(1-TMath::Exp(-x/[2]+[3]))",6,25);
+//TF1 *fitQ = new TF1("fitQ","([0]/([1]-[2]*(TMath::Exp(-[3]/x))+[4]*x))",6,25);
 //TVirtualFitter::SetMaxInterations(100000);
 gsoglia->Fit(fitQ,"MR");
-//fitQ->SetParLimits(3,10,18);
+//fitQ->SetParLimits(3,0.050,0.080);
 cout << "Chi^2: " << fitQ->GetChisquare() << endl;
 cout << "Probability: " << fitQ->GetProb() << endl;
 cout << "number of DoF: " << fitQ->GetNDF() << endl;
@@ -104,10 +107,13 @@ cfunzionale->cd();
 
 
 TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,24);
+
+
+
 //TVirtualFitter::SetMaxInterations(100000);
 //fitf->SetParLimits(0,0,6);
 //fitf->SetParLimits(1,10,20);
-//fitf->SetParLimits(2,0,10);
+//fitf->SetParLimits( 2,0,10);
 //fitf->SetParLimits(3,0.01,0.05);
 gfunzionale->Fit(fitf,"MR");
 cout << "Chi^2: " << fitf->GetChisquare() << endl;
@@ -118,7 +124,7 @@ cout << "Number of DoF: " << fitf->GetNDF() << endl;
 //bcfunzionale->SaveAs("C:\local\ROOT\5.34\macros\macro-studenti\F.pdf");
 
 
-/*
+/* 
 TCanvas *cnoise = new TCanvas("cnoise","noise(TPphase)",200,50,600,400);
 cnoise -> cd();
 TGraphErrors *gnoise = new TGraphErrors(nmisure, TP, no, eTP, eno);
