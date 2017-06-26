@@ -138,3 +138,12 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          riportato online.
                          Ho provato a modificare il file di analisi in modo da poter studiare solo la risposta di alcuni pixel, la macro e' 
                          nella cartella delle macro di Root.
+          14.00-17.30    Ho analizzato i dati presi stamattina per completare il set di dati al variare di TPphase impostando la corrente di
+                         scarica a 40 DAC e per il set di dati i cui parametri sono impostati in maniera standard. L'analisi effettuata e' 
+                         sempre l medesima delle settimane passate.I risultati sono riportati nelle macro (salvate in Root-Macros) Board8_40M.C 
+                         e Board8_If40_40M.C, e nei grafici Carica_timing_40M, Funzionale_timing_40M, Carica_timing_If40, Funzionale_timing_If40.
+                         Ho aggiornato la tabella riassuntiva riportata in Tabelle.
+                         Sono riuscita ad aggiornare il file di analisi in modo da analizzare la risposta solo di un range di pixel a scelta 
+                         dell'utente. Il range deve essere inserito da terminale e deve essere inserito un numero compreso tra 0 
+                         (il 1024esimo pixel del chip in realta') e 1023 (il 2048esimo pixel)
+                         
