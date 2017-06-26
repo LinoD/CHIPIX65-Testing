@@ -44,8 +44,8 @@ void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr
   vector<float> noise;
   Int_t npixels = 0;
   
-  float xrd = 25;
-  float xru = 50;
+  float xrd ;
+  float xru ;
   
   
  while (in >> x)  {
@@ -82,6 +82,12 @@ void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr
   TH1F *histo_thr = new TH1F("histo_thr","histo_thr",nbins,min_thr,max_thr);
   TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
 //  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
+
+cout << "\n "<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO INFERIORE DEL RANGE:"<<endl;
+cin >> xrd;
+cout <<"\n"<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO SUPERIORE DEL RANGE:"<<endl;
+cin >> xru;
+cout << "\n"<<endl;
 
   for(Int_t i=0;i<npixels;i++){
 	 if(i>= xrd && i<= xru){
@@ -164,9 +170,16 @@ void analisiMCTOT(TString Dir, TString inFileName, Double_t nbins, Double_t min_
   vector<float> thr;
   vector<float> noise;
   Int_t npixels = 0;
+
+
+/*  
+float xrd, xru;
   
-  float xrd = 25;
-  float xru = 50;
+cout << "Inserire il pixel estremo inferiore del range:"<<endl;
+cin >> xrd;
+cout << "Inserire il pixel estremo superiore del range:"<<endl;
+cin >> xru;
+ */ 
 
  while (in >> x)  {
 //     if((in >> x )){
