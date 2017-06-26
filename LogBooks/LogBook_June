@@ -136,4 +136,5 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
           09.00-13.00    Ho analizzato i dati che ho preso venerdi' pomeriggio e ho scoperto che non vanno bene, quindi ho dovuto riavviare la 
                          misura. Ho ricontrollato i dati per Vth = 90, ma il miglior risultato che sono riuscita ad ottenere e' quello gia'
                          riportato online.
-                         
+                         Ho provato a modificare il file di analisi in modo da poter studiare solo la risposta di alcuni pixel, la macro e' 
+                         nella cartella delle macro di Root.
