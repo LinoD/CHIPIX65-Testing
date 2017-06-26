@@ -19,10 +19,10 @@ void Board8_40M(){
 //th = media della soglia ottenuta dal fit della distribuzione ad una determinata TPphase in elettroni
 //eth = incertezza sulla media della soglia
 
-float TP[] = {200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000};
-float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
-float th[] = {48.27, 47.35, 46.75, 46.17, 45.69, 45.44, 45.36, 45.41, 45.79, 46.38, 47.29, 48.59, 50.15, 51.33, 51.83};
-float eth[] ={0.09, 0.09, 0.09, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.09, 0.09, 0.10, 0.13, 0.11};
+float TP[] = {200, 400, 600, 800, 1000, 1200, 1400, 1600, 1800, 2000, 2200, 2400, 2600, 2800, 3000, 3200, 3400, 3600};
+float eTP[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+float th[] = {48.27, 47.35, 46.75, 46.17, 45.69, 45.44, 45.36, 45.41, 45.79, 46.38, 47.29, 48.59, 50.15, 51.43, 51.23, 51.02, 49.90, 49.08};
+float eth[] ={0.09, 0.09, 0.09, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.08, 0.09, 0.09, 0.10, 0.13, 0.11, 0.08, 0.08, 0.08};
 
 //no = media del rumore ottenuto dal fit della distribuzione
 //eno = incertezza sulla media del rumore
@@ -31,7 +31,7 @@ float no[] = {1.853, 1.825, 1.782, 1.758, 1.735, 1.716, 1.715, 1.740, 1.773, 1.8
 float eno[] = {0.004, 0.004, 0.004, 0.004, 0.004, 0.003, 0.003, 0.001, 0.003, 0.001, 0.003, 0.004, 0.004, 0.010, 0.006};
 
 float q0;
-const int nmisure = 15; //numero di misure effettuate
+const int nmisure = 18; //numero di misure effettuate
 
 float q[nmisure]; //vettore carica iniettata in aC (dove a=10^(-18))
 float sq[nmisure]; //errore sulla carica
@@ -40,6 +40,9 @@ float TPt[nmisure]; //vettore temporale in nanosecondi
 cout<<"TP"<<endl;
 for(int i = 0; i<nmisure; ++i){
 	TPt[i] = 25 - TP[i]*25/3600;
+	if (TPt[i] > 5) TPt[i]=TPt[i];
+	else TPt[i] = TPt[i] + 25;
+//	TPt[i] = TP[i]*25/3600;
 	cout<<TPt[i]<<endl;
 	}
 cout<<"CARICA"<<endl;
@@ -78,7 +81,20 @@ gsoglia->Draw("AP");
 cout << "********** Fit CARICA **********" << endl;
 csoglia->cd();
 
-TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
+// TF1 *fitQ = new TF1("fitQ","([0]-[1]*(x-[2]))/(1-TMath::Exp(-(x-[2])/[3]))+[4]",6,25);
+
+//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-[1]*TMath::Exp(-x/[2]))",8,25);
+
+//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",8,25);
+TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",8,25);
+
+
+//fitQ->SetParLimits(0,10,60);
+fitQ->SetParLimits(1,-25.,25);
+
+//fitQ->SetParLimits(1,0.5,7);
+fitQ->SetParLimits( 2,4,25);
+//fitQ->SetParLimits(3,7,12);
 
 
 //TF1 *fitQ = new TF1("fitQ","([0]-[1]*x)/(1-TMath::Exp(-x/[2]+[3]))",6,25);
@@ -106,8 +122,9 @@ cout<< "*********** FIT per FUNZIONALE ***********" << endl;
 cfunzionale->cd();
 
 
-TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,24);
+// TF1 *fitf = new TF1("fitf","[0]-[1]*(TMath::Exp(-[2]/x))+[3]*x",6,24);
 
+TF1 *fitf = new TF1("fitf","([0]-[1]*(TMath::Exp(-[2]/x)))*(1-[3]*x)",6,24);
 
 
 //TVirtualFitter::SetMaxInterations(100000);
