@@ -1,7 +1,8 @@
 01/06/2017
 
 Cristina: 09.00-11.00    Analisi dei dati raccolti durante la notte improntando una macro per Root.
-          14.00-17.30    Ho riportato i valori medi di soglia e di romore ricavati dal fit delle distribuzioni per ogni diverso valore di TPphase su una macro per Root.
+          14.00-17.30    Ho riportato i valori medi di soglia e di romore ricavati dal fit delle distribuzioni per ogni diverso valore di
+                         TPphase su una macro per Root.
                          Il parametro TPphase varia da 200 a 3000.
                          Ho provato a fittare i grafici con un andamento parabolico e non ha funzionato. 
                          Ho intenzione di provare con una sinusoide.
@@ -11,8 +12,9 @@ Cristina: 09.00-11.00    Analisi dei dati raccolti durante la notte improntando 
 Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Ho calcolato la carica iniettata dai valori di media ricavati dalle distribuzioni con la relazione 
                          Q = (q_{media}*48.5e)-1500e
-                         Ho messo su un grafico la carica iniettata in funzione di TPphase (riportata in ns) e ho ricavato il valore minimo di carica osservata
-                         Studiando la distribuzione al variare della TPphase si e' notato che il funzionale della distribuzione ha un andamento del tipo
+                         Ho messo su un grafico la carica iniettata in funzione di TPphase (riportata in ns) e ho ricavato il valore minimo 
+                         di carica osservata studiando la distribuzione al variare della TPphase si e' notato che il funzionale della 
+                         distribuzione ha un andamento del tipo
                          f(Δt) = Q_{min}f(t_0)/Q(Δt)
                          Allora e' stato pensato di capire come fosse questo funzionale normalizzandolo rispetto a f(t_0)
                          Osservando l'andamento del grafico di F = f(Δt)/f(t_0) si e' pensato di provare con un fit del tipo
@@ -47,22 +49,23 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          possano esere compatibili
                          Ricavati i valori medi di soglia dei dati raccolti a 20 MHz sono stati studiati con lo stesso procedimento di ieri
                          dall'andamento dei plot si nonta che questo approccio non e' il migliore. I risultati sono riportati in Board8_20M.C
-          14.00-17.30    Ho provato a graficare l'andamento dei dati raccolti a 20 MHz, pero' non riesco a capire se possono essere analizzati
-                         con la medesima analisi, dato che non riesco a riconoscere nei dati di oggi un andamento simile a quello di ieri.
-                         
-                         Ho fatto ripartire una misura con TPphase che varia tra 3000 e 3600 a passi di 200, perche' confrontando le due popolazioni
-                         sembra che i dati a 20 MHz abbiano "esplorato" il range temporale successivo a quello relativo ai 40 MHz.
-                         Ho riportato in Images i grafici. Per vedere il codice bisogna andarea consultare Board8_40M.C e Board8_20M.C caricati in Root_Macros
+          14.00-17.30    Ho provato a graficare l'andamento dei dati raccolti a 20 MHz, pero' non riesco a capire se possono essere 
+                         analizzati con la medesima analisi, dato che non riesco a riconoscere nei dati di oggi un andamento simile a quello
+                         di ieri.
+                         Ho fatto ripartire una misura con TPphase che varia tra 3000 e 3600 a passi di 200, perche' confrontando le due 
+                         popolazioni sembra che i dati a 20 MHz abbiano "esplorato" il range temporale successivo a quello relativo ai 40 MHz.
+                         Ho riportato in Images i grafici. Per vedere il codice bisogna andarea consultare Board8_40M.C e Board8_20M.C 
+                         caricati in Root_Macros
 
 15/06/2017 
           
-          09.00-13.00    Analisi dei dati raccolti questa notte da Lino usando la stessa procedura per i dati raccolti la settimana scorsa, per
-                         vedere se variando alcuni parametri si ottengono risulati compatibili con il modello ideato.
+          09.00-13.00    Analisi dei dati raccolti questa notte da Lino usando la stessa procedura per i dati raccolti la settimana scorsa, 
+                         per vedere se variando alcuni parametri si ottengono risulati compatibili con il modello ideato.
                          I dati sono stati raccolti avendo impostato la corrente di scarico a 160 DAC piuttosto che a 75 DAC.
                          I risultati ottenuti con il procedimento di analisi sperimentato la settimana scorsa sembra essere efficacie
                          anche per l'analisi dei dati raccolti questa notte.
-                         I parametri idei vari fit sembrano simili a quelli ottenuti in precedenza (anche se per essere sicura dovrei effettuare
-                         un test normale).
+                         I parametri idei vari fit sembrano simili a quelli ottenuti in precedenza (anche se per essere sicura dovrei 
+                         effettuare un test normale).
                          I grafici sono riportati nella cartella Images, mentre lo script di Root e' salvato nella cartella Macro-Root
           14.00-17.30    Ho ricavato la soglia Vth con i valori dei fit sapendo dall'equazione
                          Qth = K + (Vth*Cf - If*t0 + If*t)/(1 - Exp(-(t-t0)/τ))
@@ -72,24 +75,26 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Vth = ([0] +[1]*[3])/Cf = (20.38 +- 3.6) mV
                          calcolando l'incertezza mediante le propagazione errori e sapendo che Cf = 2.4 fF
                          Sono stati analizzati pate dei dati raccolti stamattina, ma non ho ancora finito.
-                         E' stata fatta una tabella riassuntiva con i valori dei parametri riportati nel file Tabelle caricato in questa folder
-                         Ho notato che ci sono dei picchi particolari nei dati che ho analizzato stamattina, ma non riesco a capire quale sia
-                         la causa della loro presenza.
+                         E' stata fatta una tabella riassuntiva con i valori dei parametri riportati nel file Tabelle caricato in questa 
+                         folder. Ho notato che ci sono dei picchi particolari nei dati che ho analizzato stamattina, ma non riesco a capire 
+                         quale sia la causa della loro presenza.
           
 16/06/2017
 
           09.00-13.00    Ho analizzato i dati presi questa notte, dato che i dati presi ieri in giornata e analizzati volta per volta non
                          erano stati presi in condizioni di stabilita'.
-                         L'analisi effettuata in precedenza sembra essere applicabile anche ai dati per If = 40 DAC, i grafici sono riportati in Images,
-                         e i valori dei parametri sono riportati nella tabella salvata in Tabelle.
-                         L'analisi e' riportata in Board8_If40_40M.C e i file dei dati sono salvati nella macro analysis_studenti_scan_timingTP.C
+                         L'analisi effettuata in precedenza sembra essere applicabile anche ai dati per If = 40 DAC, i grafici sono riportati
+                         in Images, e i valori dei parametri sono riportati nella tabella salvata in Tabelle.
+                         L'analisi e' riportata in Board8_If40_40M.C e i file dei dati sono salvati nella macro 
+                         analysis_studenti_scan_timingTP.C
                          Ho iniziato a fare l'analisi della risposta del primo pixel, prendendo i valori dai file .out
           14.00-17.30    Ho finito l'analisi della risposta del primo pixel al variare della TPphase. I risultati sono riportati nei grafici
                          Carica_timing_40M_If40_1pixel.pdf e Funzionale_timing_40M_If40_1pixel.pdf
                          Ho fatto una copia delle macro che permettono di estrarre i dati dai file, in modo da poter modificare il
-                         numero di pixel da prendere in considerazione. ho inserito due parametri che indicano inizio e fine del range di pixel che 
-                         voglio considerare.
-                         Le macro sembrano funzionare ma i grafici rimangono vuoti, quindi devo ancora ricontrollare il codice peer capire quale sia il problema.
+                         numero di pixel da prendere in considerazione. ho inserito due parametri che indicano inizio e fine del range di
+                         pixel che voglio considerare.
+                         Le macro sembrano funzionare ma i grafici rimangono vuoti, quindi devo ancora ricontrollare il codice peer capire 
+                         quale sia il problema.
 
 20/06/2017
 
@@ -97,21 +102,22 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          (adesso invece si lavora analizzando tutto il file).
                          al contrario di venerdi, oggi crea i canvas ma non mi disegna nulla nei grafici.
                          
-                         Mi e' stato fatto notare da Lino che non e' necessario modificare Macro_scurve, ma e' piu' sensato prendere i risultati
-                         del file output e poi analizzare solo quelli dei pixel che mi interessano. Per farlo devo quindi modificare la macro per
-                         creare gli istgrammi e lasciare perdere le modifiche che stavo facendo.
+                         Mi e' stato fatto notare da Lino che non e' necessario modificare Macro_scurve, ma e' piu' sensato prendere i 
+                         risultati del file output e poi analizzare solo quelli dei pixel che mi interessano. 
+                         Per farlo devo quindi modificare la macro per creare gli istgrammi e lasciare perdere le modifiche che stavo facendo
                         
-                         Ho studiato (estraendo i dati a mano dal file .out) l'andamento della carica per l'ottavo e il sediciesimo pixel avendo
-                         If scarico = 40 DAC.
+                         Ho studiato (estraendo i dati a mano dal file .out) l'andamento della carica per l'ottavo e il sediciesimo pixel 
+                         avendo If scarico = 40 DAC.
           14.00-17.30    Analisi dei dati presi questa notte avendo impostato la corrente di scarica a 10 DAC
-                         Ho notato che nella presa dati notturna e' emerso un problema sistematico che si presnta per tutti i cicli: dalla misura
-                         a TPphase = 600 a TPphase=3000 non sono stati presi dati; problema risolto: impostando la misura per questa notte 
-                         ho notato che non erano stati cambiati i valori di range di pixel da osservare che io avevo precedentemente modificato.
+                         Ho notato che nella presa dati notturna e' emerso un problema sistematico che si presnta per tutti i cicli: dalla 
+                         misura a TPphase = 600 a TPphase=3000 non sono stati presi dati; problema risolto: impostando la misura per questa 
+                         notte ho notato che non erano stati cambiati i valori di range di pixel da osservare che io avevo precedentemente
+                         modificato.
                          Ho preparato la misura notturna per Vth = 90 al posto che 60.
                          
 22/06/2017                         
                          
-          11.00-13.00    Ho stoppato le misure fatte stanotte, e provo a lanciare le misure a If=10 per avere i dati che non sono stati presi.              
+          11.00-13.00    Ho stoppato le misure fatte stanotte, e provo a lanciare le misure a If=10 per avere i dati che non sono stati presi              
                          Ho fatto l'analisi dei dati presi con C = C4F usando l'analisi effettuata sugli altri grafici.
                          I grafici relatici sono stati caricati in images
           14.00-16.30    Ho analizzato i dati presi con Vth = 90 invece che Vth = 60 usando sempre lo stesso tipo di analisi.
@@ -119,31 +125,39 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
 
 23/06/2017
 
-          09.00-13.00    Ho stoppato le misure di questa notte, sto finendo di analizzare i dati che mancavano per If = 10 DAC. Ho fatto partire 
-                         un ciclo di misure per completare il set di dati per If = 160 DAC, dato che mi sono resa conto che ne mancano.
+          09.00-13.00    Ho stoppato le misure di questa notte, sto finendo di analizzare i dati che mancavano per If = 10 DAC. Ho fatto 
+                         partire un ciclo di misure per completare il set di dati per If = 160 DAC, dato che mi sono resa conto che ne 
+                         mancano.
                          Ho ricontrollato i dati presi con Cf = 4 fF e ho aggiornato i grafici (che sono stati caricati su Images).
                          I risultati per If = 10 DAC sono riportati in Images.
-                         Ho analizzato inoltre i dati raccolti stanotte, avendo dimezzato IBiasP1 e IBiasP2, quindi avendo impostato 50 e 75 DAC
-                         al posto di 100 e 150 DAC. I dati sembrano riprodurre molto bene il modello usato nelle analisi precedenti. I risultati
-                         sono riportati sempre nella cartella Images
+                         Ho analizzato inoltre i dati raccolti stanotte, avendo dimezzato IBiasP1 e IBiasP2, quindi avendo impostato 50 e 75
+                         DAC al posto di 100 e 150 DAC. I dati sembrano riprodurre molto bene il modello usato nelle analisi precedenti. 
+                         I risultati sono riportati sempre nella cartella Images
           14.00-17.30    Ho fatto partire un set di misure per completare i set di dati a cui mancavano alcune misure.
-                         Ho ricontrollato alcuni grafici che presentavano delle anomalie e li ho ricaricati nella cartella Images, aggiornando
-                         anche le relative macro.
+                         Ho ricontrollato alcuni grafici che presentavano delle anomalie e li ho ricaricati nella cartella Images, 
+                         aggiornando anche le relative macro.
                          Ho aggiornato il file riassuntivo in Tabelle.
 
 26/06/2017
           
-          09.00-13.00    Ho analizzato i dati che ho preso venerdi' pomeriggio e ho scoperto che non vanno bene, quindi ho dovuto riavviare la 
-                         misura. Ho ricontrollato i dati per Vth = 90, ma il miglior risultato che sono riuscita ad ottenere e' quello gia'
+          09.00-13.00    Ho analizzato i dati che ho preso venerdi' pomeriggio e ho scoperto che non vanno bene, quindi ho dovuto riavviare
+                         la misura. Ho ricontrollato i dati per Vth = 90, ma il miglior risultato che sono riuscita ad ottenere e' quello gia'
                          riportato online.
                          Ho provato a modificare il file di analisi in modo da poter studiare solo la risposta di alcuni pixel, la macro e' 
                          nella cartella delle macro di Root.
           14.00-17.30    Ho analizzato i dati presi stamattina per completare il set di dati al variare di TPphase impostando la corrente di
                          scarica a 40 DAC e per il set di dati i cui parametri sono impostati in maniera standard. L'analisi effettuata e' 
-                         sempre l medesima delle settimane passate.I risultati sono riportati nelle macro (salvate in Root-Macros) Board8_40M.C 
-                         e Board8_If40_40M.C, e nei grafici Carica_timing_40M, Funzionale_timing_40M, Carica_timing_If40, Funzionale_timing_If40.
+                         sempre l medesima delle settimane passate.I risultati sono riportati nelle macro (salvate in Root-Macros) 
+                         Board8_40M.C e Board8_If40_40M.C, e nei grafici Carica_timing_40M, Funzionale_timing_40M, Carica_timing_If40, 
+                         Funzionale_timing_If40.
                          Ho aggiornato la tabella riassuntiva riportata in Tabelle.
                          Sono riuscita ad aggiornare il file di analisi in modo da analizzare la risposta solo di un range di pixel a scelta 
                          dell'utente. Il range deve essere inserito da terminale e deve essere inserito un numero compreso tra 0 
                          (il 1024esimo pixel del chip in realta') e 1023 (il 2048esimo pixel)
                          
+27/06/2017
+          
+          09.00-13.00    Ho messo a punto un controllo sull'inserimento del numero di pixel da controllare nella macro per gli istogrammi,
+                         aggiungendo dei cicli while.
+                         Ho ripreso dei dati a Vth = 90 e alcuni sono riuscita ad analizzarli.
+          
