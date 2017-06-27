@@ -82,13 +82,19 @@ void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr
   TH1F *histo_thr = new TH1F("histo_thr","histo_thr",nbins,min_thr,max_thr);
   TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
 //  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
+	
+	do{
+	cout << "\n "<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO INFERIORE DEL RANGE TRA 0 E 1023:"<<endl;
+	cin >> xrd;
+	}while(xrd>1023 || xrd<0);
+	
 
-cout << "\n "<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO INFERIORE DEL RANGE:"<<endl;
-cin >> xrd;
-cout <<"\n"<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO SUPERIORE DEL RANGE:"<<endl;
-cin >> xru;
-cout << "\n"<<endl;
-
+	do{
+	cout <<"\n"<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO SUPERIORE DEL RANGE:"<<endl;
+	cin >> xru;
+	}while(xru<xrd);
+	cout << "\n"<<endl;
+	
   for(Int_t i=0;i<npixels;i++){
 	 if(i>= xrd && i<= xru){
   histo_thr->Fill(thr.at(i));
