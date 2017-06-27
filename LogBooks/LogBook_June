@@ -160,4 +160,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
           09.00-13.00    Ho messo a punto un controllo sull'inserimento del numero di pixel da controllare nella macro per gli istogrammi,
                          aggiungendo dei cicli while.
                          Ho ripreso dei dati a Vth = 90 e alcuni sono riuscita ad analizzarli.
-          
+          14.00-16.30    Ho analizzato i dati acquisiti stamattina per Vth = 90, i risultati (migliori rispetto all'altro set di misure)
+                         sono riportati nei grafici Carica_Vth90_40M e Funzionale_Vth90_40M con la relativa macro Board8_Vth90_40.C .
+                         Ho aggiornato anche la tabella riassuntiva dei parametri.
+                         
