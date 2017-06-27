@@ -9,7 +9,7 @@ Cristina: 09.00-11.00    Analisi dei dati raccolti durante la notte improntando 
 
 07/06/2017
 
-Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
+Cristina: 09.00-13.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Ho calcolato la carica iniettata dai valori di media ricavati dalle distribuzioni con la relazione 
                          Q = (q_{media}*48.5e)-1500e
                          Ho messo su un grafico la carica iniettata in funzione di TPphase (riportata in ns) e ho ricavato il valore minimo 
@@ -43,7 +43,7 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          
 09/06/2017
 
-          09.00-11.00    Ho stoppato la presa dati lanciata ieri sera.
+          09.00-13.00    Ho stoppato la presa dati lanciata ieri sera.
                          Riassemblamento degli svariati script scritti.
                          Analisi dei dati raccolti, usando la stessa procedure dei due giorni passati per vedere se i risultati ottenuti 
                          possano esere compatibili
@@ -163,4 +163,4 @@ Cristina: 09.00-11.00    Continuo dell'analisi sui dati raccolti con la Board8:
           14.00-16.30    Ho analizzato i dati acquisiti stamattina per Vth = 90, i risultati (migliori rispetto all'altro set di misure)
                          sono riportati nei grafici Carica_Vth90_40M e Funzionale_Vth90_40M con la relativa macro Board8_Vth90_40.C .
                          Ho aggiornato anche la tabella riassuntiva dei parametri.
-                         
+                         Ho avviato la misura per questa notte impostando IBiasP1 = 200 e IBiasP2 = 300 al posto di 100 e 150.
