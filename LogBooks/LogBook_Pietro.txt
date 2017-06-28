@@ -1,5 +1,5 @@
-Day: 5th June 2017
-Time: from 2 to 6 PM ( 4 hours )
+06/05/17
+14:00-18:00 ( 4 hours )
 
 Luca configured PyRoot on my Laptop than introduced me to the PyRoot language.
 He asked me to write a simple program using the Root Classes:
@@ -7,9 +7,8 @@ TErrorGraph
 TFile 
 
 
-
-Day: 6th June 2017
-Time: from 2 to 5 PM ( 3 hours )
+06/06/17
+14:00-17:00 ( 3 hours )
 
 Luca explained me what means the parameter DNL ( Differential Non-Linearity )
 relating to an ADC
@@ -17,31 +16,44 @@ He asked me to write a program to fit the transfer function of an ADC and draw a
 
 
 
-
-Day: 7th June 2017
+06/07/17
 14:00-17:00 ( 3 hours )
 
 
-Day: 8th June 2017
+06/08/17
 14:00-18:00 ( 4 hours )
 
-Day: 9th June 
+06/09/17 
 14:00-18:00 ( 4 hours )
 
-Day: 12th June
+06/12/17
 14:00-18:00 ( 4 hours )
 
-Day: 13th June
+06/13/17
 14:00-18:00 ( 4 hours )
 
-Day: 14th June
+06/14/17
 14:00-18:00 ( 4 hours )
 
-Day: 16th June
-14:00-18:00 ( 4 hours )
+06/16/17
+14:00-19:00 ( 5 hours )
 
-Day: 23rd June 
+06/23/17
 09:00-12:00 ( 3 hours )
 
-Day: 27th June
+06/27/17
 14:00-18:00 ( 4 hours )
+
+This week Luca is in Japan and I'm tring working alone. Today I have connected the Kintex FPGA Board to my Laptop using an Ethernet Switch because my laptop's ethernet port works at 100 Mbit/s instead the Kintex needs 1 Gbit/s. I have looked on the Fabrizio's Gui code how it  works the SPI. At the moment I have some difficults to understand it.
+
+06/07/17
+9:00-12:00 
+
+
+
+TOT: 42 hours
+
+
+
+
+
