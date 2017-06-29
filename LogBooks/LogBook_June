@@ -173,5 +173,7 @@ Cristina: 09.00-13.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          Ho finito di riportare i valori dei parametri nel file Tabella_Parametri.
                          Adesso e' stato deciso di vedere se i dati raccolti a 20 MHz hanno lo stesso andamento di quelli raccolti a 40 MHz,
                          per questo ho avviato un set di misure a 20 MHz avemdo impostato If = 40 DAC.
-                         
-                         
+          14.00-         Sto provando a implementare la macro per poter fare l'analisi dei pixel di una singola riga del chip, ma per ora
+                         non sono riuscita a trovare una soluzione accettabile e soprattutto funzionante.
+                         Vorrei riuscire ad aggiungere un pezzo di codice che mi permetta di scegliere quale tipo di analisi effettuare senza
+                         dover cambiare la macro.
