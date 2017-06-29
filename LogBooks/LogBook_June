@@ -164,3 +164,14 @@ Cristina: 09.00-13.00    Continuo dell'analisi sui dati raccolti con la Board8:
                          sono riportati nei grafici Carica_Vth90_40M e Funzionale_Vth90_40M con la relativa macro Board8_Vth90_40.C .
                          Ho aggiornato anche la tabella riassuntiva dei parametri.
                          Ho avviato la misura per questa notte impostando IBiasP1 = 200 e IBiasP2 = 300 al posto di 100 e 150.
+
+29/06/2017
+          
+          09.00-13.00    Ho analizzato i dati raccolti per IBiasP1 e IBiasP2 raddoppiatati rispetto al valori standard usando sempre la
+                         la stessa analisi. I risultati sono riportati nei grafici Carica_Pdoppi_TPscan. pdf e Funzionale_Pdoppi_TPscan.pdf
+                         e la relatica macro si trova nella cartella Root-Macro.
+                         Ho finito di riportare i valori dei parametri nel file Tabella_Parametri.
+                         Adesso e' stato deciso di vedere se i dati raccolti a 20 MHz hanno lo stesso andamento di quelli raccolti a 40 MHz,
+                         per questo ho avviato un set di misure a 20 MHz avemdo impostato If = 40 DAC.
+                         
+                         
