@@ -9,7 +9,7 @@
 //#endif
 
 
-void analisiMCall(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr, Double_t max_thr, Double_t min_noise, Double_t max_noise){
+void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr, Double_t max_thr, Double_t min_noise, Double_t max_noise, Int_t par_analisi, Int_t val_min, Int_t val_max){
 
     Int_t ideb=0;  
     gStyle->SetOptStat(112211);
@@ -81,13 +81,68 @@ void analisiMCall(TString Dir, TString inFileName, Double_t nbins, Double_t min_
   TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
 //  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
 	
-
-  for(Int_t i=0;i<npixels;i++){ 
+	if(par_analisi == 0){
+		for(Int_t i=0;i<npixels;i++){ 
 		histo_thr->Fill(thr.at(i));
 		histo_noise->Fill(noise.at(i));
-  }  
-
- 
+		}  
+	}
+	
+	if(par_analisi == 1){
+		/*
+		do{
+		cout << "\n "<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO INFERIORE DEL RANGE TRA 0 E 1023:"<<endl;
+		cin >> pix_inf;
+		}while(pix_inf>1023 || pix_inf<0);
+	
+		do{
+		cout <<"\n"<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO SUPERIORE DEL RANGE:"<<endl;
+		cin >> pix_sup;
+		}while(pix_sup<pix_inf);
+		cout << "\n"<<endl;
+	*/
+	 if(val_min <0 && val_min >1023 || val_max < val_min && val_max > 1023){
+		cout << "/n VALORI NON ACCETTABILI" <<endl;
+	 }
+	 else{
+		for(Int_t i=0;i<npixels;i++){ 
+			if(i>= val_min && i<= val_max){
+			histo_thr->Fill(thr.at(i));
+			histo_noise->Fill(noise.at(i));
+			}
+		}
+	}
+	}
+	 
+	if(par_analisi == 2){
+		
+		/*
+		do{
+		cout << "\n "<< "INSERIRE NUMERO DELLA RIGA INFERIORE DA ANALIZZARE:"<<endl;
+		cin >> riga_inf;
+		}while(riga_inf>64 || riga_inf<0);
+	
+		do{
+		cout << "\n "<< "INSERIRE NUMERO DELLA RIGA SUPERIORE DA ANALIZZARE:"<<endl;
+		cin >> riga_sup;
+		}while(riga_sup>64 || riga_sup<riga_inf);
+	*/
+	
+	int num_riga;
+	
+	if(val_min < 0 && val_min > 64 || val_max < val_min && val_max > 64){
+		cout << " /n VALORI NON CONSENTITI" << endl;
+		}
+		else{
+			for(Int_t i=0;i<npixels;i++){ 
+					num_riga = i % 64;
+					if(num_riga>= val_min && num_riga<= val_max){
+					histo_thr->Fill(thr.at(i));
+					histo_noise->Fill(noise.at(i));
+				}
+			}	
+		}	
+	}
 //  TFile f(Rfile,"RECREATE");
 
   TCanvas *cvs = new TCanvas("Plot","plot",900,400);
@@ -125,277 +180,6 @@ void analisiMCall(TString Dir, TString inFileName, Double_t nbins, Double_t min_
 
   }
   
- void analisiMCrange(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr, Double_t max_thr, Double_t min_noise, Double_t max_noise){
-
-    Int_t ideb=0;  
-    gStyle->SetOptStat(112211);
-    gStyle->SetOptFit(1111);
-
-    TString file = inFileName;
-    inFileName = Dir+"Out/"+ inFileName+"out";
-    TString RfileT = inFileName+"_thr.root";	
-    TString RfileN = inFileName+"_noi.root";	
-    TString Jfile = inFileName+".pdf";	
-    TString Resfile = inFileName+".res";
-
-
-     ofstream output_file(Resfile);
-	if (output_file.is_open())
-	{ cout << "The file: " << Resfile << " IS OPEN " << "\n"; }
-	else 
-	{ cout << "The file: " << Resfile << " IS NOT OPEN " << "\n";
-	 return; }
-      
-       	ifstream in(inFileName);
-	if(!in){
-		cout<<"Il file"<<inFileName<<"non esiste"<<endl;
-		return;}	
-
-  float x,y,z,e1,e2;
-
-  Int_t isweep = 0;
-
-  vector<float> npix;
-  vector<float> thr;
-  vector<float> noise;
-  Int_t npixels = 0;
-  
-  float xrd ;
-  float xru ;
-  
-  
- while (in >> x)  {
-	 //cout << x;
-//     if((in >> x )){
-        npixels++;
-        in >> y;
-        in >> z;
-        in >> e1;
-        in >> e2; 
-        isweep++;
-	//        cout << x << " " << y << " " << z << " " << e1 << " " << e2 << endl;  
-        if ( e1>0.5 || e2>1 || e1<0.001 || e2 <0.002 ) {
-			if (ideb>0)  { cout << x << " " << y << " " << z << " " << e1 << " " << e2 << endl;  }
-              y = -99;
-              z = -99;
-        } 
-        npix.push_back(x);
-        thr.push_back(y);
-        noise.push_back(z);
- 
-    }
-//    }   
-
-
-    TF1 *f1thr = new TF1("f1thr","gaus");
-    TF1 *f1noise = new TF1("f1noise","gaus");
-
-    //    TF1 *f1thr = new TF1("f1thr","gaus",60.,min_thr,max_thr);
-    //    TF1 *f1noise = new TF1("f1noise","gaus",2.,min_noise,max_noise);
-
-    do{
-	cout << "\n "<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO INFERIORE DEL RANGE TRA 0 E 1023:"<<endl;
-	cin >> xrd;
-	}while(xrd>1023 || xrd<0);
-	
-
-	do{
-	cout <<"\n"<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO SUPERIORE DEL RANGE:"<<endl;
-	cin >> xru;
-	}while(xru<xrd);
-	cout << "\n"<<endl;
-
-  TH1F *histo_thr = new TH1F("histo_thr","histo_thr",nbins,min_thr,max_thr);
-  TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
-//  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
-	
-	for(Int_t i=0;i<npixels;i++){ 
-	 if(i>= xrd && i<= xru){
-		histo_thr->Fill(thr.at(i));
-		histo_noise->Fill(noise.at(i));
-	 }
-	}  
-  
-  
-//  TFile f(Rfile,"RECREATE");
-
-  TCanvas *cvs = new TCanvas("Plot","plot",900,400);
-  cvs->Divide(2,1);
-  cvs->cd(1);
-  histo_thr->SetTitle("Threshold distribution");
-  histo_thr->GetXaxis()->SetTitle("Threshold [DAC counts]");
-  histo_thr->GetYaxis()->SetTitle("Entries");
-  histo_thr->SetMarkerStyle(3);
-  histo_thr->SetMarkerSize(6);
-  histo_thr->Draw();  
-  histo_thr->Fit(f1thr,"Q");
-  
-  //  f1thr->GetParameter(0)
-
-    output_file << "  " << f1thr->GetParameter(0) << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParameter(2)  <<  " " << f1thr->GetParError(0) <<  " " << f1thr->GetParError(1)  <<  " " << f1thr->GetParError(2) << endl;
-  
-  
-  cvs->cd(2);
-  histo_noise->SetTitle("Noise distribution");
-  histo_noise->GetXaxis()->SetTitle("Noise [DAC counts]");
-  histo_noise->GetYaxis()->SetTitle("Entries");
-  histo_noise->SetMarkerStyle(3);
-  histo_noise->SetMarkerSize(6);
-  histo_noise->Draw();
-  histo_noise->Fit(f1noise,"Q");
-//  f.Write();
- 
- output_file << "  " << f1noise->GetParameter(0) << "  " << f1noise->GetParameter(1) << "  " << f1noise->GetParameter(2)  <<  " " << f1noise->GetParError(0) <<  " " << f1noise->GetParError(1)  <<  " " << f1noise->GetParError(2) << endl;
-
-
-   histo_thr->SaveAs(RfileT);
-   histo_noise->SaveAs(RfileN);
-   cvs->SaveAs(Jfile);
-
-  }
-
-void analisiMCrighe(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr, Double_t max_thr, Double_t min_noise, Double_t max_noise){
-
-    Int_t ideb=0;  
-    gStyle->SetOptStat(112211);
-    gStyle->SetOptFit(1111);
-
-    TString file = inFileName;
-    inFileName = Dir+"Out/"+ inFileName+"out";
-    TString RfileT = inFileName+"_thr.root";	
-    TString RfileN = inFileName+"_noi.root";	
-    TString Jfile = inFileName+".pdf";	
-    TString Resfile = inFileName+".res";
-
-
-     ofstream output_file(Resfile);
-	if (output_file.is_open())
-	{ cout << "The file: " << Resfile << " IS OPEN " << "\n"; }
-	else 
-	{ cout << "The file: " << Resfile << " IS NOT OPEN " << "\n";
-	 return; }
-      
-       	ifstream in(inFileName);
-	if(!in){
-		cout<<"Il file"<<inFileName<<"non esiste"<<endl;
-		return;}	
-
-  float x,y,z,e1,e2;
-
-  Int_t isweep = 0;
-
-  vector<float> npix;
-  vector<float> thr;
-  vector<float> noise;
-  Int_t npixels = 0;
-  
-  float xrd ;
-  float xru ;
-  
-  
- while (in >> x)  {
-	 //cout << x;
-//     if((in >> x )){
-        npixels++;
-        in >> y;
-        in >> z;
-        in >> e1;
-        in >> e2; 
-        isweep++;
-	//        cout << x << " " << y << " " << z << " " << e1 << " " << e2 << endl;  
-        if ( e1>0.5 || e2>1 || e1<0.001 || e2 <0.002 ) {
-			if (ideb>0)  { cout << x << " " << y << " " << z << " " << e1 << " " << e2 << endl;  }
-              y = -99;
-              z = -99;
-        } 
-        npix.push_back(x);
-        thr.push_back(y);
-        noise.push_back(z);
- 
-    }
-//    }   
-
-
-    TF1 *f1thr = new TF1("f1thr","gaus");
-    TF1 *f1noise = new TF1("f1noise","gaus");
-
-    //    TF1 *f1thr = new TF1("f1thr","gaus",60.,min_thr,max_thr);
-    //    TF1 *f1noise = new TF1("f1noise","gaus",2.,min_noise,max_noise);
-
-
-
-  TH1F *histo_thr = new TH1F("histo_thr","histo_thr",nbins,min_thr,max_thr);
-  TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
-//  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
-	
-	
-	do{
-	cout << "\n "<< "INSERIRE NUMERO DELLA RIGA INFERIORE DA ANALIZZARE:"<<endl;
-	cin >> xrd;
-	}while(xrd>64 || xrd<0);
-	
-	do{
-	cout << "\n "<< "INSERIRE NUMERO DELLA RIGA SUPERIORE DA ANALIZZARE:"<<endl;
-	cin >> xru;
-	}while(xru>64 || xru<xrd);
-	
-  
-  for(Int_t i=0;i<npixels;i++){ 
-     err = i % 64;
-	 if(err>= xrd && err<= xru){
-		histo_thr->Fill(thr.at(i));
-		histo_noise->Fill(noise.at(i));
-	 }
-  }  
-  
-  /*
-  for(Int_t i=0;i<npixels;i++){
-	  err = i%64;
-	  cout << "/n RIGA " << err << "PIXEL" << i <<endl;
-	  if(err =< xrd && err > men){					//uso il modulo di i per capire 
-		histo_thr->Fill(thr.at(i));
-		histo_noise->Fill(noise.at(i));
-		cout << "/n FATTO"<< endl;
-	 }
-  }  
-  */
-  
-//  TFile f(Rfile,"RECREATE");
-
-  TCanvas *cvs = new TCanvas("Plot","plot",900,400);
-  cvs->Divide(2,1);
-  cvs->cd(1);
-  histo_thr->SetTitle("Threshold distribution");
-  histo_thr->GetXaxis()->SetTitle("Threshold [DAC counts]");
-  histo_thr->GetYaxis()->SetTitle("Entries");
-  histo_thr->SetMarkerStyle(3);
-  histo_thr->SetMarkerSize(6);
-  histo_thr->Draw();  
-  histo_thr->Fit(f1thr,"Q");
-  
-  //  f1thr->GetParameter(0)
-
-    output_file << "  " << f1thr->GetParameter(0) << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParameter(2)  <<  " " << f1thr->GetParError(0) <<  " " << f1thr->GetParError(1)  <<  " " << f1thr->GetParError(2) << endl;
-  
-  
-  cvs->cd(2);
-  histo_noise->SetTitle("Noise distribution");
-  histo_noise->GetXaxis()->SetTitle("Noise [DAC counts]");
-  histo_noise->GetYaxis()->SetTitle("Entries");
-  histo_noise->SetMarkerStyle(3);
-  histo_noise->SetMarkerSize(6);
-  histo_noise->Draw();
-  histo_noise->Fit(f1noise,"Q");
-//  f.Write();
- 
- output_file << "  " << f1noise->GetParameter(0) << "  " << f1noise->GetParameter(1) << "  " << f1noise->GetParameter(2)  <<  " " << f1noise->GetParError(0) <<  " " << f1noise->GetParError(1)  <<  " " << f1noise->GetParError(2) << endl;
-
-
-   histo_thr->SaveAs(RfileT);
-   histo_noise->SaveAs(RfileN);
-   cvs->SaveAs(Jfile);
-
-  }  
   
 void analisiMCTOT(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr, Double_t max_thr, Double_t min_noise, Double_t max_noise){
 
