@@ -46,10 +46,10 @@ He asked me to write a program to fit the transfer function of an ADC and draw a
 
 This week Luca is in Japan and I'm tring working alone. Today I have connected the Kintex FPGA Board to my Laptop using an Ethernet Switch because my laptop's ethernet port works at 100 Mbit/s instead the Kintex needs 1 Gbit/s. I have looked on the Fabrizio's Gui code how it  works the SPI. At the moment I have some difficults to understand it.
 
-06/07/17
-9:00-12:00 & 15:00-18:00 ( 6 hours
+01/07/17
+9:00-12:00 & 15:00-18:00 ( 6 hours )
 
-Today I have built a box where I have collocated the FPGA Board and PCB to protect them. With the help of Lino I connected the Kintex first to the Dell Laptop anf then to my pc. I have tested the Fabrizio's Gui and it works properly. In the afternoon I have understood how the function 'manipulate' works
+Today I have built a box where I have collocated the FPGA Board and PCB to protect them. With the help of Lino I connected the Kintex first to the Dell Laptop anf then to my pc. I have tested the Fabrizio's Gui and it works properly. In the afternoon I have understood how the function 'manipulate' works and I have tryed rewriting Fabrizio's GUI code importing the class methods from an external python file
 
 
 
