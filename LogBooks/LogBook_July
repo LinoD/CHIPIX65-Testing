@@ -6,7 +6,7 @@
                          Parlando con Lino ho capito che con questo tipo di procedura mi sarei andata a complicarmi la vita e il codice, cosi'
                          e' stato pensato di scrivere un'unica funzione a cui si aggiunge un parametro che mi permette di scegliere la
                          procedura di analisi desiderata.
-          14.00-17.00    Ho messo a punto la macro dell'analisi per renderla meccanica e non dover modificare il codice tutte le volte che
+          14.00-17.30    Ho messo a punto la macro dell'analisi per renderla meccanica e non dover modificare il codice tutte le volte che
                          cambio modo di analizzare i dati.
                          La macro e' stata caricata nella cartella delle macro per Root.
                          Per ottimizzare ulterioremente il tempo dell'analisi si e' pensato di creare una funzione per creare un file di output
