@@ -17,4 +17,7 @@
 
           08.00-13.00    Sto studiando il codice delle macro di analisiche ho usato in tutte le sue parti, per poter scrivere il codice per 
                          automatizzare il caricamento dei risultati nella macro per disegnare il grafico.
-                         Per ora sono riuscita a creare il file .txt che acquisira' i risultati dell'analisi.
+                         Per ora sono riuscita a creare il file .txt che acquisira' i risultati dell'analisi e a fargli registrare i valori 
+                         di media e sigma dell'analisi in corso. il prossimo obiettivo e' fargli registre tutti i valori medi delle analisi.
+                         Ho visto che se cambio il file di analisi, il file appena creato viene sovrascritto.
+                         devo studiare il modo per riempirlo in maniera ciclica
