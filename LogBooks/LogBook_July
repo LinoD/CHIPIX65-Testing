@@ -9,8 +9,8 @@
           14.00-17.30    Ho messo a punto la macro dell'analisi per renderla meccanica e non dover modificare il codice tutte le volte che
                          cambio modo di analizzare i dati.
                          La macro e' stata caricata nella cartella delle macro per Root.
-                         Per ottimizzare ulterioremente il tempo dell'analisi si e' pensato di creare una funzione per creare un file di output
-                         che contenga il valore di media e errore sulla media e che richiamato riempia i vettori per disegnare i grafici di
+                         Per ottimizzare ulterioremente il tempo dell'analisi si e' pensato di creare una funzione per creare un file di 
+                         output che contenga il valore di media e errore sulla media e che richiamato riempia i vettori per disegnare i grafici di
                          carica in funzione di TPphase.
                          
 04/07/2017
@@ -26,3 +26,6 @@
           
           08.30-12.30    Ho lavorato sulla presentazione per il CheckPoint sullo stage, finendo di stilare la tabella riassuntiva e 
                          rimettendo a posto i grafici sulla corrente di feedback.
+          15.00-17.30    Con Lino e' stata messa a punto la funzione per scrivere il file che contiene i risultati dei fit.
+                         Devo ancora implementare la funzione per far scrivere in maniera automatica i valori scritti nel file dei risultati
+                         sulla macro che studia il fit sulla carica.
