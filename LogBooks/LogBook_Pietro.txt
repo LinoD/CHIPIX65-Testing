@@ -8,7 +8,7 @@ TFile
 
 
 06/06/17
-14:00-17:00 ( 3 hours )
+14:00-18:00 ( 4 hours )
 
 Luca explained me what means the parameter DNL ( Differential Non-Linearity )
 relating to an ADC
@@ -17,7 +17,7 @@ He asked me to write a program to fit the transfer function of an ADC and draw a
 
 
 06/07/17
-14:00-17:00 ( 3 hours )
+14:00-18:00 ( 4 hours )
 
 
 06/08/17
@@ -39,7 +39,7 @@ He asked me to write a program to fit the transfer function of an ADC and draw a
 14:00-19:00 ( 5 hours )
 
 06/23/17
-09:00-12:00 ( 3 hours )
+09:00-13:00 ( 4 hours )
 
 06/27/17
 14:00-18:00 ( 4 hours )
@@ -53,6 +53,21 @@ Today I have built a box where I have collocated the FPGA Board and PCB to prote
 
 06/29/17
 9:00-12:00 & 16:00-19 (6 hours )
+Rewrite with an object oriented programmin structure the Fabrios'GUI
+07/03/17
+Improving SPI part 
+
+9:00-13:00 & 14:00-18:00 (8 hours )
+Improving ADC part 
+07/04/17
+
+9:00-12:00 & 15:00 - 19:00 ( 7 hours )
+Improving READING part
+
+07/05/17
+
+09:00 - 14:00 ( 5 hours )
+improving READING part and Checkpoint meeting
 
 
 
