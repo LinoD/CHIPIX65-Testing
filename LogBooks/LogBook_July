@@ -29,3 +29,9 @@
           15.00-17.30    Con Lino e' stata messa a punto la funzione per scrivere il file che contiene i risultati dei fit.
                          Devo ancora implementare la funzione per far scrivere in maniera automatica i valori scritti nel file dei risultati
                          sulla macro che studia il fit sulla carica.
+
+06/07/2017
+
+          8.30-13.00    Ho finito di implemetare la funzione per riempire il canvas e disegnare il grafico della carica in funzione della
+                        TPphase in manier automatica. La funzione e' implementata in analysis_studenti_scan_timingTP.C
+                        
