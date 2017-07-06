@@ -19,7 +19,7 @@
 // 0 se si vuole l'analisis su tutti i pixel del chip
 // 1 se si vuole fare l'analisi di una regione di pixel
 // 2 se si vuole fare l'analisi di alcune righe del chip
-/*
+
 void TwoDim_Plots_40M_timing(Int_t i, Int_t type, Int_t min, Int_t max)
 {
 // ===========================================================================================================================
@@ -150,36 +150,36 @@ void TwoDim_Plots_40M_timing(Int_t i, Int_t type, Int_t min, Int_t max)
 	
 	if (it==16	) {  par0=40; 
 		 
-   	   file =  "20170626145931_board8-CALsw-allch-TP3200_000."; 
+   	   file =  "20170706095228_board8-CALsw-allch-TP3200_002."; 
 	   NEVT=200.;
 
     }
 	
 	if (it==17	) {  par0=40; 
 		 
-   	   file =  "20170626151130_board8-CALsw-allch-TP3400_000."; 
+   	   file =  "20170706111354_board8-CALsw-allch-TP3400_004."; 
 	   NEVT=200.;
 
     }
 	
 	if (it==18	) {  par0=40; 
 		 
-   	   file =  "20170626152331_board8-CALsw-allch-TP3600_000."; 
+   	   file =  "20170706112546_board8-CALsw-allch-TP3600_004."; 
 	   NEVT=200.;
 
     }
 	
 	Dir = Dir0+"";	
 	
-   // Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
-	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+    Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
     analisiMC(Dir,file,60,20,80,1.,4.,type,min,max); 
-	;
+
 	}
-	FileOutRes(Dir,file,i);
+	//FileOutRes(Dir,file,i);
 	}
 }
-
+/*
 void TwoDim_Plots_40M_timing_range(Int_t i)
 {
 // ===========================================================================================================================
@@ -473,7 +473,7 @@ void TwoDim_Plots_20M_timing(Int_t i)
 	}
 	}
 }
-*/
+
 
 //Dati presi facendo variare la tensione ad un diverso valore di corrente di scarica Ifeed = 160 DAC
 void TwoDim_Plots_If160_timing(Int_t i)
@@ -642,7 +642,7 @@ void TwoDim_Plots_If160_timing(Int_t i)
 	}
 }
 
-/*
+
 void TwoDim_Plots_If40_timing(Int_t i)
 {
 // ===========================================================================================================================
@@ -1784,7 +1784,7 @@ void TwoDim_Plots_Pdoppi_timing(Int_t i)
 	}
 	}
 }
-
+*/
 
 void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 {
@@ -1930,21 +1930,21 @@ void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 	
 	if (it==16	) {  par0=40; 
 		 
-   	   file =  "20170626145931_board8-CALsw-allch-TP3200_000."; 
+   	   file =  "20170706110201_board8-CALsw-allch-TP3200_004."; 
 	   NEVT=200.;
 		t = t + 200;
     }
 	
 	if (it==17	) {  par0=40; 
 		 
-   	   file =  "20170626151130_board8-CALsw-allch-TP3400_000."; 
+   	   file =  "20170706111354_board8-CALsw-allch-TP3400_004."; 
 	   NEVT=200.;
 		t = t + 200;
     }
 	
 	if (it==18	) {  par0=40; 
 		 
-   	   file =  "20170626152331_board8-CALsw-allch-TP3600_000."; 
+   	   file =  "20170706112546_board8-CALsw-allch-TP3600_004."; 
 	   NEVT=200.;
 		t = t + 200;
     }
@@ -1959,9 +1959,9 @@ void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 	
 	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;		
 }
-	//FileOutRes(Dir,file,i);
+	grafico(Dir,Resfile2);
 }
-*/
+/*
 void TwoDim_Plots_If160_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 {
 // ===========================================================================================================================
@@ -2143,12 +2143,11 @@ void TwoDim_Plots_If160_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 	//FileOutRes(Dir,file,i);
 }
 
-
+*/
 
 
 void Analysis(int i,int type,int min, int max){
 
- 
   TwoDim_Plots_40M_timing(i, type, min, max);
 //  TwoDim_Plots_40M_timing_range(i);
 //  TwoDim_Plots_20M_timing(i);
@@ -2160,11 +2159,11 @@ void Analysis(int i,int type,int min, int max){
 //  TwoDim_Plots_Pmezzi_timing(i);
 //  TwoDim_Plots_Pdoppi_timing(i);
 }
-
+/*
 void Analysis_loop(int type,int min, int max){
 
-//  TwoDim_Plots_40M_timing_loop(type, min, max);
-  TwoDim_Plots_If160_timing_loop(type, min, max);
+  TwoDim_Plots_40M_timing_loop(type, min, max);
+//  TwoDim_Plots_If160_timing_loop(type, min, max);
 //  TwoDim_Plots_If40_timing_loop(type, min, max);
 //  TwoDim_Plots_If10_timing_loop(type, min, max);
 //  TwoDim_Plots_C4F_timing_loop(type, min, max);
@@ -2172,3 +2171,111 @@ void Analysis_loop(int type,int min, int max){
 //  TwoDim_Plots_Pmezzi_timing_loop(type, min, max);
 //  TwoDim_Plots_Pdoppi_timing_loop(type, min, max);
 }
+*/
+
+void grafico(TString Dir, TString filename){
+	
+	//const float nmisure = 18;
+	
+	
+	ifstream in(filename);
+    if(!in){
+		cout<<"Il file"<<filename<<"non esiste"<<endl;
+		return;
+	}
+	
+	/*
+	ifstream file(filename);
+	if (file.is_open())
+	{ cout << "The file: " << filename << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << filename << " IS NOT OPEN " << "\n";
+	  return;}
+*/
+	const int n = 18;
+	int nmisure = 0;
+	float t,thr,ethr,sr,esr, tm, q, sq;
+	float TP[n], eTP[n], th[n], eth[n];
+	/*
+	vector<int> TPphase;
+	vector<float> th;
+	vector<float> eth;
+	vector<float> s;
+	vector<float> es;	
+	*/
+	while (in >> t)  {
+//     if((in >> x )){
+       
+	//       npix.push_back(x);
+        in >> thr;
+	//        thr.push_back(y);
+        in >> ethr;
+	//        noise.push_back(z);
+        in >> sr;
+        in >> esr;
+		
+		tm = 25 - t*25/3600;
+		if (tm > 5) tm=tm;
+		else tm = tm + 25;
+		
+		q = ((thr*48.5)-1500)*160/1000;
+		sq = (ethr*48.5)*160/1000;
+	      //              x=x+2;
+		  /*
+              TPphase.push_back(tm);
+              th.push_back(q);
+              eth.push_back(sq);
+			  s.push_back(sr);
+              es.push_back(0);
+			  nmisure++;*/
+			  
+		TP[nmisure] = tm;
+		eTP[nmisure] = 0;
+		th[nmisure] = q;
+		eth[nmisure] = sq;
+		nmisure++;
+		
+		cout << tm << " " <<q << " " << sq << endl;
+	  }
+	        //cout << t << " " <<thr << " " << sr << endl;  
+    
+	TCanvas *csoglia = new TCanvas("csoglia","Q(TPphase)",200,50,600,400);
+	csoglia -> cd();
+	TGraphErrors *gsoglia = new TGraphErrors(nmisure, TP, th, eTP, eth);
+	gsoglia->SetMarkerSize(0.6);
+	gsoglia->SetMarkerStyle(21);
+	gsoglia->SetTitle("<Q_{in}>(TPphase)_{40 MHz}");
+	gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
+	gsoglia->GetYaxis()->SetTitle("<Q_{in}> [aC]");
+	//gsoglia->SetMarkerColor(kBlue);
+	gsoglia->Draw("AP");
+	
+	csoglia->cd();
+	
+	TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",5,30);
+
+	//fitQ->SetParLimits(0,10,60);
+	fitQ->SetParLimits(1,-25.,25);
+	//fitQ->SetParLimits(1,0.5,7);
+	fitQ->SetParLimits( 2,4,25);
+	//fitQ->SetParLimits(3,7,12);
+
+	//TVirtualFitter::SetMaxInterations(100000);
+	gsoglia->Fit(fitQ,"MR");
+	//fitQ->SetParLimits(3,0.050,0.080);
+	cout << "Chi^2: " << fitQ->GetChisquare() << endl;
+	cout << "Probability: " << fitQ->GetProb() << endl;
+	cout << "number of DoF: " << fitQ->GetNDF() << endl;
+	/*
+	float TP[nmisure], eTP[nmisure], th[nmisure], eth[nmisure];
+	
+    TString dummy, dummy1, dummy2, dummy3, dummy4;
+     
+    cout << " Reading file : " << filename << "\n"; 
+
+    file >> dummy1 >> dummy2 >> dummy3 >> dummy4 >> dummy; 
+//	file >> dummy >> dummy >> dummy >> dummy ; 
+    cout << dummy1 << dummy2 << dummy3 << dummy4 << "\n";
+	*/
+	
+	}
