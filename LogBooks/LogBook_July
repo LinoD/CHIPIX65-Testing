@@ -44,3 +44,9 @@
           09.00-13.00    Ho analizzato i dati a 20 MHz. Mi sono resa conto che ho dei problemi a far girare l'analisi in loop sui file 
                          non ancora analizzati, quindi devo controllare quali siano i problemi nella macro per le curve a esse.
                          Per questa mattina mi sono arrangiata usando le macro precedenti non modificate.
+          13.30-      Ho analizzato i dati a 20 MHz avendo impostato IBiasP1 e IBiasP2 uguali al doppio dei valori impostati per una presa
+                         dati standard e mi sembra che ci sia qualcosa di strano, per alcuni TPphase la misura si e' bloccata e solo
+                         la meta' dei pixel ha dato risposta al segnale in ingresso.
+                         
+          
+          
