@@ -41,4 +41,6 @@
 
 10/07/2017
 
-          09.00-
+          09.00-13.00    Ho analizzato i dati a 20 MHz. Mi sono resa conto che ho dei problemi a far girare l'analisi in loop sui file 
+                         non ancora analizzati, quindi devo controllare quali siano i problemi nella macro per le curve a esse.
+                         Per questa mattina mi sono arrangiata usando le macro precedenti non modificate.
