@@ -32,6 +32,13 @@
 
 06/07/2017
 
-          8.30-13.00    Ho finito di implemetare la funzione per riempire il canvas e disegnare il grafico della carica in funzione della
-                        TPphase in manier automatica. La funzione e' implementata in analysis_studenti_scan_timingTP.C
-                        
+          08.30-13.00    Ho finito di implemetare la funzione per riempire il canvas e disegnare il grafico della carica in funzione della
+                         TPphase in maniera automatica. La funzione e' implementata in analysis_studenti_scan_timingTP.C
+          13.30-16.30    Ho discusso dei risultati ottenuti con Lino analizzando i dati presi per un range ristretto di pixel, 
+                         aggiornando la tabella riassuntiva.
+                         Ho ripreso alcuni dati a parametri impostati standard, dato che i dati raccolti in precedenza davano risultati
+                         strani e li ho reinseriti nella macro.
+
+10/07/2017
+
+          09.00-
