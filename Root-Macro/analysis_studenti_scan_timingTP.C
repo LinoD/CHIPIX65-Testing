@@ -179,302 +179,9 @@ void TwoDim_Plots_40M_timing(Int_t i, Int_t type, Int_t min, Int_t max)
 	//FileOutRes(Dir,file,i);
 	}
 }
+
+
 /*
-void TwoDim_Plots_40M_timing_range(Int_t i)
-{
-// ===========================================================================================================================
-    Float_t xmin, xmax, par0, par1, NEVT;
-	xmin = 30;
-	xmax = 300;
-	par0 = 50;
-	par1 = 2.;
-	NEVT = 200;
-	TString file,Dir, Dir0;
-	Int_t it=0;
-
-//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
-
-    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan/";	
-	
-    it=0;
-    Float_t tmax,tmin;
-    tmin=30.;
-    tmax=65;
-
-
-	while ( it<20 )  {
-		it++;
-		if (it==i ) {
-
-         if (it==1 ) {  par0=40; 
-		 
-   	   file =  "20170601004206_board8-CALsw-allch-TP200_001."; 
-	   NEVT=200.;
-
-    }
-		if (it==2 ) {  par0=40; 
-		 
-   	   file =  "20170531191742_board8-CALsw-allch-TP400_000."; 
-	   NEVT=200.;
-
-    }
-	if (it==3 ) {  par0=40; 
-		 
-   	   file =  "20170531194049_board8-CALsw-allch-TP600_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==4	) {  par0=40; 
-		 
-   	   file =  "20170531200358_board8-CALsw-allch-TP800_000."; 
-	   NEVT=200.;
-
-    }
-	if (it==5	) {  par0=40; 
-		 
-   	   file =  "20170531202711_board8-CALsw-allch-TP1000_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==6 ) {  par0=40; 
-		 
-   	   file =  "20170601023819_board8-CALsw-allch-TP1200_001."; 
-	   NEVT=200.;
-
-    }
-	if (it==7	) {  par0=40; 
-		 
-   	   file =  "20170531211343_board8-CALsw-allch-TP1400_000."; 
-	   NEVT=200.;
-
-    }
-	
-	
-	if (it==8	) {  par0=40; 
-		 
-   	   file =  "20170531213700_board8-CALsw-allch-TP1600_000."; 
-	   NEVT=200.;
-
-    }
-	
-    if (it==9	) {  par0=40; 
-		 
-   	   file =  "20170531220020_board8-CALsw-allch-TP1800_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==10	) {  par0=40; 
-		 
-   	   file =  "20170531222337_board8-CALsw-allch-TP2000_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==11	) {  par0=40; 
-		 
-   	   file =  "20170531224649_board8-CALsw-allch-TP2200_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==12	) {  par0=40; 
-		 
-   	   file =  "20170531231001_board8-CALsw-allch-TP2400_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==13	) {  par0=40; 
-		 
-   	   file =  "20170531233312_board8-CALsw-allch-TP2600_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==14	) {  par0=40; 
-		 
-   	   file =  "20170531235613_board8-CALsw-allch-TP2800_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==15	) {  par0=40; 
-		 
-   	   file =  "20170601001908_board8-CALsw-allch-TP3000_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==16	) {  par0=40; 
-		 
-   	   file =  "20170626145931_board8-CALsw-allch-TP3200_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==17	) {  par0=40; 
-		 
-   	   file =  "20170626151130_board8-CALsw-allch-TP3400_000."; 
-	   NEVT=200.;
-
-    }
-	
-	if (it==18	) {  par0=40; 
-		 
-   	   file =  "20170626152331_board8-CALsw-allch-TP3600_000."; 
-	   NEVT=200.;
-
-    }
-	
-	Dir = Dir0+"";	
-    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
-	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
-    analisiMC(Dir,file,40,20,60,1.,4.,0); 
-	}
-	}
-}
-
-
-void TwoDim_Plots_20M_timing(Int_t i)
-{M
-// ===========================================================================================================================
-    Float_t xmin, xmax, par0, par1, NEVT;
-	xmin = 30;
-	xmax = 300;
-	par0 = 50;
-	par1 = 2.;
-	NEVT = 50;
-	TString file,Dir, Dir0;
-	Int_t it=0;
-
-//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
-
-    Dir0 = "C:/Users/CHIPIX65/My Documents/LabVIEW Data/CHIPIX_data/studenti/TPphase-scan-20MHz/";	
-	
-    it=0;
-    Float_t tmax,tmin;
-    tmin=30.;
-    tmax=65;
-
-
-	while ( it<20 )  {
-		it++;
-		if (it==i ) {
-
-         if (it==1 ) {  par0=40; 
-		 
-   	   file =  "20170609032045_board8-CALsw-allch-TP200_002."; 
-	   NEVT=50.;
-
-    }
-		if (it==2 ) {  par0=40; 
-		 
-   	   file =  "20170609033841_board8-CALsw-allch-TP400_002."; 
-	   NEVT=50.;
-
-    }
-	if (it==3 ) {  par0=40; 
-		 
-   	   file =  "20170608203404_board8-CALsw-allch-TP600_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==4	) {  par0=40; 
-		 
-   	   file =  "20170608205129_board8-CALsw-allch-TP800_000."; 
-	   NEVT=50.;
-
-    }
-	if (it==5	) {  par0=40; 
-		 
-   	   file =  "20170608210902_board8-CALsw-allch-TP1000_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==6 ) {  par0=40; 
-		 
-   	   file =  "20170608212630_board8-CALsw-allch-TP1200_000."; 
-	   NEVT=50.;
-
-    }
-	if (it==7	) {  par0=40; 
-		 
-   	   file =  "20170608214411_board8-CALsw-allch-TP1400_000."; 
-	   NEVT=50.;
-
-    }
-	
-	
-	if (it==8	) {  par0=40; 
-		 
-   	   file =  "20170608215647_board8-CALsw-allch-TP1600_000."; 
-	   NEVT=50.;
-
-    }
-	
-    if (it==9	) {  par0=40; 
-		 
-   	   file =  "20170608220928_board8-CALsw-allch-TP1800_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==10	) {  par0=40; 
-		 
-   	   file =  "20170608222208_board8-CALsw-allch-TP2000_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==11	) {  par0=40; 
-		 
-   	   file =  "20170608224740_board8-CALsw-allch-TP2400_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==12	) {  par0=40; 
-		 
-   	   file =  "20170609021557_board8-CALsw-allch-TP2200_001."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==13	) {  par0=40; 
-		 
-   	   file =  "20170608230028_board8-CALsw-allch-TP2600_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==14	) {  par0=40; 
-		 
-   	   file =  "20170608231319_board8-CALsw-allch-TP2800_000."; 
-	   NEVT=50.;
-
-    }
-	
-	if (it==15	) {  par0=40; 
-		 
-   	   file =  "20170608232610_board8-CALsw-allch-TP3000_000."; 
-	   NEVT=50.;
-
-    }
-	
-	Dir = Dir0+"";	
-    Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
-	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
-    analisiMC(Dir,file,100,20,120,1.,8.,0); 
-	}
-	}
-}
-
-
 //Dati presi facendo variare la tensione ad un diverso valore di corrente di scarica Ifeed = 160 DAC
 void TwoDim_Plots_If160_timing(Int_t i)
 {
@@ -637,7 +344,7 @@ void TwoDim_Plots_If160_timing(Int_t i)
 	Dir = Dir0+"";	
     Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
 	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
-    analisiMC(Dir,file,100,20,120,1.,8.,0); 
+    analisiMC(Dir,file,60,20,80,1.,4.,type,min,max); 
 	}
 	}
 }
@@ -1786,6 +1493,453 @@ void TwoDim_Plots_Pdoppi_timing(Int_t i)
 }
 */
 
+void TwoDim_Plots_20M_timing(Int_t i, Int_t type, Int_t min, Int_t max)
+//void TwoDim_Plots_20M_timing(Int_t i)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 50;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-20MHz/";	
+	
+    it=0;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+
+
+	while ( it<20 )  {
+		it++;
+		if (it==i ) {
+
+     if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170608233903_board8-CALsw-allch-TP200_001."; 
+	   NEVT=50.;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170608235649_board8-CALsw-allch-TP400_001."; 
+	   NEVT=50.;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170609001415_board8-CALsw-allch-TP600_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170609003143_board8-CALsw-allch-TP800_001."; 
+	   NEVT=50.;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170609004912_board8-CALsw-allch-TP1000_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170609010658_board8-CALsw-allch-TP1200_001."; 
+	   NEVT=50.;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170609012448_board8-CALsw-allch-TP1400_001."; 
+	   NEVT=50.;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170609013731_board8-CALsw-allch-TP1600_001."; 
+	   NEVT=50.;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170609015016_board8-CALsw-allch-TP1800_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170609020307_board8-CALsw-allch-TP2000_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170609021557_board8-CALsw-allch-TP2200_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170609022853_board8-CALsw-allch-TP2400_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170609024149_board8-CALsw-allch-TP2600_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170609025448_board8-CALsw-allch-TP2800_001."; 
+	   NEVT=50.;
+		NEVT=50.;
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170609030746_board8-CALsw-allch-TP3000_001."; 
+	   NEVT=50.;
+		NEVT=50.;
+    }
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170609155821_board8-CALsw-allch-TP3200_000."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170609161543_board8-CALsw-allch-TP3400_000."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170609163253_board8-CALsw-allch-TP3600_000."; 
+	   NEVT=50.;
+		
+    }
+	
+	Dir = Dir0+"";	
+    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+    analisiMC(Dir,file,60,20,80,1.,4.,type,min,max);
+	//analisiMC(Dir,file,100,20,120,1.,8.); 	
+	}
+	}
+}
+
+//void TwoDim_Plots_If40_20M_timing(Int_t i, Int_t type, Int_t min, Int_t max)
+void TwoDim_Plots_If40_20M_timing(Int_t i)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 50;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-20MHz-Ifeed40/";	
+	
+    it=0;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+
+
+	while ( it<20 )  {
+		it++;
+		if (it==i ) {
+
+     if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170629101803_board8-CALsw-allch-If40-TP200_000."; 
+	   NEVT=50.;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170629103658_board8-CALsw-allch-If40-TP400_000."; 
+	   NEVT=50.;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170629105551_board8-CALsw-allch-If40-TP600_000."; 
+	   NEVT=50.;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170629111430_board8-CALsw-allch-If40-TP800_000."; 
+	   NEVT=50.;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170629113321_board8-CALsw-allch-If40-TP1000_000."; 
+	   NEVT=50.;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170629115216_board8-CALsw-allch-If40-TP1200_000."; 
+	   NEVT=50.;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170629121112_board8-CALsw-allch-If40-TP1400_000."; 
+	   NEVT=50.;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170629122443_board8-CALsw-allch-If40-TP1600_000."; 
+	   NEVT=50.;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170629123806_board8-CALsw-allch-If40-TP1800_000."; 
+	   NEVT=50.;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170629125136_board8-CALsw-allch-If40-TP2000_000."; 
+	   NEVT=50.;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170629130507_board8-CALsw-allch-If40-TP2200_000."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170629131837_board8-CALsw-allch-If40-TP2400_000."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170629133201_board8-CALsw-allch-If40-TP2600_000."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170629134536_board8-CALsw-allch-If40-TP2800_000."; 
+	   NEVT=50.;
+		NEVT=50.;
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170629135906_board8-CALsw-allch-If40-TP3000_000."; 
+	   NEVT=50.;
+		NEVT=50.;
+    }
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170629141239_board8-CALsw-allch-If40-TP3200_000."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170629185731_board8-CALsw-allch-If40-TP3400_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170629190851_board8-CALsw-allch-If40-TP3600_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	Dir = Dir0+"";	
+    Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+    //analisiMC(Dir,file,60,20,80,1.,4.,type,min,max);
+	analisiMC(Dir,file,100,20,120,1.,8.); 	
+	}
+	}
+}
+
+void TwoDim_Plots_Pdoppi_20M_timing(Int_t i)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 50;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-20MHz-Pdoppi/";	
+	
+    it=0;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+
+
+	while ( it<20 )  {
+		it++;
+		if (it==i ) {
+
+     if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170628135604_board8-CALsw-allch-Pdoppi-TP200_001."; 
+	   NEVT=50.;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170628141435_board8-CALsw-allch-Pdoppi-TP400_001."; 
+	   NEVT=50.;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170628143255_board8-CALsw-allch-Pdoppi-TP600_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170628145107_board8-CALsw-allch-Pdoppi-TP800_001."; 
+	   NEVT=50.;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170628150927_board8-CALsw-allch-Pdoppi-TP1000_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170628152811_board8-CALsw-allch-Pdoppi-TP1200_001."; 
+	   NEVT=50.;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170628154654_board8-CALsw-allch-Pdoppi-TP1400_001."; 
+	   NEVT=50.;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170628160015_board8-CALsw-allch-Pdoppi-TP1600_001."; 
+	   NEVT=50.;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170628161337_board8-CALsw-allch-Pdoppi-TP1800_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170628162701_board8-CALsw-allch-Pdoppi-TP2000_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170628164028_board8-CALsw-allch-Pdoppi-TP2200_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170628165355_board8-CALsw-allch-Pdoppi-TP2400_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170628170725_board8-CALsw-allch-Pdoppi-TP2600_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170628172050_board8-CALsw-allch-Pdoppi-TP2800_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170628173422_board8-CALsw-allch-Pdoppi-TP3000_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170628174753_board8-CALsw-allch-Pdoppi-TP3200_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170628133153_board8-CALsw-allch-Pdoppi-TP3400_000."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170628181245_board8-CALsw-allch-Pdoppi-TP3600_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	Dir = Dir0+"";	
+    Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+    //analisiMC(Dir,file,60,20,80,1.,4.,type,min,max);
+	analisiMC(Dir,file,100,20,120,1.,8.); 	
+	}
+	}
+}
+
+
 void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 {
 // ===========================================================================================================================
@@ -1821,6 +1975,8 @@ void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 	{ cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
 	return; }
 	
+	float mean0 ;
+	int n_entries2 ;
 	
      it=0;
 	for(it=1;it<19;it++){
@@ -1951,13 +2107,28 @@ void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 	
 	Dir = Dir0+"";	
 	
-   // Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
 	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
 	
 	
-    analisiMC(Dir,file,60,20,80,1.,4.,type,min,max); 
+    analisiMC(Dir,file,6000,20,80,1.,4.,type,min,max); 
 	
-	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;		
+	
+	n_entries2 = histo_thr->GetEntries();
+  
+	
+	mean0 = histo_thr->GetMean();
+	
+	if(n_entries2 > 50){
+	//  f1thr->GetParameter(0)
+
+    output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;	
+	}
+	else {
+	//  output_file2 << t << "  " << mean0 << "  " << 0.1 << "  " << 1.  <<  " " << 1. << endl;
+	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << 0.1 << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;
+	}
+		
 }
 	grafico(Dir,Resfile2);
 }
@@ -2145,21 +2316,602 @@ void TwoDim_Plots_If160_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 
 */
 
+void TwoDim_Plots_20M_timing_loop(Int_t type, Int_t min, Int_t max)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 200;
+	TString file,Dir, Dir0;
+	Int_t it=0;
 
-void Analysis(int i,int type,int min, int max){
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
 
-  TwoDim_Plots_40M_timing(i, type, min, max);
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-20MHz/";	
+	
+    it=0;
+	int t;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+    //file="pippo";
+	
+	TString output_filename2, filename,Resfile2;
+	
+	Resfile2 = Dir0+"Out/"+"Result.txt" ;
+	cout << " file to be opened " << Resfile2 << endl;
+	ofstream output_file2(Resfile2);
+	
+	if (output_file2.is_open())
+	{ cout << "The file: " << Resfile2 << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
+	return; }
+	
+	float mean0 ;
+	int n_entries2 ;
+	
+     it=0;
+	for(it=1;it<19;it++){
+	
+
+    if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170608233903_board8-CALsw-allch-TP200_001."; 
+	   NEVT=50.;
+		t = 200;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170608235649_board8-CALsw-allch-TP400_001."; 
+	   NEVT=50.;
+       t = t + 200;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170609001415_board8-CALsw-allch-TP600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170609003143_board8-CALsw-allch-TP800_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170609004912_board8-CALsw-allch-TP1000_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170609010658_board8-CALsw-allch-TP1200_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170609012448_board8-CALsw-allch-TP1400_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170609013731_board8-CALsw-allch-TP1600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170609015016_board8-CALsw-allch-TP1800_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170609020307_board8-CALsw-allch-TP2000_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170609021557_board8-CALsw-allch-TP2200_001."; 
+	   t = t + 200;
+
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170609022853_board8-CALsw-allch-TP2400_001."; 
+	   t = t + 200;
+
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170609024149_board8-CALsw-allch-TP2600_001."; 
+	   t = t + 200;
+
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170609025448_board8-CALsw-allch-TP2800_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170609030746_board8-CALsw-allch-TP3000_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170609155821_board8-CALsw-allch-TP3200_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170609161543_board8-CALsw-allch-TP3400_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170609163253_board8-CALsw-allch-TP3600_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	Dir = Dir0+"";	
+	
+    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+	
+	
+    analisiMC(Dir,file,200,20,120,1.,4.,type,min,max); 
+	
+	
+	n_entries2 = histo_thr->GetEntries();
+  
+	
+	mean0 = histo_thr->GetMean();
+	
+	if(n_entries2 > 50){
+	//  f1thr->GetParameter(0)
+
+    output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;	
+	}
+	else {
+	//  output_file2 << t << "  " << mean0 << "  " << 0.1 << "  " << 1.  <<  " " << 1. << endl;
+	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << 0.1 << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;
+	}
+		
+}
+	grafico(Dir,Resfile2);
+}
+
+void TwoDim_Plots_If40_20M_timing_loop(Int_t type, Int_t min, Int_t max)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 200;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-20MHz-Ifeed40/";	
+	
+    it=0;
+	int t;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+    //file="pippo";
+	
+	TString output_filename2, filename,Resfile2;
+	
+	Resfile2 = Dir0+"Out/"+"Result.txt" ;
+	cout << " file to be opened " << Resfile2 << endl;
+	ofstream output_file2(Resfile2);
+	
+	if (output_file2.is_open())
+	{ cout << "The file: " << Resfile2 << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
+	return; }
+	
+	float mean0 ;
+	int n_entries2 ;
+	
+     it=0;
+	for(it=1;it<19;it++){
+	
+
+     if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170629101803_board8-CALsw-allch-If40-TP200_000."; 
+	   NEVT=50.;
+	   t=200;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170629103658_board8-CALsw-allch-If40-TP400_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170629105551_board8-CALsw-allch-If40-TP600_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170629111430_board8-CALsw-allch-If40-TP800_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170629113321_board8-CALsw-allch-If40-TP1000_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170629115216_board8-CALsw-allch-If40-TP1200_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170629121112_board8-CALsw-allch-If40-TP1400_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170629122443_board8-CALsw-allch-If40-TP1600_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170629123806_board8-CALsw-allch-If40-TP1800_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170629125136_board8-CALsw-allch-If40-TP2000_000."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170629130507_board8-CALsw-allch-If40-TP2200_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170629131837_board8-CALsw-allch-If40-TP2400_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170629133201_board8-CALsw-allch-If40-TP2600_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170629134536_board8-CALsw-allch-If40-TP2800_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170629135906_board8-CALsw-allch-If40-TP3000_000."; 
+	   NEVT=50.;
+		t = t + 200;    
+	}
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170629141239_board8-CALsw-allch-If40-TP3200_000."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170629185731_board8-CALsw-allch-If40-TP3400_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170629190851_board8-CALsw-allch-If40-TP3600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	Dir = Dir0+"";	
+	
+    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+	
+	
+    analisiMC(Dir,file,200,20,120,1.,4.,type,min,max); 
+	
+	
+	n_entries2 = histo_thr->GetEntries();
+  
+	
+	mean0 = histo_thr->GetMean();
+	
+	if(n_entries2 > 50){
+	//  f1thr->GetParameter(0)
+
+    output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;	
+	}
+	else {
+	//  output_file2 << t << "  " << mean0 << "  " << 0.1 << "  " << 1.  <<  " " << 1. << endl;
+	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << 0.1 << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;
+	}
+		
+}
+	grafico(Dir,Resfile2);
+}
+
+void TwoDim_Plots_Pdoppi_20M_timing_loop(Int_t type, Int_t min, Int_t max)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 200;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan-20MHz-Pdoppi/";	
+	
+    it=0;
+	int t;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+    //file="pippo";
+	
+	TString output_filename2, filename,Resfile2;
+	
+	Resfile2 = Dir0+"Out/"+"Result.txt" ;
+	cout << " file to be opened " << Resfile2 << endl;
+	ofstream output_file2(Resfile2);
+	
+	if (output_file2.is_open())
+	{ cout << "The file: " << Resfile2 << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
+	return; }
+	
+	float mean0 ;
+	int n_entries2 ;
+	
+     it=0;
+	for(it=1;it<19;it++){
+	
+
+     if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170628135604_board8-CALsw-allch-Pdoppi-TP200_001."; 
+	   NEVT=50.;
+	   t=200;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170628141435_board8-CALsw-allch-Pdoppi-TP400_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170628143255_board8-CALsw-allch-Pdoppi-TP600_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170628145107_board8-CALsw-allch-Pdoppi-TP800_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170628150927_board8-CALsw-allch-Pdoppi-TP1000_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170628152811_board8-CALsw-allch-Pdoppi-TP1200_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170628154654_board8-CALsw-allch-Pdoppi-TP1400_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170628160015_board8-CALsw-allch-Pdoppi-TP1600_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170628161337_board8-CALsw-allch-Pdoppi-TP1800_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170628162701_board8-CALsw-allch-Pdoppi-TP2000_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170628164028_board8-CALsw-allch-Pdoppi-TP2200_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170628165355_board8-CALsw-allch-Pdoppi-TP2400_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170628170725_board8-CALsw-allch-Pdoppi-TP2600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170628172050_board8-CALsw-allch-Pdoppi-TP2800_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170628173422_board8-CALsw-allch-Pdoppi-TP3000_001."; 
+	   NEVT=50.;
+		t = t + 200;    
+	}
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170628174753_board8-CALsw-allch-Pdoppi-TP3200_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170628180132_board8-CALsw-allch-Pdoppi-TP3400_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170628181245_board8-CALsw-allch-Pdoppi-TP3600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	Dir = Dir0+"";	
+	
+    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+	
+	
+    analisiMC(Dir,file,200,20,120,1.,4.,type,min,max); 
+	
+	
+	n_entries2 = histo_thr->GetEntries();
+  
+	
+	mean0 = histo_thr->GetMean();
+	
+	if(n_entries2 > 50){
+	//  f1thr->GetParameter(0)
+
+    output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;	
+	}
+	else {
+	//  output_file2 << t << "  " << mean0 << "  " << 0.1 << "  " << 1.  <<  " " << 1. << endl;
+	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << 0.1 << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;
+	}
+		
+}
+	grafico(Dir,Resfile2);
+}
+
+//void Analysis(int i,int type,int min, int max){
+void Analysis(int i){
+//  TwoDim_Plots_40M_timing(i, type, min, max);
 //  TwoDim_Plots_40M_timing_range(i);
+//  TwoDim_Plots_20M_timing(i, type, min, max);
 //  TwoDim_Plots_20M_timing(i);
 //  TwoDim_Plots_If160_timing(i);
 //  TwoDim_Plots_If40_timing(i);
 //  TwoDim_Plots_If10_timing(i);
+//  TwoDim_Plots_If40_20M_timing(i);
+  TwoDim_Plots_Pdoppi_20M_timing(i);
 //  TwoDim_Plots_C4F_timing(i);
 //  TwoDim_Plots_Vth90_timing(i);
 //  TwoDim_Plots_Pmezzi_timing(i);
 //  TwoDim_Plots_Pdoppi_timing(i);
 }
-/*
+
 void Analysis_loop(int type,int min, int max){
 
   TwoDim_Plots_40M_timing_loop(type, min, max);
@@ -2170,8 +2922,13 @@ void Analysis_loop(int type,int min, int max){
 //  TwoDim_Plots_Vth90_timing_loop(type, min, max);
 //  TwoDim_Plots_Pmezzi_timing_loop(type, min, max);
 //  TwoDim_Plots_Pdoppi_timing_loop(type, min, max);
+//  TwoDim_Plots_20M_timing_loop(type, min, max);
+//  TwoDim_Plots_If40_20M_timing_loop(type, min, max);
+//  TwoDim_Plots_Pdoppi_20M_timing_loop(type, min, max);
 }
-*/
+
+
+
 
 void grafico(TString Dir, TString filename){
 	
@@ -2215,11 +2972,11 @@ void grafico(TString Dir, TString filename){
         in >> esr;
 		
 		tm = 25 - t*25/3600;
-		if (tm > 5) tm=tm;
+		if (tm > 5 )  tm=tm;
 		else tm = tm + 25;
 		
 		q = ((thr*48.5)-1500)*160/1000;
-		sq = (ethr*48.5)*160/1000;
+		sq = (ethr*48.5-1500)*160/1000;
 	      //              x=x+2;
 		  /*
               TPphase.push_back(tm);
@@ -2235,7 +2992,7 @@ void grafico(TString Dir, TString filename){
 		eth[nmisure] = sq;
 		nmisure++;
 		
-		cout << tm << " " <<q << " " << sq << endl;
+		//cout << tm << " " <<q << " " << sq << endl;
 	  }
 	        //cout << t << " " <<thr << " " << sr << endl;  
     
@@ -2244,7 +3001,7 @@ void grafico(TString Dir, TString filename){
 	TGraphErrors *gsoglia = new TGraphErrors(nmisure, TP, th, eTP, eth);
 	gsoglia->SetMarkerSize(0.6);
 	gsoglia->SetMarkerStyle(21);
-	gsoglia->SetTitle("<Q_{in}>(TPphase)_{40 MHz}");
+	gsoglia->SetTitle("<Q_{in}>(TPphase)_{20 MHz}");
 	gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
 	gsoglia->GetYaxis()->SetTitle("<Q_{in}> [aC]");
 	//gsoglia->SetMarkerColor(kBlue);
@@ -2252,13 +3009,14 @@ void grafico(TString Dir, TString filename){
 	
 	csoglia->cd();
 	
-	TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",5,30);
+	TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",0,25);
+	//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",6.5,28);
 
-	//fitQ->SetParLimits(0,10,60);
-	fitQ->SetParLimits(1,-25.,25);
-	//fitQ->SetParLimits(1,0.5,7);
-	fitQ->SetParLimits( 2,4,25);
-	//fitQ->SetParLimits(3,7,12);
+//	fitQ->SetParLimits(0,10.0,100.0);
+//	fitQ->SetParLimits(1,-5.0,25.0);
+	fitQ->SetParLimits(2,5.0,30.0);
+//	fitQ->SetParLimits(3,0.5,20.0);
+	//fitQ->SetParLimits(4,7,12);
 
 	//TVirtualFitter::SetMaxInterations(100000);
 	gsoglia->Fit(fitQ,"MR");
