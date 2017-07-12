@@ -52,4 +52,7 @@
                          Ho anche scritto una macro che mi permettesse di farlo manualmente, manemmeno quella sembra funzionare, appena la 
                          faccio girare su root il programma si chiude.
           
+12/07/2017
           
+          09.00-    Ho messo a posto la macro per disegnare un multigraph che l'altro giorno dava problemi e l'ho caricata nella
+                         cartella delle macro. Il grafico con i punti e' riportato nella cartella Images.
