@@ -71,4 +71,8 @@
                          cosa possa essere successo.
                          Ho iniziato inoltre ad analizzare i dati della presa dati di stanotte, ma devo usare i file non implementati da me
                          perche' se no da problemi, quindi devo analizzare un file alla volta.
-                         
+          14.00-17.00    Ho finito di studiare i dati raccolti questa notte.
+                         Ho scritto la funzione per fittare le misure ricavate, ribaltando la funzione di Q che e' stata usata fino ad
+                         adesso; devo ottimizzare i parametri, quindi devo ancora modificare la macro analysis_studenti_scan_timingTP.C 
+                         salvata nella cartella delle macro per root.
+                         Ho modificato anche la curva per fittare le curve ad esse per la variazione di soglia.
