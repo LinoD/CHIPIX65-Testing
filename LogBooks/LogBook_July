@@ -49,12 +49,19 @@
                          la meta' dei pixel ha dato risposta al segnale in ingresso.
                          Ho provato a scrivere una funzione che mi permettesse di creare un grafico per confrontare le popolazioni standard
                          raccolte alle due frequenze diverse, ma non sono ancora riuscita a implementarla.
-                         Ho anche scritto una macro che mi permettesse di farlo manualmente, manemmeno quella sembra funzionare, appena la 
+                         Ho anche scritto una macro che mi permettesse di farlo manualmente, ma nemmeno quella sembra funzionare, appena la 
                          faccio girare su root il programma si chiude.
           
 12/07/2017
           
           09.00-13.00    Ho messo a posto la macro per disegnare un multigraph che l'altro giorno dava problemi e l'ho caricata nella
                          cartella delle macro. Il grafico con i punti e' riportato nella cartella Images.
-          14.30-17.30                   
+          14.30-17.30    Abbiamo analizzato i dati in condizioni standard per due diverse frequenze di strobe e li abbiamo confrontati:
+                         si osserva che i dati presi a 20 MHz studiano un intervallo temporale maggiore rispetto a quelli a 40 MHz, ma 
+                         l'andamento attorno al minimo di carica che serve per superare la soglia in entrambe le misurazioni e' simile.
+                         I risultati ottenuti sono riportati nel grafico di confronto salvato in Images.
+                         Insieme a Ennio ho imparato come si installa la firmware per prendere misure a 20 MHz.
+                         Abbiamo fatto partire una presa dati a 20 MHz mantenendo costante la carica iniettata e facendo variare la tensione
+                         di soglia da 45 DAC a 205 DAC a passi di 2 DAC.
+                         
                          
