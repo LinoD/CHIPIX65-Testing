@@ -63,5 +63,12 @@
                          Insieme a Ennio ho imparato come si installa la firmware per prendere misure a 20 MHz.
                          Abbiamo fatto partire una presa dati a 20 MHz mantenendo costante la carica iniettata e facendo variare la tensione
                          di soglia da 45 DAC a 205 DAC a passi di 2 DAC.
-                         
+
+13/07/2017
+
+          09.00-13.00    Ho aggiornato il file con la tabella riassuntiva, inserendo anche i valori dei parametri ricavati per 20 MHz.
+                         Mi sono resa conto che ci sono dei problemi con la macro di analisi e ho speso un po' di tempo a tentare di capire
+                         cosa possa essere successo.
+                         Ho iniziato inoltre ad analizzare i dati della presa dati di stanotte, ma devo usare i file non implementati da me
+                         perche' se no da problemi, quindi devo analizzare un file alla volta.
                          
