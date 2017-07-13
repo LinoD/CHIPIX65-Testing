@@ -1939,6 +1939,155 @@ void TwoDim_Plots_Pdoppi_20M_timing(Int_t i)
 	}
 }
 
+void TwoDim_Plots_Vthchange_20M_timing(Int_t i)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 50;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-VTHSCAN-std-956mV-VDD/";	
+	
+    it=0;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+
+
+	while ( it<20 )  {
+		it++;
+		if (it==i ) {
+
+     if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170712221639_board8-VTHsw-allch-TP200_001."; 
+	   NEVT=50.;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170712223732_board8-VTHsw-allch-TP400_001."; 
+	   NEVT=50.;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170712225814_board8-VTHsw-allch-TP600_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170712231852_board8-VTHsw-allch-TP800_001."; 
+	   NEVT=50.;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170712233936_board8-VTHsw-allch-TP1000_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170713000027_board8-VTHsw-allch-TP1200_001."; 
+	   NEVT=50.;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170713002113_board8-VTHsw-allch-TP1400_001."; 
+	   NEVT=50.;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170713004212_board8-VTHsw-allch-TP1600_001."; 
+	   NEVT=50.;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	   file =  "20170713010313_board8-VTHsw-allch-TP1800_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170713012418_board8-VTHsw-allch-TP2000_001."; 
+	   NEVT=50.;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170713014525_board8-VTHsw-allch-TP2200_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170713020636_board8-VTHsw-allch-TP2400_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170713022747_board8-VTHsw-allch-TP2600_001."; 
+	   NEVT=50.;
+
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170713024903_board8-VTHsw-allch-TP2800_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170713031020_board8-VTHsw-allch-TP3000_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170713033135_board8-VTHsw-allch-TP3200_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170713035255_board8-VTHsw-allch-TP3400_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170713041027_board8-VTHsw-allch-TP3600_001."; 
+	   NEVT=50.;
+		
+    }
+	
+	Dir = Dir0+"";	
+    Macro_scurve_Vth(Dir,file,xmin,xmax,par0,par1,NEVT);
+	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+    //analisiMC(Dir,file,60,20,80,1.,4.,type,min,max);
+	analisiMC(Dir,file,100,40,180,1.,8.); 	
+	}
+	}
+}
+
+
 
 void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 {
@@ -2111,7 +2260,7 @@ void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
 	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
 	
 	
-    analisiMC(Dir,file,6000,20,80,1.,4.,type,min,max); 
+    analisiMC(Dir,file,3000,35,60,1.,4.,type,min,max); 
 	
 	
 	n_entries2 = histo_thr->GetEntries();
@@ -2895,6 +3044,202 @@ void TwoDim_Plots_Pdoppi_20M_timing_loop(Int_t type, Int_t min, Int_t max)
 	grafico(Dir,Resfile2);
 }
 
+void TwoDim_Plots_Vthchange_20M_timing_loop(Int_t type, Int_t min, Int_t max)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 200;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-VTHSCAN-std-956mV-VDD/";	
+	
+    it=0;
+	int t;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+    //file="pippo";
+	
+	TString output_filename2, filename,Resfile2;
+	
+	Resfile2 = Dir0+"Out/"+"Result.txt" ;
+	cout << " file to be opened " << Resfile2 << endl;
+	ofstream output_file2(Resfile2);
+	
+	if (output_file2.is_open())
+	{ cout << "The file: " << Resfile2 << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
+	return; }
+	
+	float mean0 ;
+	int n_entries2 ;
+	
+     it=0;
+	for(it=1;it<19;it++){
+	
+
+    if (it==1 ) {  par0=40; 
+		 
+   	   file =  "20170712221639_board8-VTHsw-allch-TP200_001."; 
+	   NEVT=50.;
+		t = 200;
+    }
+	if (it==2 ) {  par0=40; 
+		 
+   	   file =  "20170712223732_board8-VTHsw-allch-TP400_001."; 
+	   NEVT=50.;
+       t = t + 200;
+    }
+	if (it==3 ) {  par0=40; 
+		 
+   	   file =  "20170712225814_board8-VTHsw-allch-TP600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==4	) {  par0=40; 
+		 
+   	   file =  "20170712231852_board8-VTHsw-allch-TP800_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	if (it==5	) {  par0=40; 
+		 
+   	   file =  "20170712233936_board8-VTHsw-allch-TP1000_001.";
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==6 ) {  par0=40; 
+		 
+   	   file =  "20170713000027_board8-VTHsw-allch-TP1200_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	if (it==7	) {  par0=40; 
+		 
+   	   file =  "20170713002113_board8-VTHsw-allch-TP1400_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	
+	if (it==8	) {  par0=40; 
+		 
+   	   file =  "20170713004212_board8-VTHsw-allch-TP1600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+    if (it==9	) {  par0=40; 
+		 
+   	  file =  "20170713010313_board8-VTHsw-allch-TP1800_001.";
+		t = t + 200;
+    }
+	
+	if (it==10	) {  par0=40; 
+		 
+   	   file =  "20170713012418_board8-VTHsw-allch-TP2000_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==11	) {  par0=40; 
+		 
+   	   file =  "20170713014525_board8-VTHsw-allch-TP2200_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+
+    }
+	
+	if (it==12	) {  par0=40; 
+		 
+   	   file =  "20170713020636_board8-VTHsw-allch-TP2400_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+
+    }
+	
+	if (it==13	) {  par0=40; 
+		 
+   	   file =  "20170713022747_board8-VTHsw-allch-TP2600_001."; 
+	   NEVT=50.;
+	   t = t + 200;
+
+    }
+	
+	if (it==14	) {  par0=40; 
+		 
+   	   file =  "20170713024903_board8-VTHsw-allch-TP2800_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==15	) {  par0=40; 
+		 
+   	   file =  "20170713031020_board8-VTHsw-allch-TP3000_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==16	) {  par0=40; 
+		 
+   	   file =  "20170713033135_board8-VTHsw-allch-TP3200_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==17	) {  par0=40; 
+		 
+   	   file =  "20170713035255_board8-VTHsw-allch-TP3400_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	if (it==18	) {  par0=40; 
+		 
+   	   file =  "20170713041027_board8-VTHsw-allch-TP3600_001."; 
+	   NEVT=50.;
+		t = t + 200;
+    }
+	
+	Dir = Dir0+"";	
+	
+    //Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	//analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+	
+	
+    analisiMC(Dir,file,200,20,220,1.,4.,type,min,max); 
+	
+	
+	n_entries2 = histo_thr->GetEntries();
+  
+	
+	mean0 = histo_thr->GetMean();
+	
+	if(n_entries2 > 50){
+	//  f1thr->GetParameter(0)
+
+    output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;	
+	}
+	else {
+	//  output_file2 << t << "  " << mean0 << "  " << 0.1 << "  " << 1.  <<  " " << 1. << endl;
+	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << 0.1 << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;
+	}
+		
+}
+	grafico_VTh(Dir,Resfile2);
+}
+
+
 //void Analysis(int i,int type,int min, int max){
 void Analysis(int i){
 //  TwoDim_Plots_40M_timing(i, type, min, max);
@@ -2905,16 +3250,17 @@ void Analysis(int i){
 //  TwoDim_Plots_If40_timing(i);
 //  TwoDim_Plots_If10_timing(i);
 //  TwoDim_Plots_If40_20M_timing(i);
-  TwoDim_Plots_Pdoppi_20M_timing(i);
+//  TwoDim_Plots_Pdoppi_20M_timing(i);
 //  TwoDim_Plots_C4F_timing(i);
 //  TwoDim_Plots_Vth90_timing(i);
 //  TwoDim_Plots_Pmezzi_timing(i);
 //  TwoDim_Plots_Pdoppi_timing(i);
+  TwoDim_Plots_Vthchange_20M_timing(i);
 }
 
 void Analysis_loop(int type,int min, int max){
 
-  TwoDim_Plots_40M_timing_loop(type, min, max);
+//  TwoDim_Plots_40M_timing_loop(type, min, max);
 //  TwoDim_Plots_If160_timing_loop(type, min, max);
 //  TwoDim_Plots_If40_timing_loop(type, min, max);
 //  TwoDim_Plots_If10_timing_loop(type, min, max);
@@ -2923,8 +3269,9 @@ void Analysis_loop(int type,int min, int max){
 //  TwoDim_Plots_Pmezzi_timing_loop(type, min, max);
 //  TwoDim_Plots_Pdoppi_timing_loop(type, min, max);
 //  TwoDim_Plots_20M_timing_loop(type, min, max);
-//  TwoDim_Plots_If40_20M_timing_loop(type, min, max);
+// TwoDim_Plots_If40_20M_timing_loop(type, min, max);
 //  TwoDim_Plots_Pdoppi_20M_timing_loop(type, min, max);
+  TwoDim_Plots_Vthchange_20M_timing_loop(type, min, max);
 }
 
 
@@ -2971,9 +3318,10 @@ void grafico(TString Dir, TString filename){
         in >> sr;
         in >> esr;
 		
-		tm = 25 - t*25/3600;
-		if (tm > 5 )  tm=tm;
-		else tm = tm + 25;
+		//tm = 25 - t*25/3600;
+		tm = 50 - t*50/3600;
+		/*if (tm > 5 )  tm=tm;
+		else tm = tm + 25;*/
 		
 		q = ((thr*48.5)-1500)*160/1000;
 		sq = (ethr*48.5-1500)*160/1000;
@@ -3009,8 +3357,117 @@ void grafico(TString Dir, TString filename){
 	
 	csoglia->cd();
 	
-	TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",0,25);
-	//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",6.5,28);
+	TF1 *fitQ = new TF1("fitQ","[4]+([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",5,31.6);
+	//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",0,50);
+
+//	fitQ->SetParLimits(0,10.0,100.0);
+//	fitQ->SetParLimits(1,-5.0,25.0);
+	fitQ->SetParLimits(2,5.0,30.0);
+//	fitQ->SetParLimits(3,0.5,20.0);
+	//fitQ->SetParLimits(4,7,12);
+
+	//TVirtualFitter::SetMaxInterations(100000);
+	gsoglia->Fit(fitQ,"MR");
+	//fitQ->SetParLimits(3,0.050,0.080);
+	cout << "Chi^2: " << fitQ->GetChisquare() << endl;
+	cout << "Probability: " << fitQ->GetProb() << endl;
+	cout << "number of DoF: " << fitQ->GetNDF() << endl;
+	/*
+	float TP[nmisure], eTP[nmisure], th[nmisure], eth[nmisure];
+	
+    TString dummy, dummy1, dummy2, dummy3, dummy4;
+     
+    cout << " Reading file : " << filename << "\n"; 
+
+    file >> dummy1 >> dummy2 >> dummy3 >> dummy4 >> dummy; 
+//	file >> dummy >> dummy >> dummy >> dummy ; 
+    cout << dummy1 << dummy2 << dummy3 << dummy4 << "\n";
+	*/
+	
+	}
+	
+	void grafico_VTh(TString Dir, TString filename){
+	
+	//const float nmisure = 18;
+	
+	
+	ifstream in(filename);
+    if(!in){
+		cout<<"Il file"<<filename<<"non esiste"<<endl;
+		return;
+	}
+	
+	/*
+	ifstream file(filename);
+	if (file.is_open())
+	{ cout << "The file: " << filename << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << filename << " IS NOT OPEN " << "\n";
+	  return;}
+*/
+	const int n = 18;
+	int nmisure = 0;
+	float t,thr,ethr,sr,esr, tm, q, sq;
+	float TP[n], eTP[n], th[n], eth[n];
+	/*
+	vector<int> TPphase;
+	vector<float> th;
+	vector<float> eth;
+	vector<float> s;
+	vector<float> es;	
+	*/
+	while (in >> t)  {
+//     if((in >> x )){
+       
+	//       npix.push_back(x);
+        in >> thr;
+	//        thr.push_back(y);
+        in >> ethr;
+	//        noise.push_back(z);
+        in >> sr;
+        in >> esr;
+		
+		//tm = 25 - t*25/3600;
+		tm = 50 - t*50/3600;
+		/*if (tm > 5 )  tm=tm;
+		else tm = tm + 25;*/
+		
+		q = ((thr*48.5)-1500)*160/1000;
+		sq = (ethr*48.5-1500)*160/1000;
+	      //              x=x+2;
+		  /*
+              TPphase.push_back(tm);
+              th.push_back(q);
+              eth.push_back(sq);
+			  s.push_back(sr);
+              es.push_back(0);
+			  nmisure++;*/
+			  
+		TP[nmisure] = tm;
+		eTP[nmisure] = 0;
+		th[nmisure] = q;
+		eth[nmisure] = sq;
+		nmisure++;
+		
+		//cout << tm << " " <<q << " " << sq << endl;
+	  }
+	        //cout << t << " " <<thr << " " << sr << endl;  
+    
+	TCanvas *csoglia = new TCanvas("csoglia","Q(TPphase)",200,50,600,400);
+	csoglia -> cd();
+	TGraphErrors *gsoglia = new TGraphErrors(nmisure, TP, th, eTP, eth);
+	gsoglia->SetMarkerSize(0.6);
+	gsoglia->SetMarkerStyle(21);
+	gsoglia->SetTitle("<Q_{in}>(TPphase)_{20 MHz}");
+	gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
+	gsoglia->GetYaxis()->SetTitle("<Q_{in}> [aC]");
+	//gsoglia->SetMarkerColor(kBlue);
+	gsoglia->Draw("AP");
+	
+	csoglia->cd();
+	
+	TF1 *fitQ = new TF1("fitQ","[0]*(1 + TMath::Exp(-(x-[1])/[2]))+[3]*(x+[1])+[4]",8,31.6);
+	//TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",0,50);
 
 //	fitQ->SetParLimits(0,10.0,100.0);
 //	fitQ->SetParLimits(1,-5.0,25.0);
