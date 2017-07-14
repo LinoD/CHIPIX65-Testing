@@ -76,3 +76,14 @@
                          adesso; devo ottimizzare i parametri, quindi devo ancora modificare la macro analysis_studenti_scan_timingTP.C 
                          salvata nella cartella delle macro per root.
                          Ho modificato anche la curva per fittare le curve ad esse per la variazione di soglia.
+
+14/07/2017
+
+          08.30-13.30    Mi sono resa conto che non avevo effettuato la conversione della tensione media misurata da DAC in mV; ho pensato
+                         che potesse essere V[mV] = vth[DAC]*(514.49 mV / 50.21 DAC) ricavando la relazione dalle ci=urve di calibrazione.
+                         Ho messo anche a punto il fit con cui interpolare la curva, avendo ipotizzato una tensione in uscita dal CSA del 
+                         tipo  Vth = (Q/Cf)(1+Exp((t-t0)/τ))-(i/Cf)(t-t0).
+                         Ho iniziato ad analizzare i dati raccolti questa notte avendo impostato la tensione della parte digitale a 1.2 V
+                         
+                         
+          
