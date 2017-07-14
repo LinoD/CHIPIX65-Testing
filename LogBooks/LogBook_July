@@ -79,11 +79,13 @@
 
 14/07/2017
 
-          08.30-13.30    Mi sono resa conto che non avevo effettuato la conversione della tensione media misurata da DAC in mV; ho pensato
+          08.30-13.00    Mi sono resa conto che non avevo effettuato la conversione della tensione media misurata da DAC in mV; ho pensato
                          che potesse essere V[mV] = vth[DAC]*(514.49 mV / 50.21 DAC) ricavando la relazione dalle ci=urve di calibrazione.
                          Ho messo anche a punto il fit con cui interpolare la curva, avendo ipotizzato una tensione in uscita dal CSA del 
                          tipo  Vth = (Q/Cf)(1+Exp((t-t0)/τ))-(i/Cf)(t-t0).
                          Ho iniziato ad analizzare i dati raccolti questa notte avendo impostato la tensione della parte digitale a 1.2 V
-                         
+                         In realta' la conversione che bisogna usare e' 
+                         Vth = Vth[DAC]*0.106 V/200 DAC +0.49 V
+                         Le macro usate sono caricate nella cartella Macro-studenti
                          
           
