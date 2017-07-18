@@ -85,5 +85,14 @@
                          tipo  Vth = (Q/Cf)(1+Exp((t-t0)/τ))-(i/Cf)(t-t0).
                          Ho iniziato ad analizzare i dati raccolti questa notte avendo impostato la tensione della parte digitale a 1.2 V
                          
+18/07/2017
+
+          14.00-16.30    Ho analizzato i dati presi a 20 MHz avendo impostato la tensione sul digitale a 1.2 V; sono stati confrontati con 
+                         quelli presi a 956 mV ed e' stato notato che il picco di tensione si ha per lo stesso valore di TPphase.
+                         prendendo quel valore di TPphase sono stati confrontatai i valori medi di tensione di soglia in DAC e di 
+                         dispersione e si e' notato che variano molto poco, pur avendo due diversi valori di tensione sul digitale,
+                         (la dispersione diminuisce di circa il 10 % per la misura effettuata a 956 mV).
+                         Per poter effettuare dei confronti e' stata fatta partire una misura avendo impostato una diversa carica in ingresso
+                         (60 DAC, circa 1500 elettroni).
                          
           
