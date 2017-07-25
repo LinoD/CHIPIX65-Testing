@@ -95,4 +95,15 @@
                          Per poter effettuare dei confronti e' stata fatta partire una misura avendo impostato una diversa carica in ingresso
                          (60 DAC, circa 1500 elettroni).
                          
-          
+24/07/2017
+
+          08.30-13.00    Ho dovuto modificare la macro perche' c'era un problema di conversione dei dati in tensione e al posto di questa
+                         V[mV] = vth[DAC]*(514.49 mV / 50.21 DAC)
+                         e' stata usata questa conversione:
+                         V[V] = vth[DAC]*0.106 V / 200 DAC + 0.49 V
+                         dove i valori per la conversione sono stati ricavati dalla curva di calibrazione considerando la differenza tra 
+                         due punti sulla retta di calibrazione.
+                         Poi ho impostato il fit per Vth del tipo
+                         Vth = [0](1+Exp((t-[1])/[2]))-[3](t-[1])
+                         e i risultati sono riportati nel grafico 
+                         
