@@ -109,9 +109,19 @@
 
 25/07/2017
 
-          09.00-13.00
-                         Il fit e' stato stabilizzato inizializzando i parametri con i valori teorici che ci si aspetta, ovvero [0] = Q/Cf
+          09.00-13.00    Il fit e' stato stabilizzato inizializzando i parametri con i valori teorici che ci si aspetta, ovvero [0] = Q/Cf
                          deve essere circa 0.133, e il parametro [3] deve essere circa if/Cf. Per ricavare un valore meglio approssimato
                          si ricorre pero' al coefficiente angolare della retta che rappresenta la scarica mediante la corrente if, e per
                          ricavrlo e' stato necessario effettuare un fit lineare sulla zona di scarica lineare.
                          I risultati sono riportati nel grafico Vth_VDD1200_all_20M_4par
+          14.00-17.30    Dopo aver visto effettuare un bumb bonding tra chip e sensore, e' stato testato il sensore in ambiente non secco.
+                         E' stato sommariamente controllata la caratteristica tensione-corrente dl sensore con chip s[ento e acceso.
+                         Dopo di che sono state effettuate delle misure di CALsweep con il sensore ed e' emerso che il rumore e' formato
+                         da due popolazioni: una dovuta ai pixel bondati e una dai pixel non bondati; il rumore sui pixel collegati
+                         al sensore hanno rumore piu' alto rispetto a quello previsto.
+                         Si nota anche che la districuzione sulla media della soglia e' bimodale.
+                         
+26/07/2017
+
+          13.00-17.30
+          
