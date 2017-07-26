@@ -123,5 +123,9 @@
                          
 26/07/2017
 
-          13.00-17.30
+          13.00-17.30    Sono stati raccolti dei dati avendo impostato la tensione con cui si alimenta il sensore a 200 V ed e' stata
+                         analizzata la risposta usando sempre la stessa procedura. E' ststa effettuata una misura anche per tutti i pixel 
+                         della parte di Torino ed e' stata osservata che hanno diversa performance.
+                         Siccome il risultato non e' stato pienamente soddisfacente, e' stata lanciata un'altra misuara dello stesso calibro,
+                         ma si e' interrotta quando non erano ancora stati studiati tutti i pixel, quindi e' stata fatta ripartire.
           
