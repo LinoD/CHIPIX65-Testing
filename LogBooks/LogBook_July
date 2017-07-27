@@ -129,3 +129,10 @@
                          Siccome il risultato non e' stato pienamente soddisfacente, e' stata lanciata un'altra misuara dello stesso calibro,
                          ma si e' interrotta quando non erano ancora stati studiati tutti i pixel, quindi e' stata fatta ripartire.
           
+27/07/2017
+
+          09.00-         Sono stati analizzati dati presi facendo variare la tensione con cui viene alimentato il sensore registrando la 
+                         la risposta di un pixel ogni 4 ed e' emerso che non sono presenti grandi variazioni di media su soglia e rumore.
+                         Sono state prese delle misure anche alimentando il sensore con una pila che non dovrebbe immettere nel sistema
+                         degli impulsi di rumore aggiuntivi a quelli del chip stesso; si nota che effettivamente il rumore diminuisce di
+                         0.7 DAC circa e la media di soglia si abbassa
