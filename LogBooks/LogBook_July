@@ -138,4 +138,7 @@
                          0.7 DAC circa e la media di soglia si abbassa.
                          Sono state analizzate altri dati presi avendo impostato una minore corrente di feedback: il rumore e' sceso 
                          ulteriormente.
-                         
+          14.00-17.30    Per poter abbassare ulteriormente il rumore sono stati fatti dei test aggiungendo delle capacita' in ingresso.
+                         Dopo aver trovato per quale valore di capacita' e' migliore il risultato di rumore e' stato modificata la 
+                         mezzanina in modo da avere sempre quella capacita' che filtrasse rumore esterno
+          
