@@ -17,10 +17,15 @@ Board 7: irraggiata a Padova - non uniforme a caldo 180-350 Mrad
 
 NEW BOARDs
 -------------
-Board 1 : tested - at TORINO
-Board 2 : tested - at Torino
-Boiard 3 : tested - at BERGAMO
-Board 4 : tested - at Torino
+NBoard 1 : tested - at TORINO
+NBoard 2 : tested - at Torino - ora con Sensore 3D #7
+NBoard 3 : tested - inviata a BARI POLI - Cristoforo
+NBoard 4 : tested - at Torino - ora con sensore 3D #12
 
 NEW CHIP-on-Mezzanine
 ---------------------
+Mezz 3 : chip mandato a BARI
+Mezz S7 : con sensore 3D #7 
+Mezz S12 : con sen sore 3D #12
+
+
