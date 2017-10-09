@@ -368,8 +368,8 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
 	}
 
     float x,y,z,ex,ey,ez,cutn,cutt;
-    cutn = 0.2;
-    cutt = 0.2;
+    cutn = 1.1;
+    cutt = 1.55;
 
   Int_t isweep = 0;
 
@@ -398,23 +398,40 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
           else { cout << "Err " << x <<  y <<  z << ex << ey  << endl;   
 	  }
         isweep++;
-	        cout << x << " " << y << " " << z << endl;  
+	//        cout << x << " " << y << " " << z << endl;  
     }
 //    }   
 
  cout << " End of Pixel loop " << npixels << endl;
 
-  TH1D *histo_thr = new TH1D("histo_thr","histo_thr",nbins,min_thr,max_thr);
-  TH1D *histo_thr_LowestRow = new TH1D("histo_thr","histo_thr",nbins,min_thr,max_thr);
-  TH1D *histo_thr_HighestRow = new TH1D("histo_thr","histo_thr",nbins,min_thr,max_thr);
-  TH2D *Thisto_thrR = new TH2D("2dhisto_thr","2dhisto_thr",nbins,min_thr,max_thr,64,-0.5,63.5);
-  TH2D *Thisto_thrC = new TH2D("2dhisto_thr","2dhisto_thr",nbins,min_thr,max_thr,64,-0.5,63.5);
-  TH2D *Thisto_thrPR = new TH2D("2dhisto_thr","2dhisto_thr",nbins,min_thr,max_thr,16,-0.5,15.5);
+  TH1D *histo_thr = new TH1D("histo_thr","histo_thr",nbins/2,min_thr,max_thr);
+  TH1D *histo_thr_LowestRow = new TH1D("histo_thr","histo_thr",nbins/2,min_thr,max_thr);
+  TH1D *histo_thr_HighestRow = new TH1D("histo_thr","histo_thr",nbins/2,min_thr,max_thr);
+  TH2D *Thisto_thrR = new TH2D("2dhisto_thr","2dhisto_thr",nbins/2,min_thr,max_thr,64,-0.5,63.5);
+  TH2D *Thisto_thrC = new TH2D("2dhisto_thr","2dhisto_thr",nbins/2,min_thr,max_thr,64,-0.5,63.5);
+  TH2D *Thisto_thrPR = new TH2D("2dhisto_thr","2dhisto_thr",nbins/2,min_thr,max_thr,16,-0.5,15.5);
 
   TH2D *Thisto_thrMAP = new TH2D("2dhisto_thr","2dhisto_thr",64,-0.5,63.5,64,-0.5,63.5);
   TH2D *Thisto_noiseMAP = new TH2D("2dhisto_noise","2dhisto_noise",64,-0.5,63.5,64,-0.5,63.5);
 
+// ----------------------------------------------------------------------------------------------
 
+  TH1D *thr_c0 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c1 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c2 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c3 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c4 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c5 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c6 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c7 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c8 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c9 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c10 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c11 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c12 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c13 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c14 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
+  TH1D *thr_c15 = new TH1D("histo_thr","histo_thr",64,-0.5,63.5);
 
 //  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
   Int_t row, col, prow, pcol, pindex, ii;
@@ -432,6 +449,26 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
   Thisto_thrMAP->Fill(col,row,thr.at(i));
   Thisto_noiseMAP->Fill(col,row,noise.at(i));
 
+  if( (col==0) || (col==16))  { thr_c0->Fill(row,thr.at(i));
+  cout << col << " " << row << " " << thr.at(i)  << endl; }
+
+  if( (col==1) || (col==17))  thr_c1->Fill(row,thr.at(i));
+  if( (col==2) || (col==18))  thr_c2->Fill(row,thr.at(i));
+  if( (col==3) || (col==19))  thr_c3->Fill(row,thr.at(i));
+  if( (col==4) || (col==20))  thr_c4->Fill(row,thr.at(i));
+  if( (col==5) || (col==21))  thr_c5->Fill(row,thr.at(i));
+  if( (col==6) || (col==22))  thr_c6->Fill(row,thr.at(i));
+  if( (col==7) || (col==23))  thr_c7->Fill(row,thr.at(i));
+  if( (col==8) || (col==24))  thr_c8->Fill(row,thr.at(i));
+  if( (col==9) || (col==25))  thr_c9->Fill(row,thr.at(i));
+  if( (col==10) || (col==26))  thr_c10->Fill(row,thr.at(i));
+  if( (col==11) || (col==27))  thr_c11->Fill(row,thr.at(i));
+  if( (col==12) || (col==28))  thr_c12->Fill(row,thr.at(i));
+  if( (col==13) || (col==29))  thr_c13->Fill(row,thr.at(i));
+  if( (col==14) || (col==30))  thr_c14->Fill(row,thr.at(i));
+  if( (col==15) || (col==31))  thr_c15->Fill(row,thr.at(i));
+
+
   prow = (row-int(row/4)*4);
   pcol = (col-int(col/4)*4);
   pindex = prow + pcol*4;  
@@ -439,7 +476,7 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
   scol = col;
   srow = row;
   spindex = pindex;
-//  cout << i << "pix num: " << ii << " col=" << scol << " row =" <<  srow << " pindex=" << spindex  << "   " << thr.at(i) << endl;
+  cout << i << "pix num: " << ii << " col=" << scol << " row =" <<  srow << " pindex=" << spindex  << "   " << thr.at(i) << endl;
 
   Thisto_thrR->Fill(thr.at(i),srow);
   Thisto_thrC->Fill(thr.at(i),scol);
@@ -506,7 +543,8 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
   Thisto_thrMAP->GetYaxis()->SetTitle("Row");
   Thisto_thrMAP->SetMarkerStyle(2);
   Thisto_thrMAP->SetMarkerSize(1);
-  Thisto_thrMAP->SetMinimum(30);
+  Thisto_thrMAP->SetMinimum(min_thr+2);
+  Thisto_thrMAP->SetMaximum(max_thr-2);
   Thisto_thrMAP->Draw("COLz");
   MAP->cd(2);
   Thisto_noiseMAP->SetTitle("ENC Pixel Map");
@@ -515,9 +553,94 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
   Thisto_noiseMAP->SetMarkerStyle(2);
   Thisto_noiseMAP->SetMarkerSize(1);
   Thisto_noiseMAP->SetMinimum(0.8);
-  Thisto_noiseMAP->Draw("COLz");
+  Thisto_noiseMAP->SetMaximum(3.0);
+ Thisto_noiseMAP->Draw("COLz");
+
+  gStyle->SetOptStat(000000);
 
 
+  TCanvas *hrow = new TCanvas("row");
+  hrow->Divide(4,4);
+
+  hrow->cd(1);
+  thr_c0->SetMinimum(min_thr);
+  thr_c0->SetMaximum(max_thr);
+  thr_c0->Draw("HIST");
+
+  hrow->cd(2);
+  thr_c1->SetMinimum(min_thr);
+  thr_c1->SetMaximum(max_thr);
+  thr_c1->Draw("HIST");
+
+  hrow->cd(3);
+  thr_c2->SetMinimum(min_thr);
+  thr_c2->SetMaximum(max_thr);
+  thr_c2->Draw("HIST");
+
+  hrow->cd(4);
+  thr_c3->SetMinimum(min_thr);
+  thr_c3->SetMaximum(max_thr);
+  thr_c3->Draw("HIST");
+
+  hrow->cd(5);
+  thr_c4->SetMinimum(min_thr);
+  thr_c4->SetMaximum(max_thr);
+  thr_c4->Draw("HIST");
+
+  hrow->cd(6);
+  thr_c5->SetMinimum(min_thr);
+  thr_c5->SetMaximum(max_thr);
+  thr_c5->Draw("HIST");
+
+  hrow->cd(7);
+  thr_c6->SetMinimum(min_thr);
+  thr_c6->SetMaximum(max_thr);
+  thr_c6->Draw("HIST");
+
+  hrow->cd(8);
+  thr_c7->SetMinimum(min_thr);
+  thr_c7->SetMaximum(max_thr);
+  thr_c7->Draw("HIST");
+
+  hrow->cd(9);
+  thr_c8->SetMinimum(min_thr);
+  thr_c8->SetMaximum(max_thr);
+  thr_c8->Draw("HIST");
+
+  hrow->cd(10);
+  thr_c9->SetMinimum(min_thr);
+  thr_c9->SetMaximum(max_thr);
+  thr_c9->Draw("HIST");
+
+  hrow->cd(11);
+  thr_c10->SetMinimum(min_thr);
+  thr_c10->SetMaximum(max_thr);
+  thr_c10->Draw("HIST");
+
+  hrow->cd(12);
+  thr_c11->SetMinimum(min_thr);
+  thr_c11->SetMaximum(max_thr);
+  thr_c11->Draw("HIST");
+
+  hrow->cd(13);
+  thr_c12->SetMinimum(min_thr);
+  thr_c12->SetMaximum(max_thr);
+  thr_c12->Draw("HIST");
+
+  hrow->cd(14);
+  thr_c13->SetMinimum(min_thr);
+  thr_c13->SetMaximum(max_thr);
+  thr_c13->Draw("HIST");
+
+  hrow->cd(15);
+  thr_c14->SetMinimum(min_thr);
+  thr_c14->SetMaximum(max_thr);
+  thr_c14->Draw("HIST");
+
+  hrow->cd(16);
+  thr_c15->SetMinimum(min_thr);
+  thr_c15->SetMaximum(max_thr);
+  thr_c15->Draw("HIST");
 
 }
 
@@ -598,6 +721,7 @@ void analisiTOT_freq(TString Dir, TString inFileName1,  TString inFileName2, Dou
     TF1 *f1thr = new TF1("f1thr","gaus");
 
     float freq, f,l; 
+    cout << " NBINS = " << nbins << endl;
     TH1F *histo_freq = new TH1F("histo_frq","histo_frq",nbins,min_freq,max_freq);
 
   for(Int_t i=0;i<npixels;i++){

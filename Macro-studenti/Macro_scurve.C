@@ -19,7 +19,7 @@ Float_t SCurve(Double_t *xx, Double_t *par){
  // par[0] threshold
  // par[1] sigma della gaussiana
 
-void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax = 60, Float_t par0 = 45 , Float_t par1 = 2, Float_t NEVT=50.){
+void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax = 60, Float_t par0 = 45 , Float_t par1 = 2, Float_t NEVT=200.){
 // ----------------------------------------------------------------------------------------------------------------------------------------    
 	Int_t ideb=0;
 
@@ -67,7 +67,7 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
     
     vector<float> charge;
     vector<float> eff;
-    Int_t npix, nsw;
+    Int_t npix, nsw;    
     TString dummy, dummy1, dummy2, dummy3, dummy4, spix;
      
     cout << " Reading file : " << filename << "\n"; 
@@ -118,7 +118,7 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
     while (isweep < nsw)  {
 	if(counter== (nsw-1)){
 	   file >> dummy1 >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy; 
-//	   cout << ipix << " pixelnum " <<  dummy1 << endl;   
+	   cout << ipix << " pixelnum " <<  dummy1 << endl;   
            spix = dummy1(2,10);
            iipix = atoi(spix);
            isweep++;
@@ -143,17 +143,11 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
     plot[ipix]->Fit(fitcurve,"Q");
 
 
-   Float_t cut0 = 0.7;
-   Float_t cut1 = 1.2;
+   Float_t cut0 = 1.05;
+   Float_t cut1 = 1.55;
 
 // -------------- Trying to recover bad fit 
 
-   if ( fitcurve->GetParError(0)>cut0 || fitcurve->GetParError(1)> cut1 )  {
-// Second attempt to cure: bad S-CURVES
-     fitcurve -> SetParameters(1.1*par0,par1);
-     plot[ipix]->Fit(fitcurve,"Q");
-     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 1.1 " << "\n";
-   } 
    if ( fitcurve->GetParError(0)>cut0 || fitcurve->GetParError(1)> cut1 )  {
 // Second attempt to cure: bad S-CURVES
      fitcurve -> SetParameters(1.2*par0,par1);
@@ -162,21 +156,21 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
    } 
    if ( fitcurve->GetParError(0)>cut0 || fitcurve->GetParError(1)> cut1 )  {
 // Second attempt to cure: bad S-CURVES
-     fitcurve -> SetParameters(1.3*par0,par1);
+     fitcurve -> SetParameters(1.4*par0,par1);
      plot[ipix]->Fit(fitcurve,"Q");
-     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 1.3 " << "\n";
-   }    
-   if ( fitcurve->GetParError(0)>cut0 || fitcurve->GetParError(1)> cut1 )  {
-// Third attempt to cure: bad S-CURVES
-     fitcurve -> SetParameters(0.9*par0,par1);
-     plot[ipix]->Fit(fitcurve,"Q");
-     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 0.9 " << "\n";
+     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 1.4 " << "\n";
    } 
    if ( fitcurve->GetParError(0)>cut0 || fitcurve->GetParError(1)> cut1 )  {
 // Third attempt to cure: bad S-CURVES
-     fitcurve -> SetParameters(0.7*par0,par1);
+     fitcurve -> SetParameters(0.8*par0,par1);
      plot[ipix]->Fit(fitcurve,"Q");
-     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 0.7 " << "\n";
+     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 0.8 " << "\n";
+   } 
+   if ( fitcurve->GetParError(0)>cut0 || fitcurve->GetParError(1)> cut1 )  {
+// Third attempt to cure: bad S-CURVES
+     fitcurve -> SetParameters(0.6*par0,par1);
+     plot[ipix]->Fit(fitcurve,"Q");
+     if ( fitcurve->GetParError(0)<cut0 && fitcurve->GetParError(1)< cut1 ) cout << " RECOVERED 0.6 " << "\n";
    } 
 
     Float_t g0 = fitcurve->GetParameter(0);
@@ -232,7 +226,7 @@ Float_t PCurve(Double_t *xx, Double_t *par){
 }
 
 
-void Macro_ToT(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax = 60, Float_t par0 = 45 , Float_t par1 = 2, Float_t NEVT=50.){
+void Macro_ToT(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax = 60, Float_t par0 = 45 , Float_t par1 = 2, Float_t NEVT=200.){
 // ----------------------------------------------------------------------------------------------------------------------------------------    
     Int_t ideb=0;
 
@@ -423,7 +417,7 @@ void Macro_ToT(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax = 60
 //    break;       
    } 
       
-    multiplot->Draw("A");
+     //    multiplot->Draw("A");
     cvs->SaveAs(Rfile);
     cvs->SaveAs(Jfile);
 	return;
