@@ -22,14 +22,27 @@ NBoard 2 : tested - at Torino - ora con Sensore 3D #7
 NBoard 3 : tested - inviata a BARI POLI - Cristoforo
 NBoard 4 : tested - at Torino - ora con sensore 3D #12
 
+
+
 NEW CHIP-on-Mezzanine
 ---------------------
 Mezz 1 : chip inviato a Bergamo
 Mezz 2 :  ??? 
 Mezz 3 : chip mandato a BARI
 Mezz 4 : chip in Torino
+
+Mezz 5 : irradiated PS-irrad
+Mezz 6 : irradiated PS-irrad
+Mezz 7 : irradiated PS-irrad
+Mezz 8 : irradiated PS_irrad
+
 Mezz S7 : con sensore 3D #7  25x100-1E
 Mezz S12 : con sen sore 3D #12 50x50
+Mezz S.   : con sensore 50x50
+Mezz S.   : con sensore 25x100  bassa qualita' di bump-bonding
+
+
+
 
 
 
