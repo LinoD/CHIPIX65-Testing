@@ -34,7 +34,8 @@ void TwoDim_Plots_40M_timing(Int_t i, Int_t type, Int_t min, Int_t max)
 
 //	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
 
-    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan/";	
+	//Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan/";
+	Dir0 = "/home/mimosa/GitHub/CHIPIX65-Testing/data/TPphase-scan/"; 
 	
     it=0;
     Float_t tmax,tmin;
@@ -3535,9 +3536,9 @@ void TwoDim_Plots_sensore12_Board4_PILA(Int_t i)
 }
 
 
-//void Analysis(int i,int type,int min, int max){
-void Analysis(int i){
-//  TwoDim_Plots_40M_timing(i, type, min, max);
+void Analysis(int i,int type,int min, int max){
+  //void Analysis(int i){
+  TwoDim_Plots_40M_timing(i, type, min, max);
 //  TwoDim_Plots_40M_timing_range(i);
 //  TwoDim_Plots_20M_timing(i, type, min, max);
 //  TwoDim_Plots_20M_timing(i);
@@ -3554,7 +3555,7 @@ void Analysis(int i){
 //  TwoDim_Plots_Vthchange1200_20M_timing(i);
 //  TwoDim_Plots_sensore7_Board2(i);
 //  TwoDim_Plots_sensore12_Board4(i);
-  TwoDim_Plots_sensore12_Board4_PILA(i);
+//  TwoDim_Plots_sensore12_Board4_PILA(i);
 }
 
 void Analysis_loop(int type,int min, int max){
@@ -3623,9 +3624,17 @@ void grafico(TString Dir, TString filename){
 		/*if (tm > 5 )  tm=tm;
 		else tm = tm + 25;*/
 		
-		q = ((thr*48.5)-1500)*160/1000;
-		sq = (ethr*48.5-1500)*160/1000;
+		q = ((thr*48.5)-1500)*1.6*pow(10.,-19);
+		sq = (ethr*48.5-1500)*1.6*pow(10.,-19);
 	      //              x=x+2;
+
+		/*float qDAC = 70.;
+	float q_c;
+	q_c = ((qDAC*48.5)-1500.)*1.6*pow(10.,-19.);
+	cout << "/n" << q_c << "/n" << endl;
+	
+	float c = 2.4*pow(10.,-15.);
+		 */
 		  /*
               TPphase.push_back(tm);
               th.push_back(q);
