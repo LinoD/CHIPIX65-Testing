@@ -119,8 +119,9 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
 	if(counter== (nsw-1)){
 	   file >> dummy1 >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy; 
 	   cout << ipix << " pixelnum " <<  dummy1 << endl;   
-           spix = dummy1(2,10);
-           iipix = atoi(spix);
+           spix = dummy1(2,4);
+	   cout<< spix<<endl;
+           iipix = spix.Atoi();
            isweep++;
 //	   continue;
 //	   counter=0;
