@@ -119,8 +119,9 @@ void Macro_scurve_Vth(TString Dir, TString filei, Float_t xmin = 30 , Float_t xm
 	if(counter== (nsw-1)){
 	   file >> dummy1 >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy; 
 //	   cout << ipix << " pixelnum " <<  dummy1 << endl;   
-           spix = dummy1(2,10);
+           spix = dummy1(2,4);
            iipix = spix.Atoi();
+           cout<<spix<<endl;
            isweep++;
 //	   continue;
 //	   counter=0;

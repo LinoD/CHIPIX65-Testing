@@ -11,13 +11,16 @@
 #include "TStyle.h"
 
 
-
+//Funzione per calcolare i parametri per disegnare la curva ad esse dei dati
 Float_t SCurve(Double_t *xx, Double_t *par){
 // -----------------------------------------------------------------------------------------------------------------------------
     return  1./2. * (TMath::Erf((xx[0] - par[0])/(TMath::Sqrt(2)*par[1]))) + 0.5;
 }
  // par[0] threshold
  // par[1] sigma della gaussiana
+
+
+//funzione per disegnare le SCurve sui dati
 
 void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax = 60, Float_t par0 = 45 , Float_t par1 = 2, Float_t NEVT=200.){
 // ----------------------------------------------------------------------------------------------------------------------------------------    
@@ -26,6 +29,8 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
     TString output_filename, output_filename_error, filename;
 
     gStyle->SetOptStat(00111111);
+
+//Apertura dei file per output
 
     filename = Dir+filei+"txt";	
     output_filename = Dir+"Out/"+filei+"out";		
@@ -63,6 +68,7 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
 	{ cout << "The file: " << filename << " IS NOT OPEN " << "\n";
 	  return;}
 
+//Lettura dei file di dati
     Float_t x,y,y2;
     
     vector<float> charge;
@@ -120,7 +126,7 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
 	   file >> dummy1 >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy; 
 	   cout << ipix << " pixelnum " <<  dummy1 << endl;   
            spix = dummy1(2,4);
-	   cout<< spix<<endl;
+	   //cout<< spix<<endl;
            iipix = spix.Atoi();
            isweep++;
 //	   continue;
