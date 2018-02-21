@@ -352,51 +352,197 @@ void TwoDim_Plots_40M_timing_Vth(Int_t i, Int_t type, Int_t min, Int_t max)
 	}
 }
 
-
+void TwoDim_Plots_40M_timing_loop(Int_t type, Int_t min, Int_t max)
+{
+// ===========================================================================================================================
+    Float_t xmin, xmax, par0, par1, NEVT;
+	xmin = 30;
+	xmax = 300;
+	par0 = 50;
+	par1 = 2.;
+	NEVT = 200;
+	TString file,Dir, Dir0;
+	Int_t it=0;
+//	Dir0 = "data/CERN/board4/Annealed/Ifeed75-Vbl3200/";
+    Dir0 = "C:/Users/CHIPIX65.CHIPIX65TO03/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/TPphase-scan/";	
+	
+    it=0;
+	int t;
+    Float_t tmax,tmin;
+    tmin=30.;
+    tmax=65;
+    //file="pippo";
+	
+	TString output_filename2, filename,Resfile2;
+	
+	Resfile2 = Dir0+"Out/"+"Result.txt" ;
+	cout << " file to be opened " << Resfile2 << endl;
+	ofstream output_file2(Resfile2);
+	
+	if (output_file2.is_open())
+	{ cout << "The file: " << Resfile2 << " IS OPEN " << "\n"; }
+	else 
+	{ cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
+	return; }
+	
+	float mean0 ;
+	int n_entries2 ;
+	
+    it=0;
+	for(it=1;it<19;it++){
+	
+    	if ( it==1 ) {  
+         	par0=40;
+   	   		file =  "20180215215712_board8-VTHsw-allch-TP0_001."; 
+	   		NEVT=50.;
+    	}	
+    	
+		if ( it==2 ) {  
+			par0=40;
+   	   		file =  "20180215221204_board8-VTHsw-allch-TP200_001."; 
+	   		NEVT=50.;
+    	}
+    	
+		if ( it==3 ) {  
+			par0=40;
+   	   		file =  "20180215222655_board8-VTHsw-allch-TP400_001."; 
+	   		NEVT=50.;
+    	}
+		if ( it==4 ) {  
+			par0=40; 		 
+   	   		file = "20180215224146_board8-VTHsw-allch-TP600_001."; 
+	   		NEVT=50.;
+    	}
+    	
+		if ( it==5 ) {
+			par0=40; 
+			file =  "20180215225644_board8-VTHsw-allch-TP800_001."; 
+			NEVT=50.;
+    	}
+    	
+		if ( it==6 ) {  
+			par0=40; 
+   	   		file =  "20180215231140_board8-VTHsw-allch-TP1000_001."; 
+	   		NEVT=50.;
+    	}
+    	
+		if ( it==7 ) {  
+			par0=40;
+   	   		file =  "20180215232641_board8-VTHsw-allch-TP1200_001."; 
+	   		NEVT=50.;
+	    }
+	    
+		if ( it==8 ) {  
+			par0=40;
+   	   		file =  "20180215234143_board8-VTHsw-allch-TP1400_001.";
+	   		NEVT=50.;
+    	}
+    	
+    	if ( it==9 ) {  
+    		par0=40;  
+   	   		file =  "20180215235644_board8-VTHsw-allch-TP1600_001.";
+	   		NEVT=50.;
+    	}
+		
+		if ( it==10 ) {  
+			par0=40; 
+   	   		file =  "20180216001147_board8-VTHsw-allch-TP1800_001.";  
+	   		NEVT=50.;
+    	}
+    	
+		if ( it==11	) {  
+			par0=40; 
+   	   		file = "20180216002647_board8-VTHsw-allch-TP2000_001."; 
+	   		NEVT=50.;
+	   	}
+	   	
+		if ( it==12	) {  
+			par0=40; 
+   	   		file =  "20180216004144_board8-VTHsw-allch-TP2200_001."; 
+	   		NEVT=50.;
+    	}
+    	
+		if ( it==13	) {  
+			par0=40; 
+   	   		file =  "20180216005633_board8-VTHsw-allch-TP2400_001."; 
+	    	NEVT=50.;
+    	}
+    	
+		if ( it==14	) {  
+			par0=40; 
+   	   		file =  "20180216010330_board8-VTHsw-allch-TP2600_001."; 
+	   		NEVT=50.;
+    	}
+    	
+		if ( it==15	) {  
+			par0=40;
+   	   		file =  "20180216011808_board8-VTHsw-allch-TP2800_001."; 
+	   		NEVT=50.;		
+    	}
+    	
+		if ( it==16	) {  
+			par0=40; 		 
+   	   		file =  "20180216013245_board8-VTHsw-allch-TP3000_001."; 
+	   		NEVT=50.;
+    	}
+	
+		if ( it==17	) {  
+			par0=40; 		 
+   	   		file =  "20180216015601_board8-VTHsw-allch-TP3200_001."; 
+	   		NEVT=50.;	
+    	}
+	
+		if ( it==18	) {  
+			par0=40; 		 
+   	   		file =  "20180216021051_board8-VTHsw-allch-TP3400_001.";
+	   		NEVT=50.;
+    	}
+    
+    	if ( it==19	) {  
+    		par0=40; 		 
+   	   		file =  "20180216022544_board8-VTHsw-allch-TP3600_001."; 
+	   		NEVT=50.;
+    	}
+	
+	Dir = Dir0+"";	
+	
+    Macro_scurve(Dir,file,xmin,xmax,par0,par1,NEVT);
+	analisiTHR2(Dir,file,320,tmin,tmax,0.,10.,23.); 
+	
+	
+    analisiMC(Dir,file,3000,35,60,1.,4.,type,min,max); 
+	
+	
+	n_entries2 = histo_thr->GetEntries();
+  
+	
+	mean0 = histo_thr->GetMean();
+	
+	if(n_entries2 > 50){
+	//  f1thr->GetParameter(0)
+    output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParError(1) << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;	
+	}
+	else {
+	//  output_file2 << t << "  " << mean0 << "  " << 0.1 << "  " << 1.  <<  " " << 1. << endl;
+	output_file2 << t << "  " << f1thr->GetParameter(1) << "  " << 0.1 << "  " <<f1thr->GetParameter(2)<< "  " << f1thr->GetParError(2) << endl;
+	}
+		
+}
+	grafico(Dir,Resfile2);
+}
 
 
 
 void Analysis(int i,int type,int min, int max){
-//void Analysis(int i){
-//  TwoDim_Plots_40M_timing(i, type, min, max);
-//  TwoDim_Plots_40M_timing(i);
-//  TwoDim_Plots_20M_timing(i, type, min, max);
-//  TwoDim_Plots_20M_timing(i);
-//  TwoDim_Plots_If160_timing(i);
-//  TwoDim_Plots_If40_timing(i);
-//  TwoDim_Plots_If10_timing(i);
-//  TwoDim_Plots_If40_20M_timing(i);
-//  TwoDim_Plots_Pdoppi_20M_timing(i);
-//  TwoDim_Plots_C4F_timing(i);
-//  TwoDim_Plots_Vth90_timing(i);
-//  TwoDim_Plots_Pmezzi_timing(i);
-//  TwoDim_Plots_Pdoppi_timing(i);
-//  TwoDim_Plots_Vthchange_20M_timing(i);
-//  TwoDim_Plots_Vthchange1200_20M_timing(i);
-//  TwoDim_Plots_sensore7_Board2(i);
-//  TwoDim_Plots_sensore12_Board4(i);
-//  TwoDim_Plots_sensore12_Board4_PILA(i);
-TwoDim_Plots_40M_timing_Vth(i, type, min, max);
+	//  TwoDim_Plots_40M_timing(i, type, min, max);
+	TwoDim_Plots_40M_timing_Vth(i, type, min, max);
 }
 
 void Analysis_loop(int type,int min, int max){
 
-//  TwoDim_Plots_40M_timing_loop(type, min, max);
-//  TwoDim_Plots_If160_timing_loop(type, min, max);
-//  TwoDim_Plots_If40_timing_loop(type, min, max);
-//  TwoDim_Plots_If10_timing_loop(type, min, max);
-//  TwoDim_Plots_C4F_timing_loop(type, min, max);
-//  TwoDim_Plots_Vth90_timing_loop(type, min, max);
-//  TwoDim_Plots_Pmezzi_timing_loop(type, min, max);
-//  TwoDim_Plots_Pdoppi_timing_loop(type, min, max);
-//  TwoDim_Plots_20M_timing_loop(type, min, max);
-// TwoDim_Plots_If40_20M_timing_loop(type, min, max);
-//  TwoDim_Plots_Pdoppi_20M_timing_loop(type, min, max);
-//  TwoDim_Plots_Vthchange_20M_timing_loop(type, min, max);
-//  TwoDim_Plots_Vthchange1200_20M_timing_loop(type, min, max);
+	//  TwoDim_Plots_40M_timing_loop(type, min, max);
+
 }
-
-
 
 
 void grafico(TString Dir, TString filename){
