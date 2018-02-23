@@ -1,7 +1,7 @@
 /* Funzioni per disegnare i grafici in 1D e 2D
     
 	autore: Cristina Sauda - cristina.sauda@edu.unito.it
-	ultima modifica: 2018/02/21
+	ultima modifica: 2018/02/23
 	
 	per eseguire:
 	 + 
@@ -97,68 +97,49 @@ void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr
   TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
   //  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
   
-  if(par_analisi == 0){
-    for(Int_t i=0;i<npixels;i++){ 
+  switch(par_analisi){
+  	case 0:{
+  		for(Int_t i=0;i<npixels;i++){ 
       histo_thr->Fill(thr.at(i));
       histo_noise->Fill(noise.at(i));
-    }  
-  }
-  
-  if(par_analisi == 1){
-    /*
-      do{
-      cout << "\n "<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO INFERIORE DEL RANGE TRA 0 E 1023:"<<endl;
-      cin >> pix_inf;
-      }while(pix_inf>1023 || pix_inf<0);
-      
-      do{
-      cout <<"\n"<< "INSERIRE IL VALORE DI PIXEL COME ESTREMO SUPERIORE DEL RANGE:"<<endl;
-      cin >> pix_sup;
-      }while(pix_sup<pix_inf);
-      cout << "\n"<<endl;
-    */
-    if(val_min <0 && val_min >1023 || val_max < val_min && val_max > 1023){
+    	}
+  	}break;
+  	case 3:		
+  	case 1:{
+  		if(val_min <0 && val_min >1023 || val_max < val_min && val_max > 1023){
       cout << "/n VALORI NON ACCETTABILI" <<endl;
-    }
-    else{
-      for(Int_t i=0;i<npixels;i++){ 
-	if(i>= val_min && i<= val_max){
-	  histo_thr->Fill(thr.at(i));
-	  histo_noise->Fill(noise.at(i));
-	}
-      }
-    }
+    	}
+    	else{
+      	for(Int_t i=0;i<npixels;i++){ 
+					if(i>= val_min && i<= val_max){
+	  				histo_thr->Fill(thr.at(i));
+	  				histo_noise->Fill(noise.at(i));
+					}
+      	}
+    	}	
+  	}break;
+  	case 2:{
+  		int num_riga;
+
+    	if(val_min < 0 && val_min > 64 || val_max < val_min && val_max > 64){
+      	cout << " /n VALORI NON CONSENTITI" << endl;
+    	}
+    	else{
+      	for(Int_t i=0;i<npixels;i++){ 
+					num_riga = i % 64;
+					if(num_riga>= val_min && num_riga<= val_max){
+	  				histo_thr->Fill(thr.at(i));
+	  				histo_noise->Fill(noise.at(i));
+					}
+      	}	
+    	}		
+  	}break;
+  	default{
+  		cout << "Inizializzazione sbagliata";
+  		return;
+  	}break;
   }
   
-  if(par_analisi == 2){
-    
-    /*
-      do{
-      cout << "\n "<< "INSERIRE NUMERO DELLA RIGA INFERIORE DA ANALIZZARE:"<<endl;
-      cin >> riga_inf;
-      }while(riga_inf>64 || riga_inf<0);
-      
-      do{
-      cout << "\n "<< "INSERIRE NUMERO DELLA RIGA SUPERIORE DA ANALIZZARE:"<<endl;
-      cin >> riga_sup;
-      }while(riga_sup>64 || riga_sup<riga_inf);
-    */
-    
-    int num_riga;
-    
-    if(val_min < 0 && val_min > 64 || val_max < val_min && val_max > 64){
-      cout << " /n VALORI NON CONSENTITI" << endl;
-    }
-    else{
-      for(Int_t i=0;i<npixels;i++){ 
-	num_riga = i % 64;
-	if(num_riga>= val_min && num_riga<= val_max){
-	  histo_thr->Fill(thr.at(i));
-	  histo_noise->Fill(noise.at(i));
-	}
-      }	
-    }	
-  }
   //  TFile f(Rfile,"RECREATE");
   
   TCanvas *cvs = new TCanvas("Plot","plot",900,400);
@@ -199,8 +180,8 @@ void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr
   
   
   histo_thr->SaveAs(RfileT);
-   histo_noise->SaveAs(RfileN);
-   cvs->SaveAs(Jfile);
+  histo_noise->SaveAs(RfileN);
+  cvs->SaveAs(Jfile);
    
 }
 
@@ -533,7 +514,8 @@ void analisiTHR2(TString Dir, TString inFileName, Double_t nbins, Double_t min_t
     scol = col;
     srow = row;
     spindex = pindex;
-    //  cout << i << "pix num: " << ii << " col=" << scol << " row =" <<  srow << " pindex=" << spindex  << "   " << thr.at(i) << endl;
+    //cout << setw(4) << i << "  pix num: " << setw(4) << ii << "  col = " << setw(2) << scol << "  row = " << setw(2) << srow << "  pindex = " << setw(2) << spindex  << "  threshold " << setw(7) << setprecision(5) << thr.at(i) << endl;
+    
     
     Thisto_thrR->Fill(thr.at(i),srow);
     Thisto_thrC->Fill(thr.at(i),scol);
