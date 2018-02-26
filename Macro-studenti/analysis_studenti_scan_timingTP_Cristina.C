@@ -31,7 +31,7 @@ void Analysis(int i); //funzione principale
 void TwoDim_Plots_40M_timing(int i, TString percorso, int tipo, int min, int max); //funzione che prende i dati e li manda all'analisi per misure standard a 40 MHz facendo variare la carica in ingresso
 void TwoDim_Plots_40M_timing_Vth(int i, TString percorso, int tipo, int min, int max); //funzione che prende i dati e li manda all'analisi per misure standard a 40 MHz facendo variare la tensione del discriminatore
 
-void grafico_VTh(TString Dir, TString filename); //funzione che permette di disegnare il grafico
+void grafico_Vth(TString percorso, int dimensione, float TPPhase[], float errTPPhase[], float mediath[], float errmediath[]); //funzione che permette di disegnare il grafico
 
 
 void TwoDim_Plots_40M_timing_range(int i, TString percorso);
@@ -66,16 +66,12 @@ void Analysis(int i){
   
   cout << "Inserire un carattere per selezionare la cartella principale da cui prendere i file:\n";
   cout << "- l per ubuntu sul computer di Cristina\n";
-  cout << "- e per ubuntu sul computer di Eleonora\n";
   cout << "- w per windows sul computer CHIPIX65\n";
   cout << "- c per i dati del CERN\n";
   cin >> so;
 
 	if(so == "l"){
     Dir0 = "/home/mimosa/GitHub/CHIPIX65-Testing/data/Board8_revisione/"; 
-  }
-  else if(so == "e"){
-    Dir0 = "/home/eleonora/GitHub/CHIPIX65-Testing/data/Board8_revisione/"; 
   }
   else if(so == "w"){
     Dir0 = "C:/Users/CHIPIX65/Documents/LabVIEW Data/CHIPIX_data/studenti/Board8/";
@@ -256,25 +252,10 @@ void TwoDim_Plots_40M_timing_Vth(int i, TString percorso, int tipo, int min, int
   float par0 = 40.;
   float par1 = 2.;
   float NEVT = 50.;
-  TString output_filename2, filename,Resfile2;
-  
-  //apertura del file per raccogliere i dati e preparare il grafico
-  Resfile2 = percorso+"Out/"+"Result.txt" ;
-  cout << " file to be opened " << Resfile2 << endl;
-  ofstream output_file2(Resfile2);
-  
-  if (output_file2.is_open())
-    { cout << "The file: " << Resfile2 << " IS OPEN " << "\n"; }
-  else 
-    { cout << "The file: " << Resfile2 << " IS NOT OPEN " << "\n";
-      return; }
-  
-  float mean0 ;
-  int n_entries2 ;
 	
   int nfile = 0;
   
-  TString file[] = {"20180215215712_board8-VTHsw-allch-TP0_001.", 
+  TString file[] = {/*"20180216024043_board8-VTHsw-allch-TP0_002.",*/ 
 		      "20180215221204_board8-VTHsw-allch-TP200_001.", 
 		      "20180215222655_board8-VTHsw-allch-TP400_001.", 
 		      "20180215224146_board8-VTHsw-allch-TP600_001.", 
@@ -289,83 +270,63 @@ void TwoDim_Plots_40M_timing_Vth(int i, TString percorso, int tipo, int min, int
 		      "20180216005633_board8-VTHsw-allch-TP2400_001.",
 		      "20180216010330_board8-VTHsw-allch-TP2600_001.",
 		      "20180216011808_board8-VTHsw-allch-TP2800_001.",
-		      "20180216013245_board8-VTHsw-allch-TP3000_001.",
+		      "20180226150926_board8-VTHsw-allch-TP3000_000.",
 		      "20180216015601_board8-VTHsw-allch-TP3200_001.",
-		      "20180216021051_board8-VTHsw-allch-TP3400_001.",
+		      "20180216021051_board8-VTHsw-allch-TP3400_001."
 		      "20180216022544_board8-VTHsw-allch-TP3600_001."};
   
   int dimensione = sizeof(file)/sizeof(file[0]);
+  const int dim = dimensione;
   
-  
+  //vettori che registreranno i valori di soglia per il singolo file
+ 	float TPPhase[dim], errTPPhase[dim], mediath[dim], errmediath[dim];
+ 	
+ 	for(int j=0; j < dimensione; j++){
+ 		TPPhase[j] = j*200;
+ 		errTPPhase[j] = 0;
+ 		mediath[j] = 0;
+ 		errmediath[j] = 0;
+ 	}  
   
   //chiamata delle analisi
   if(i != -1){
-    //Macro_scurve_Vth(percorso, file[i], xmin, xmax, par0, par1, NEVT);
+    Macro_scurve_Vth(percorso, file[i], xmin, xmax, par0, par1, NEVT);
     analisiTHR2(percorso, file[i], 320, tmin, tmax, 0., 10., 23.); 
     //analisiMC(percorso, file[i], 90, 30, 210, 1., 10.);
-    analisiMC(percorso, file[i], 90, 30, 210, 1., 10., tipo, min, max);
+    analisiMC(percorso, file[i], 90, 30, 210, 1., 10., tipo, min, max, mediath[i], errmediath[i]);
     }
   else{
    for(int j = 0; j < dimensione; j++){
      //Macro_scurve_Vth(percorso, file[j], xmin, xmax, par0, par1, NEVT);
      //analisiTHR2(percorso, file[j], 320, tmin, tmax, 0., 10., 23.);
      //analisiMC(percorso, file[j], 90, 30, 210, 1., 10.); 
-     analisiMC(percorso, file[j], 90, 30, 210, 1., 10., tipo, min, max);		
-   }
+     analisiMC(percorso, file[j], 90, 30, 210, 1., 10., tipo, min, max, mediath[j], errmediath[j]);
+		}
 	}
+	
+	grafico_Vth(percorso, dimensione, TPPhase, errTPPhase, mediath, errmediath);
 }
-void grafico_VTh(TString percorso, TString filename){
+
+void grafico_Vth(TString percorso, int dim, float TPPhase[], float errTPPhase[], float mediath[], float errmediath[]){
   
-  ifstream in(filename);
-  if(!in){
-    cout<<"Il file"<<filename<<"non esiste"<<endl;
-    return;
-  }
-  
-  const int n = 18;
-  int nmisure = 0;
-  float t,thr,ethr,sr,esr, tm, vth, svth;
-  float TP[n], eTP[n], th[n], eth[n];
-  
-  while (in >> t)  {
-    in >> thr;
-    in >> ethr;
-    in >> sr;
-    in >> esr;
+ for(int i = 0; i < dim; i++){ 	
+    TPPhase[i] = 25 - TPPhase[i]*25/3600;
+    if (TPPhase[i] > 5 )  TPPhase[i]=TPPhase[i];
+    else TPPhase[i] = TPPhase[i] + 25;
+      
+    mediath[i] = mediath[i]*0.106/200 +0.49;
+    errmediath[i] = errmediath[i]*0.106/200;
     
-    tm = 50 - t*50/3600;
-    /*if (tm > 5 )  tm=tm;
-      else tm = tm + 25;*/
-    /*
-      q = ((thr*48.5)-1500)*160/1000;
-      sq = (ethr*48.5-1500)*160/1000;
-    */
-    vth = thr*0.106/200 +0.49;
-    svth = ethr*0.106/200;
-    /*
-      TPphase.push_back(tm);
-      th.push_back(q);
-      eth.push_back(sq);
-      s.push_back(sr);
-      es.push_back(0);
-      nmisure++;*/
-			  
-    TP[nmisure] = tm;
-    eTP[nmisure] = 0;
-    th[nmisure] = vth;
-    eth[nmisure] = svth;
-    nmisure++;
-    
-    //cout << tm << " " <<q << " " << sq << endl;
+    //cout << TPPhase[i] << " " <<q << " " << sq << endl;
   }
   //cout << t << " " <<thr << " " << sr << endl;  
   
   TCanvas *csoglia = new TCanvas("csoglia","Q(TPphase)",200,50,600,400);
   csoglia -> cd();
-  TGraphErrors *gsoglia = new TGraphErrors(nmisure, TP, th, eTP, eth);
+  TGraphErrors *gsoglia = new TGraphErrors(dim, TPPhase, mediath, errTPPhase, errmediath);
   gsoglia->SetMarkerSize(0.6);
   gsoglia->SetMarkerStyle(21);
-  gsoglia->SetTitle("<V_{th}>(TPphase)_{20 MHz}");
+  gsoglia->SetTitle("<V_{th}>(TPphase)_{40 MHz}");
   gsoglia->GetXaxis()->SetTitle("TPphase [ns]");
   gsoglia->GetYaxis()->SetTitle("<V_{th}> [mV]");
   //gsoglia->SetMarkerColor(kBlue);
@@ -376,21 +337,21 @@ void grafico_VTh(TString percorso, TString filename){
   float qDAC = 70.;
   float q_c;
   q_c = ((qDAC*48.5)-1500.)*1.6*pow(10.,-19.);
-  cout << "/n" << q_c << "/n" << endl;
+  cout << " q_c/n" << endl;
   
   float c = 2.4*pow(10.,-15.);
   
-  //TF1 *fitV = new TF1("fitV","[0]*(1 + TMath::Exp(-(x-[1])/[2]))+[3]*(x+[1])+[4]",8,31.6);
+  //TF1 *fitV = new TF1("fitV","[0]*(1 + TMath::Exp(-(x-[1])/[2]))+[3]*(x+[1])+[4]",10.,20.);
   //TF1 *fitV = new TF1("fitV","[0]+[1]*TMath::Exp(-(x)/[2])+[3]*x",8,31.6);
   //TF1 *fitV = new TF1("fitV","(0.133)*(1-TMath::Exp(-(x-[0])/[1]))-[2]*4.1e14*(x-[0])",8,31.6);
   //TF1 *fitQ = new TF1("fitQ","([0]+[3]*x)/(1-TMath::Exp(-(x-[1])/[2]))",0,50);
-  TF1 *fitV = new TF1("fitV","[0]*(1-TMath::Exp(-(x-[1])/[2]))-[3]*(x-[1])",8,31.6);
+  TF1 *fitV = new TF1("fitV","[0]*(1-TMath::Exp(-(x-[1])/[2]))-[3]*(x-[1])",10.,25.);
+  //TF1 *fitV = new TF1("fitV","[0]*(1-TMath::Exp(-x*[1]))-[2]*x",10,11);
   
-  //fitV->SetParameter(0,10.0e-9);
-  //fitV->SetParameter(1,10.0e-9);
-  //fitV->SetParameter(2,20.0e-9);
-  //	fitQ->SetParLimits(3,0.5,20.0);
-  //fitQ->SetParLimits(4,7,12);
+  fitV->SetParameter(0,0.1);
+  fitV->SetParameter(1,10.);
+  fitV->SetParameter(2,20.);
+  
   
   //TVirtualFitter::SetMaxInterations(100000);
   gsoglia->Fit(fitV,"MR");
@@ -399,4 +360,5 @@ void grafico_VTh(TString percorso, TString filename){
   cout << "Probability: " << fitV->GetProb() << endl;
   cout << "number of DoF: " << fitV->GetNDF() << endl;
 	
+	csoglia->SaveAs(".pdf");
 }
