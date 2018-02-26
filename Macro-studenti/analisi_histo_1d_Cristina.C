@@ -25,7 +25,7 @@
 //								un valore massimo
 
 
-void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr, Double_t max_thr, Double_t min_noise, Double_t max_noise, Int_t par_analisi, Int_t val_min, Int_t val_max){
+void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, double max_thr, double min_noise, double max_noise, int par_analisi, int val_min, int val_max, float &mediath, float &errmediath){
   
   Int_t ideb=0;  
   gStyle->SetOptStat(112211);
@@ -156,15 +156,27 @@ void analisiMC(TString Dir, TString inFileName, Double_t nbins, Double_t min_thr
   int n_entries ;
   n_entries= histo_thr->GetEntries();
   
-  float mean = histo_thr->GetMean();
   
   if(n_entries > 50){
-    //  f1thr->GetParameter(0)
     
     output_file << "  " << f1thr->GetParameter(0) << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParameter(2)  <<  " " << f1thr->GetParError(0) <<  " " << f1thr->GetParError(1)  <<  " " << f1thr->GetParError(2) << endl;
+    
+  	mediath = f1thr->GetParameter(1);
+  	errmediath = f1thr->GetParameter(2);
   }
-  else {
-    output_file << "  " << 1 << "  " << mean << "  " << 1  <<  " " << 1 <<  " " << 0.1 <<  " " << 1 << endl;
+  else if(n_entries < 2){
+   
+    mediath = histo_thr->GetMean();
+  	errmediath = histo_thr->GetBinWidth(1)/2;
+  	
+  	output_file << "  " << 1 << "  " << mediath << "  " << 1  <<  " " << 1 <<  " " << errmediath <<  " " << 1 << endl;
+  }
+  else{
+  
+    mediath = histo_thr->GetMean();
+  	errmediath = histo_thr->GetStdDev();
+  	
+  	output_file << "  " << 1 << "  " << mediath << "  " << 1  <<  " " << 1 <<  " " << errmediath <<  " " << 1 << endl;
   }
   cvs->cd(2);
   histo_noise->SetTitle("Noise distribution");
