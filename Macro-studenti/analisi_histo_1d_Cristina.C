@@ -18,11 +18,11 @@
 // -------------- Analisi Monte Carlo --------------
 
 //la funzione ha come argomenti la cartella da cui vengono prelevati i dati Dir
-// 								il file che si sta analizzando inFileName
-//								il numero di bin con cui disegnare il grafico nbins
-//							 	il tipo di analisi che si vuole eseguire par_analisi
-//								un valore minimo 
-//								un valore massimo
+// 															il file che si sta analizzando inFileName
+//															il numero di bin con cui disegnare il grafico nbins
+//														 	il tipo di analisi che si vuole eseguire par_analisi
+//															un valore minimo assegnato dall'utente
+//															un valore massimo asssegnato dall'utente
 
 
 void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, double max_thr, double min_noise, double max_noise, int par_analisi, int val_min, int val_max, float &mediath, float &errmediath){
@@ -97,15 +97,15 @@ void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, doubl
   TH1F *histo_noise = new TH1F("histo_noise","histo_noise",nbins,min_noise,max_noise);
   //  TH1D *histAmpl = new TH1D("histAmpl","histAmpl",20,0.1105,0.131);
   
-  switch(par_analisi){
-  	case 0:{
+  switch(par_analisi){ //scelta dell'analisi da effettuare
+  	case 0:{ //analisi tutti i pixel
   		for(Int_t i=0;i<npixels;i++){ 
       histo_thr->Fill(thr.at(i));
       histo_noise->Fill(noise.at(i));
     	}
   	}break;
-  	case 3:		
-  	case 1:{
+  	case 3:	 //analisi per un solo pixel
+  	case 1:{ //analisi per un range di pixel
   		if(val_min <0 && val_min >1023 || val_max < val_min && val_max > 1023){
       cout << "/n VALORI NON ACCETTABILI" <<endl;
     	}
@@ -118,7 +118,7 @@ void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, doubl
       	}
     	}	
   	}break;
-  	case 2:{
+  	case 2:{ //analisi di alcune righe di pixel
   		int num_riga;
 
     	if(val_min < 0 && val_min > 64 || val_max < val_min && val_max > 64){
@@ -156,7 +156,7 @@ void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, doubl
   int n_entries ;
   n_entries= histo_thr->GetEntries();
   
-  
+  //scelta dei parametri con cui riempire i vettori per disegnare il grafico per la curva del segnale
   if(n_entries > 50){
     
     output_file << "  " << f1thr->GetParameter(0) << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParameter(2)  <<  " " << f1thr->GetParError(0) <<  " " << f1thr->GetParError(1)  <<  " " << f1thr->GetParError(2) << endl;
