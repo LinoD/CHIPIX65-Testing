@@ -169,13 +169,9 @@ void Analysis(int i){
 				TwoDim_Plots_40M_timing_Vth_Board8(i, Dir, tipo, min, min);
 			}
 		}break;
-		default: {
-			cout << "Inizializzazione sbagliata\n";
-			return;
-		}break;
 		
 		case 2: {
-			Dir = Dir0 + "Board9/VTH-scan/Standard";
+			Dir = Dir0 + "Board9/VTH-scan/";
 			
 			cout << "\nScegliere il tipo di analisi da eseguire:\n";
 			cout << "- 0 per analizzare tutti i pixel\n";
@@ -372,25 +368,25 @@ void TwoDim_Plots_40M_timing_Vth_Board9(int i, TString percorso, int tipo, int m
 	
   int nfile = 0;
   
-  TString file[] = {/*"20180216024043_board8-VTHsw-allch-TP0_002.",*/ 
-		      "20180215221204_board8-VTHsw-allch-TP200_001.", 
-		      "20180215222655_board8-VTHsw-allch-TP400_001.", 
-		      "20180215224146_board8-VTHsw-allch-TP600_001.", 
-		      "20180215225644_board8-VTHsw-allch-TP800_001.", 
-		      "20180215231140_board8-VTHsw-allch-TP1000_001.", 
-		      "20180215232641_board8-VTHsw-allch-TP1200_001.",
-		      "20180215234143_board8-VTHsw-allch-TP1400_001.",
-		      "20180215235644_board8-VTHsw-allch-TP1600_001.",
-		      "20180216001147_board8-VTHsw-allch-TP1800_001.",
-		      "20180216002647_board8-VTHsw-allch-TP2000_001.",
-		      "20180216004144_board8-VTHsw-allch-TP2200_001.",
-		      "20180216005633_board8-VTHsw-allch-TP2400_001.",
-		      "20180216010330_board8-VTHsw-allch-TP2600_001.",
-		      "20180216011808_board8-VTHsw-allch-TP2800_001.",
-		      "20180226150926_board8-VTHsw-allch-TP3000_000.",
-		      "20180216015601_board8-VTHsw-allch-TP3200_001.",
-		      "20180216021051_board8-VTHsw-allch-TP3400_001."
-		      "20180216022544_board8-VTHsw-allch-TP3600_001."};
+  TString file[] = {"20180228102027_board9-VTHsw-allch-TP0_000.", 
+		      "20180228103738_board9-VTHsw-allch-TP200_000.", 
+		      "20180228104733_board9-VTHsw-allch-TP400_000.", 
+		      "20180228110507_board9-VTHsw-allch-TP600_000.", 
+		      "20180228112223_board9-VTHsw-allch-TP800_000.", 
+		      "20180228113455_board9-VTHsw-allch-TP1000_000.", 
+		      "20180228115207_board9-VTHsw-allch-TP1200_000.",
+		      "20180228120915_board9-VTHsw-allch-TP1400_000.",
+		      "20180228122621_board9-VTHsw-allch-TP1600_000.",
+		      "20180228124322_board9-VTHsw-allch-TP1800_000.",
+		      "20180228130022_board9-VTHsw-allch-TP2000_000.",
+		      "20180228131722_board9-VTHsw-allch-TP2200_000.",
+		      "20180228133422_board9-VTHsw-allch-TP2400_000.",
+		      "20180228135116_board9-VTHsw-allch-TP2600_000.",
+		      "20180228140804_board9-VTHsw-allch-TP2800_000.",
+		      /*"20180226150926_board8-VTHsw-allch-TP3000_000.",*/
+		      "20180228150143_board9-VTHsw-allch-TP3200_000."/*,
+		      "20180228151827_board9-VTHsw-allch-TP3400_000."
+		      "20180228153533_board9-VTHsw-allch-TP3600_000."*/};
   
   int dimensione = sizeof(file)/sizeof(file[0]);
   const int dim = dimensione;
