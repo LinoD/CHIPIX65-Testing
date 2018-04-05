@@ -162,7 +162,7 @@ void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, doubl
     output_file << "  " << f1thr->GetParameter(0) << "  " << f1thr->GetParameter(1) << "  " << f1thr->GetParameter(2)  <<  " " << f1thr->GetParError(0) <<  " " << f1thr->GetParError(1)  <<  " " << f1thr->GetParError(2) << endl;
     
   	mediath = f1thr->GetParameter(1);
-  	errmediath = f1thr->GetParameter(2);
+  	errmediath = f1thr->GetParameter(2)/4;
   }
   else if(n_entries < 2){
    
@@ -174,7 +174,7 @@ void analisiMC(TString Dir, TString inFileName, int nbins, double min_thr, doubl
   else{
   
     mediath = histo_thr->GetMean();
-  	errmediath = histo_thr->GetStdDev();
+  	errmediath = histo_thr->GetStdDev()/2;
   	
   	output_file << "  " << 1 << "  " << mediath << "  " << 1  <<  " " << 1 <<  " " << errmediath <<  " " << 1 << endl;
   }

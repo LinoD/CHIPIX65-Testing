@@ -12,7 +12,7 @@
 
 
 //x/(sqrt(x^2 + [0]))
-Float_t SCurve(Double_t *xx, Double_t *par){
+Float_t SCurve_Vth(Double_t *xx, Double_t *par){
   // -----------------------------------------------------------------------------------------------------------------------------
   return  -1./2. * (TMath::Erf(((xx)[0] - par[0])/(TMath::Sqrt(2)*par[1]))) + 0.5;
 }
@@ -97,7 +97,7 @@ void Macro_scurve_Vth(TString Dir, TString filei, Float_t xmin = 30 , Float_t xm
   file >> dummy1 >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy >> dummy; 
   if (ideb>0) { cout << dummy << "\n"; }
   
-  TF1 *fitcurve = new TF1("fiteff",SCurve,xmin,xmax,2);
+  TF1 *fitcurve = new TF1("fiteff",SCurve_Vth,xmin,xmax,2);
   fitcurve -> SetParameters(par0,par1);
   TFile f("file.root","RECREATE");
   

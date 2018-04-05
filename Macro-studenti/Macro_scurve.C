@@ -143,7 +143,7 @@ void Macro_scurve(TString Dir, TString filei, Float_t xmin = 30 , Float_t xmax =
         y2 = y / NEVT;
 	if (ideb>0) { cout << counter << " " << x << " " << y << " " << y2 << endl; }
 	
-        eff.push_back(y2);
+        if(y2 < 1.1){eff.push_back(y2);}
         counter++;
       }
     }
